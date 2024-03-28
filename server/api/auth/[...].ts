@@ -3,12 +3,13 @@ import type { AuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
 
 const options: AuthOptions = {
-  secret: process.env.NUXT_SECRET,
+  secret: process.env.NUXT_SECRET ,
   providers: [
     Auth0Provider.default({
-      issuer: process.env.AUTH0_ISSUER,
-      clientId: process.env.AUTH0_CLIENT_ID!,
-      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
+      origin: process.env.ORIGIN,
+      issuer: process.env.NUXT_AUTH0_ISSUER,
+      clientId: process.env.NUXT_AUTH0_CLIENT_ID,
+      clientSecret: process.env.NUXT_AUTH0_CLIENT_SECRET,
     }),
   ],
 };
