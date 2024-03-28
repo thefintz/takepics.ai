@@ -1,75 +1,53 @@
-# Nuxt 3 Minimal Starter
+# NuxtAuth
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Minimal example showing how to use [`@sidebase/nuxt-auth`][1] to handle Auth0
+logins.
+
+## About
+
+This is a very minimal example. For more info, please check the official
+sidebase [docs][2].
 
 ## Setup
 
-Make sure to install the dependencies:
+Locally, you just need to setup node like usual:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+That is it, you can run your development application using:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Auth0 setup
 
-Build the application for production:
+In order to get things properly working, you will need to create an Auth0 SPA
+application. Finally, after you created it, you will need to populate the `.env`
+file with the following values:
 
 ```bash
-# npm
-npm run build
+# generate a secret using: `openssl rand -hex 32`
+NUXT_SECRET=my-random-secret
 
-# pnpm
-pnpm run build
+# In your Auth0 dashboard: Application > Basic Information > Domain
+AUTH0_ISSUER=https://YOUR-DOMAIN.us.auth0.com
 
-# yarn
-yarn build
+# In your Auth0 dashboard: Application > Basic Information > Client ID
+AUTH0_CLIENT_ID=YOUR-CLIENT-ID
 
-# bun
-bun run build
+# In your Auth0 dashboard: Application > Basic Information > Client Secret
+AUTH0_CLIENT_SECRET=YOUR-CLIENT-SECRET
 ```
 
-Locally preview production build:
+You will need o configure the callback URL in Application > Application URIs >
+Allowed Callback URLs
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+```
+http://localhost:3000/api/auth/callback/auth0
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+[1]: https://github.com/sidebase/nuxt-auth
+[2]: https://sidebase.io/nuxt-auth/
