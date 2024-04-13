@@ -11,8 +11,4 @@ export default defineNuxtConfig({
       type: "authjs",
     },
   },
-
-  nitro: {
-    preset: "vercel-edge",
-  },
 });

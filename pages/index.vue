@@ -3,20 +3,22 @@
     <Card>
       <template #title>Unauthenticated API call</template>
       <template #content>
-        <pre> {{ dataUnauth }}</pre>
+        <pre> {{ dataUnauth.data }}</pre>
       </template>
       <template #footer>
-        <Button @click="unauthenticatedFetch">Fetch</Button>
+        <Button @click="dataUnauth.refresh">Fetch</Button>
       </template>
     </Card>
 
     <Card>
       <template #title>Authenticated API call</template>
       <template #content>
-        <pre> {{ dataAuth }}</pre>
+        <pre v-if="dataAuth.status.value === 'pending'"> Loading </pre>
+        <pre v-if="dataAuth.status.value === 'success'"> {{ dataAuth.data }}</pre>
+        <pre v-if="dataAuth.status.value === 'error'"> {{ dataAuth.error }}</pre>
       </template>
       <template #footer>
-        <Button @click="authenticatedFetch">Fetch</Button>
+        <Button @click="dataAuth.refresh">Fetch</Button>
       </template>
     </Card>
   </div>
@@ -24,21 +26,6 @@
 
 <script lang="ts" setup>
 definePageMeta({ auth: false });
-
-const dataUnauth = ref<any>("no data");
-const dataAuth = ref<any>("no data");
-
-const unauthenticatedFetch = async () => {
-  const { data } = await useFetch("/api");
-  dataUnauth.value = data.value;
-};
-
-const authenticatedFetch = async () => {
-  const { data, error } = await useFetch("/api/me");
-  if (error.value) {
-    dataAuth.value = error.value;
-    return;
-  }
-  dataAuth.value = data.value;
-};
+const dataAuth = await useFetch("/api/me")
+const dataUnauth = await useFetch("/api")
 </script>
