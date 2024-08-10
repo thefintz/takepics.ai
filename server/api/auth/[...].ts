@@ -7,9 +7,9 @@ const options = {
   providers: [
     // @ts-expect-error: for some reason, the type definition is not working
     Auth0Provider.default({
-      issuer: process.env.NUXT_AUTH0_ISSUER,
-      clientId: process.env.NUXT_AUTH0_CLIENT_ID,
-      clientSecret: process.env.NUXT_AUTH0_CLIENT_SECRET,
+      issuer: process.env.AUTH0_ISSUER,
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
     }),
   ],
 };
