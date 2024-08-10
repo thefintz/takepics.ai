@@ -1,10 +1,12 @@
 <template>
   <Card>
     <template #header>
-      <NuxtImg alt="profile picture" :src="data.image" />
+      <Avatar size="xlarge">
+        <NuxtImg alt="profile picture" :src="data?.image" />
+      </Avatar>
     </template>
 
-    <template #title> {{ data.name }} </template>
+    <template #title> {{ data?.name }} </template>
 
     <template #content>
       <pre> {{ data }} </pre>

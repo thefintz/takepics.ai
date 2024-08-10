@@ -1,49 +1,52 @@
 <template>
+  <ClientOnly>
+    <Posthog />
+  </ClientOnly>
+
   <main>
-    <div class="card">
-      <Menubar :model="items" />
-    </div>
-    <NuxtPage />
+    <Menubar class="m-4" :model="items" />
+    <NuxtPage class="m-4" />
   </main>
 </template>
 
 <script setup lang="ts">
 const router = useRouter();
-const { signIn, signOut, status } = useAuth();
+const { signIn, signOut } = useAuth();
 
-interface Item {
+type Item = {
   label: string;
   icon: string;
   command: () => void;
-}
+};
 
-const items = ref<Item[]>([
-  { label: "Home", icon: "pi pi-home", command: () => router.push("/") },
-]);
+const HOME: Item = {
+  label: "Home",
+  icon: "pi pi-home",
+  command: () => router.push("/"),
+};
 
-if (status.value === "unauthenticated") {
-  items.value.push({
-    label: "Login",
-    icon: "pi pi-sign-in",
-    command: () => signIn("auth0"),
-  });
-}
+const LOGIN: Item = {
+  label: "Login",
+  icon: "pi pi-sign-in",
+  command: () => signIn("auth0"),
+};
+
+const PROFILE: Item = {
+  label: "Profile",
+  icon: "pi pi-user",
+  command: () => router.push("/me"),
+};
+
+const LOGOUT: Item = {
+  label: "Logout",
+  icon: "pi pi-sign-out",
+  command: () => signOut({ callbackUrl: "/" }),
+};
+
+const { status } = useAuth();
+const items = ref<Item[]>([HOME, LOGIN]);
 
 if (status.value === "authenticated") {
-  items.value.push({
-    label: "Profile",
-    icon: "pi pi-user",
-    command: () => router.push("/me"),
-  });
-  items.value.push({
-    label: "Logout",
-    icon: "pi pi-sign-out",
-    command: () => signOut({ callbackUrl: "/" }),
-  });
+  items.value = [HOME, PROFILE, LOGOUT];
 }
 </script>
-
-<style>
-@import url("primevue/resources/themes/aura-dark-blue/theme.css");
-@import url("primeicons/primeicons.css");
-</style>
