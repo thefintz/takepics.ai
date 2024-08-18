@@ -5,7 +5,7 @@ const config = useRuntimeConfig();
 
 const options = {
   secret: config.secret,
-  origin: `https://${config.envVercelUrl}`,
+  origin: config.authOrigin,
   // We can add more providers here, such as GitHub, Google and so on...
   // 
   // List of available providers:
@@ -20,7 +20,5 @@ const options = {
     }),
   ],
 };
-
-console.log(options);
 
 export default NuxtAuthHandler(options);

@@ -57,13 +57,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     secret: "",
 
+    authOrigin: "",
+
     auth0: {
       issuer: "",
       clientId: "",
       clientSecret: "",
     },
-
-    envVercelUrl: "",
 
     // Configurations inside the `public` object are available to the client.
     // Eg. in the browser
