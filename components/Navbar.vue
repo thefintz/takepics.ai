@@ -38,7 +38,6 @@ const LOGOUT: Item = {
 
 const { status } = useAuth();
 const items = ref<Item[]>([HOME, LOGIN]);
-
 if (status.value === "authenticated") {
   items.value = [HOME, PROFILE, LOGOUT];
 }

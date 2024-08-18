@@ -8,7 +8,7 @@ export default eventHandler(async (event): Promise<User> => {
     throw createError({ status: 401, message: "unauthenticated" });
   }
 
-  // Shitty stuff to make TypeScript happy
+  // Do not include falsy values
   const user: User = {};
   if (session.user.name) user.name = session.user.name;
   if (session.user.email) user.email = session.user.email;

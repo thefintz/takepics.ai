@@ -1,6 +1,8 @@
 import Aura from "@primevue/themes/aura";
 
 export default defineNuxtConfig({
+  compatibilityDate: "2024-08-09",
+
   typescript: {
     typeCheck: true,
   },
@@ -24,15 +26,16 @@ export default defineNuxtConfig({
       theme: {
         preset: Aura,
       },
-      ripple: true,
     },
-    autoImport: true,
   },
 
-  css: [
-    // "primevue/resources/themes/lara-dark-green/theme.css",
-    "primeicons/primeicons.css",
-  ],
+  // Files added here are included in all pages. We want to add the PrimeIcons
+  // CSS
+  //
+  // https://nuxt.com/docs/api/nuxt-config#css
+  // https://github.com/primefaces/primeicons
+  // https://primevue.org/icons/
+  css: ["primeicons/primeicons.css"],
 
   auth: {
     // This makes all pages private by default. If you want to make a page
@@ -47,15 +50,28 @@ export default defineNuxtConfig({
     },
   },
 
+  // Configurations from here should be overriden by using `.env` or environment
+  // variables. Check `.env.example` for documentation on each of those values
+  //
+  // https://nuxt.com/docs/guide/going-further/runtime-config
   runtimeConfig: {
+    secret: "",
+
+    auth0: {
+      issuer: "",
+      clientId: "",
+      clientSecret: "",
+    },
+
+    envVercelUrl: "",
+
+    // Configurations inside the `public` object are available to the client.
+    // Eg. in the browser
     public: {
-      // https://nuxt-posthog.cmitjans.dev/configuration
       posthog: {
-        host: process.env.POSTHOG_HOST,
-        publicKey: process.env.POSTHOG_PUBLIC_KEY,
+        host: "",
+        publicKey: "",
       },
     },
   },
-
-  compatibilityDate: "2024-08-09",
 });
