@@ -4,14 +4,16 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
     "@primevue/themes": "^4.0.4",
+    "next-auth": "4.21.1",
     "nuxt": "^3.12.4",
     "nuxt-posthog": "^1.5.1",
     "primeicons": "^7.0.0",

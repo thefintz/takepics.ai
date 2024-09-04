@@ -1,18 +1,18 @@
 import { getServerSession } from "#auth";
-import type { User } from "~/types";
+
+type User = {
+	name?: string | null;
+	email?: string | null;
+	image?: string | null;
+};
 
 export default eventHandler(async (event): Promise<User> => {
-  const session = await getServerSession(event);
+	const session = await getServerSession(event);
 
-  if (!session?.user) {
-    throw createError({ status: 401, message: "unauthenticated" });
-  }
+	// If session is null, it means we are not authenticated
+	if (!session?.user) {
+		throw createError({ status: 401, message: "unauthenticated" });
+	}
 
-  // Do not include falsy values
-  const user: User = {};
-  if (session.user.name) user.name = session.user.name;
-  if (session.user.email) user.email = session.user.email;
-  if (session.user.image) user.image = session.user.image;
-
-  return user;
+	return session.user;
 });

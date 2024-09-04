@@ -2,7 +2,7 @@
   <Card>
     <template #header>
       <Avatar size="xlarge">
-        <NuxtImg alt="profile picture" :src="data?.image" />
+        <NuxtImg alt="profile picture" :src="data?.image ?? undefined" />
       </Avatar>
     </template>
 

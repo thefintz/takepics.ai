@@ -4,11 +4,11 @@
       <template #title> Unauthenticated API call </template>
 
       <template #content>
-        <pre> {{ dataUnauth }} </pre>
+        <pre> {{ publicData }} </pre>
       </template>
 
       <template #footer>
-        <Button @click="fetchUnauth">Fetch</Button>
+        <Button @click="() => publicRefresh()">Fetch</Button>
       </template>
     </Card>
     
@@ -16,11 +16,11 @@
       <template #title> Authenticated API call </template>
 
       <template #content>
-        <pre class="text-nowrap overflow-clip"> {{ dataAuth }} </pre>
+        <pre class="text-nowrap overflow-clip"> {{ privateData }} </pre>
       </template>
 
       <template #footer>
-        <Button :disabled="status === 'unauthenticated'" @click="fetchAuth">Fetch</Button>
+        <Button :disabled="status === 'unauthenticated'" @click="() => privateRefresh()">Fetch</Button>
       </template>
     </Card>
 
@@ -28,15 +28,19 @@
 </template>
 
 <script lang="ts" setup>
-import type { Index, User } from "~/types";
+import type { User } from "next-auth";
+import type { Index } from "~/server/api/index.get";
 
+// This tells nuxt-auth that this page is public
 definePageMeta({ auth: false });
 
 const { status } = useAuth();
 
-const dataAuth = ref<User | null>(null);
-const dataUnauth = ref<Index | null>(null);
-
-const fetchAuth = async () => (dataAuth.value = await $fetch("/api/me"));
-const fetchUnauth = async () => (dataUnauth.value = await $fetch("/api"));
+const [
+	{ data: privateData, refresh: privateRefresh },
+	{ data: publicData, refresh: publicRefresh },
+] = await Promise.all([
+	useFetch<User>("/api/me", { server: false, immediate: false }),
+	useFetch<Index>("/api", { server: false, immediate: false }),
+]);
 </script>
