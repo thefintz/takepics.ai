@@ -44,6 +44,10 @@ export default defineNuxtConfig({
 		// https://auth.sidebase.io/guide/application-side/configuration#globalappmiddleware
 		globalAppMiddleware: true,
 
+		// We can change this depending on the provider we deploy to. Most have
+		// an environment variable that contains the URL
+		// originEnvKey: "AUTH_ORIGIN",
+
 		// https://auth.sidebase.io/guide/authjs/quick-start#configuration
 		provider: {
 			type: "authjs",
@@ -68,6 +72,11 @@ export default defineNuxtConfig({
 			clientSecret: "",
 		},
 
+		replicate: {
+			apiToken: "",
+			webhookSecret: "",
+		},
+
 		// Configurations inside the `public` object are available to the client.
 		// Eg. in the browser
 		public: {
@@ -81,6 +90,14 @@ export default defineNuxtConfig({
 	nitro: {
 		experimental: {
 			openAPI: true,
+			database: true,
+		},
+
+		database: {
+			default: {
+				connector: "sqlite",
+				options: { name: "db" },
+			},
 		},
 	},
 });

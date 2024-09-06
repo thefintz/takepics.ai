@@ -9,16 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { User } from "next-auth";
-import type { Index } from "~/server/api/index.get";
-
 // This tells nuxt-auth that this page is public
 definePageMeta({ auth: false });
-
-const data = ref({});
-// const { data } = await useFetch("/api/ai/create", {
-// 	body: {
-// 		prompt: "a wintery blurry pinewood forest",
-// 	},
-// });
+const { data } = await useFetch("/api/users");
 </script>

@@ -6,7 +6,7 @@ type User = {
 	image?: string | null;
 };
 
-export default eventHandler(async (event): Promise<User> => {
+export default defineEventHandler(async (event): Promise<User> => {
 	const session = await getServerSession(event);
 
 	// If session is null, it means we are not authenticated
