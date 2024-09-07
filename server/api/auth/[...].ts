@@ -1,7 +1,7 @@
 import { NuxtAuthHandler } from "#auth";
 import Auth0Provider from "next-auth/providers/auth0";
 import type { AuthOptions } from "next-auth";
-import type { User } from "~/server/utils/db";
+import type { User } from "../../utils/db";
 
 const config = useRuntimeConfig();
 

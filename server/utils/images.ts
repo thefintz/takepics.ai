@@ -1,5 +1,7 @@
 import { db, Images, Creations } from "./db";
 import { eq } from "drizzle-orm";
+import { useServerReplicate } from "./replicate";
+
 interface CreateImage {
 	url: string;
 	userId: string;
@@ -30,6 +32,7 @@ export const createImage = async (props: CreateImage) => {
 		console.info("Inserting creation for image", image.id);
 		const [creation] = await db
 			.insert(Creations)
+			// .values({ imageId: image.id, data: await prediction })
 			.values({ imageId: image.id, data: await prediction })
 			.returning();
 		console.info("Inserted creation", creation.id);

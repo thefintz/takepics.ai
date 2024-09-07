@@ -17,6 +17,7 @@ export default defineNuxtConfig({
 		"@primevue/nuxt-module",
 		"@sidebase/nuxt-auth",
 		"nuxt-posthog",
+		"@vueuse/nuxt",
 	],
 
 	// https://tailwind.primevue.org/nuxt/
@@ -75,12 +76,15 @@ export default defineNuxtConfig({
 		replicate: {
 			apiToken: "",
 			webhookSecret: "",
+			username: "",
+			model: "",
 		},
 
 		// Configurations inside the `public` object are available to the client.
 		// Eg. in the browser
 		public: {
 			posthog: {
+				disabled: true,
 				host: "",
 				publicKey: "",
 			},
@@ -90,14 +94,6 @@ export default defineNuxtConfig({
 	nitro: {
 		experimental: {
 			openAPI: true,
-			database: true,
-		},
-
-		database: {
-			default: {
-				connector: "sqlite",
-				options: { name: "db" },
-			},
 		},
 	},
 });
