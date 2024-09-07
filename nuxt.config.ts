@@ -76,8 +76,7 @@ export default defineNuxtConfig({
 		replicate: {
 			apiToken: "",
 			webhookSecret: "",
-			username: "",
-			model: "",
+			webhookUrl: "",
 		},
 
 		// Configurations inside the `public` object are available to the client.

@@ -1,42 +1,18 @@
 <template>
-  <div class="flex justify-center gap-4">
-    <Card class="min-w-[30%] max-w-[30%]">
+  <div class="flex flex-col justify-center gap-4">
+    <Card>
       <template #content>
-        <form @submit.prevent="() => execute()">
-          <InputText v-model="url" name="url" placeholder="Url..." />
-          <InputText v-model="caption" name="url" placeholder="Caption..." />
-          <Button label="Generate" type="submit" ></Button>
-        </form>
-        <pre>{{ generation }}</pre>
-        <ul>
-          <li v-for="item in images" :key="item.id">
-            <pre>{{ item }}</pre>
-          </li>
-        </ul>
+        <FormSubmitImage @response="() => refresh()" />
       </template>
     </Card>
+    <ImageCard v-for="i in data" :key="i.id" :image="i" />
   </div>
 </template>
 
 <script lang="ts" setup>
-// This tells nuxt-auth that this page is public
-definePageMeta({ auth: false });
-
-const url = ref("");
-const caption = ref("");
-
-const postGeneration = async () => {
-	return $fetch("/api/replicate/generations", {
-		method: "POST",
-		body: { url: url.value, caption: caption.value },
-	});
-};
-
-const { data: generation, execute } = await useAsyncData(postGeneration, {
-	immediate: false,
-});
-
-const { data: images } = await useFetch("/api/images", {
+const { data, refresh } = await useFetch("/api/images", {
 	default: () => [],
 });
+
+useIntervalFn(() => refresh(), 5_000);
 </script>

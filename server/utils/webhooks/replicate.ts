@@ -33,9 +33,11 @@ export const defineWebhookReplicateHandler = ({ handler }: Props) => {
 			});
 		}
 
+		console.info("Reading webhook headers");
 		const id = event.headers.get("webhook-id");
 		const timestamp = event.headers.get("webhook-timestamp");
 		const signature = event.headers.get("webhook-signature");
+		console.debug("Read webhook headers", { id, timestamp, signature });
 
 		// For better error messages
 		const missing = [];

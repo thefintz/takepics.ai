@@ -21,28 +21,24 @@ export const Images = sqliteTable("images", {
 });
 
 export const Creations = sqliteTable("creations", {
-	id: integer("id").primaryKey({ autoIncrement: true }),
+	id: text("id").primaryKey(),
 	imageId: integer("image_id")
 		.notNull()
 		.references(() => Images.id, { onDelete: "cascade", onUpdate: "cascade" }),
 	data: text("data", { mode: "json" }).$type<Prediction>().notNull(),
 });
 
-export const ImageCreation = relations(Images, ({ one }) => ({
-	creation: one(Creations, {
-		fields: [Images.id],
-		references: [Creations.imageId],
-	}),
-}));
-
 export type User = typeof Users.$inferSelect;
-export type UserInsert = typeof Users.$inferInsert;
 export type Image = typeof Images.$inferSelect;
-export type ImageInsert = typeof Images.$inferInsert;
 export type Creation = typeof Creations.$inferSelect;
+
+export type UserInsert = typeof Users.$inferInsert;
+export type ImageInsert = typeof Images.$inferInsert;
 export type CreationInsert = typeof Creations.$inferInsert;
 
-const schema = { Users, Images, Creations, ImageCreation };
+export type ImageWithCreation = Image & { creation: Creation };
+
+const schema = { Users, Images, Creations };
 
 const sqlite = new Database("./.data/db.sqlite3");
 export const db = drizzle(sqlite, { logger: true, schema });

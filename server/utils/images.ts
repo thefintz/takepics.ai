@@ -15,7 +15,7 @@ export const createImage = async (props: CreateImage) => {
 
 	return await db.transaction(async (tx) => {
 		console.info("Creating prediction for image: ", props);
-		const prediction = replicate.predictions.create({
+		const prediction = await replicate.predictions.create({
 			model: "black-forest-labs/flux-dev",
 			input: { url: props.url, prompt: props.caption },
 			webhook: props.webhook,
@@ -32,8 +32,7 @@ export const createImage = async (props: CreateImage) => {
 		console.info("Inserting creation for image", image.id);
 		const [creation] = await db
 			.insert(Creations)
-			// .values({ imageId: image.id, data: await prediction })
-			.values({ imageId: image.id, data: await prediction })
+			.values({ id: prediction.id, imageId: image.id, data: prediction })
 			.returning();
 		console.info("Inserted creation", creation.id);
 		console.debug(creation);
@@ -56,8 +55,10 @@ export const fetchImages = async (props: FetchImages) => {
 	console.info(`Fetched ${items.length} images for user ${props.userId}`);
 	console.debug(items);
 
-	return items.map(({ images, creations }) => ({
+	const images = items.map(({ images, creations }) => ({
 		...images,
 		creation: creations,
 	}));
+
+	return images as ImageWithCreation[];
 };

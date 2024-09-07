@@ -1,4 +1,6 @@
-export const getServerWebhook = (path: string) => {
-	const url = useRequestURL();
-	return `https://${url.host}/api/webhooks/${path}`;
+import type { H3Event } from "h3";
+
+export const getReplicateWebhook = (event?: H3Event) => {
+	const config = useRuntimeConfig(event);
+	return config.replicate.webhookUrl;
 };
