@@ -1,6 +1,7 @@
 import { NuxtAuthHandler } from "#auth";
 import Auth0Provider from "next-auth/providers/auth0";
 import type { AuthOptions } from "next-auth";
+import type { User } from "~/server/utils/db";
 
 const config = useRuntimeConfig();
 
@@ -29,11 +30,46 @@ const options: AuthOptions = {
 		// Use this function to add more properties to the session object, the
 		// object. The one returned by `const { data } = useAuth()`. See example
 		// below
+		/**
+		 * Fetches the user from the database and adds it to the session object
+		 */
 		async session({ session, token }) {
 			// For example, add user properties to the session object
 			// session.user = fetchUserFromDatabase()  // not implemented
 			// Now the user object will be available in the session object
-			return session;
+
+			if (!token.sub) {
+				return session;
+			}
+
+			const user = await fetchUser(token.sub);
+
+			return { ...session, user };
+		},
+
+		/**
+		 * Inserts the new user into the database if they don't already exist or
+		 * updates their information if they do
+		 */
+		async signIn({ user }) {
+			if (!user.id || !user.name || !user.email || !user.image) {
+				return false;
+			}
+
+			const newUser: User = {
+				id: user.id,
+				name: user.name,
+				email: user.email,
+				image: user.image,
+			};
+
+			await upsertUser(newUser);
+
+			return true;
+		},
+
+		async jwt({ token }) {
+			return token;
 		},
 	},
 };

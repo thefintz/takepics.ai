@@ -2,19 +2,13 @@ import { validateWebhook, type Prediction } from "replicate";
 import type { EventHandlerRequest, H3Event } from "h3";
 
 interface Props {
-	secret: string;
 	handler: (
 		props: Prediction,
 		event?: H3Event<EventHandlerRequest>,
 	) => void | Promise<void>;
 }
 
-export const defineWebhookReplicateHandler = ({ secret, handler }: Props) => {
-	if (!secret) {
-		console.error("Missing secret");
-		throw Error("Missing secret");
-	}
-
+export const defineWebhookReplicateHandler = ({ handler }: Props) => {
 	/**
 	 * This wrapper does ALL validations and error handling for the webhook.
 	 *
@@ -23,6 +17,9 @@ export const defineWebhookReplicateHandler = ({ secret, handler }: Props) => {
 	 * pattern going as it makes things super easy to debug
 	 */
 	const h = defineEventHandler(async (event: H3Event<EventHandlerRequest>) => {
+		const config = useRuntimeConfig(event);
+		const secret = config.replicate.webhookSecret;
+
 		if (!secret) {
 			console.warn("Secret is not defined");
 			throw createError({ status: 503, message: "Service unavailable" });

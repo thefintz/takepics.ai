@@ -1,10 +1,6 @@
 import { getServerSession } from "#auth";
-
-type User = {
-	name?: string | null;
-	email?: string | null;
-	image?: string | null;
-};
+import { fetchUser } from "../utils/users";
+import type { User } from "../utils/db";
 
 export default defineEventHandler(async (event): Promise<User> => {
 	const session = await getServerSession(event);
@@ -14,5 +10,5 @@ export default defineEventHandler(async (event): Promise<User> => {
 		throw createError({ status: 401, message: "unauthenticated" });
 	}
 
-	return session.user;
+	return await fetchUser(session.user.id);
 });
