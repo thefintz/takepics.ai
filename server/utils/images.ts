@@ -6,21 +6,23 @@ interface CreateImage {
 	url: string;
 	userId: string;
 	caption: string;
-	webhook?: string;
+	webhook: string;
 }
 
-export const createImage = async (props: CreateImage) => {
+export const insertImage = async (
+	props: CreateImage,
+): Promise<ImageWithCreation> => {
 	console.info("Creating image", props);
 	const replicate = useServerReplicate();
 
-	return await db.transaction(async (tx) => {
-		console.info("Creating prediction for image: ", props);
-		const prediction = await replicate.predictions.create({
-			model: "black-forest-labs/flux-dev",
-			input: { url: props.url, prompt: props.caption },
-			webhook: props.webhook,
-		});
+	console.info("Creating prediction for image: ", props);
+	const prediction = await replicate.predictions.create({
+		model: "black-forest-labs/flux-dev",
+		input: { url: props.url, prompt: props.caption },
+		webhook: props.webhook,
+	});
 
+	return await db.transaction(async (tx) => {
 		console.info("Inserting image", props.url);
 		const [image] = await tx
 			.insert(Images)
@@ -45,7 +47,9 @@ interface FetchImages {
 	userId: string;
 }
 
-export const fetchImages = async (props: FetchImages) => {
+export const fetchImages = async (
+	props: FetchImages,
+): Promise<ImageWithCreation[]> => {
 	console.info("Fetching images for user", props.userId);
 	const items = await db
 		.select()

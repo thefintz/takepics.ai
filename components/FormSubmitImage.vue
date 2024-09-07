@@ -15,6 +15,9 @@ const url = ref("");
 const caption = ref("");
 
 const emits = defineEmits({
+	/**
+	 * Emmited when the image response is ready
+	 */
 	response: (data: ImageWithCreation) => {
 		if (data) return false;
 		return true;
@@ -25,7 +28,7 @@ const postGeneration = async () => {
 	if (!url.value) return;
 	if (!caption.value) return;
 
-	const data = await $fetch("/api/replicate/generations", {
+	const data: ImageWithCreation = await $fetch("/api/images", {
 		method: "POST",
 		body: { url: url.value, caption: caption.value },
 	});
