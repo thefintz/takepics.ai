@@ -3,6 +3,7 @@
     <Card>
       <template #content>
         <FormSubmitImage @response="() => refresh()" />
+        <button @click="() => buy()">Buy</button>
       </template>
     </Card>
     <ImageCard v-for="i in data" :key="i.id" :image="i" />
@@ -14,5 +15,8 @@ const { data, refresh } = await useFetch("/api/images", {
 	default: () => [],
 });
 
-useIntervalFn(() => refresh(), 5_000);
+const buy = async () => navigateTo("/api/checkout", { external: true });
+
+// const interval = useIntervalFn(() => refresh(), 1_000); // refresh every 5s
+// useTimeoutFn(() => interval.pause(), 100_000); // stops refresing after 100s
 </script>

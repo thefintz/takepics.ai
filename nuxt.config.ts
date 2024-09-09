@@ -79,6 +79,12 @@ export default defineNuxtConfig({
 			webhookUrl: "",
 		},
 
+		stripe: {
+			apiToken: "",
+			webhookSecret: "",
+			priceId: "",
+		},
+
 		// Configurations inside the `public` object are available to the client.
 		// Eg. in the browser
 		public: {

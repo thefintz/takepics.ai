@@ -1,11 +1,9 @@
 <template>
-	<div>
-		<form @submit.prevent="() => execute()">
-			<InputText v-model="url" name="url" placeholder="Url..." />
-			<InputText v-model="caption" name="url" placeholder="Caption..." />
-			<Button label="Generate" type="submit" ></Button>
-		</form>
-	</div>
+	<form @submit.prevent="() => execute()">
+		<InputText v-model="url" name="url" placeholder="Url..." />
+		<InputText v-model="caption" name="url" placeholder="Caption..." />
+		<Button label="Generate" type="submit" ></Button>
+	</form>
 </template>
 
 <script lang="ts" setup>
@@ -19,7 +17,7 @@ const emits = defineEmits({
 	 * Emmited when the image response is ready
 	 */
 	response: (data: ImageWithCreation) => {
-		if (data) return false;
+		if (!data) return false;
 		return true;
 	},
 });

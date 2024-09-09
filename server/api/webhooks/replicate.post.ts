@@ -21,13 +21,13 @@ const assertValidWebhook = async (event: H3Event): Promise<Prediction> => {
 	}
 
 	console.info("Reading webhook headers");
-	const id = event.headers.get("webhook-id");
-	const timestamp = event.headers.get("webhook-timestamp");
-	const signature = event.headers.get("webhook-signature");
+	const id = getHeader(event, "webhook-id");
+	const timestamp = getHeader(event, "webhook-timestamp");
+	const signature = getHeader(event, "webhook-signature");
 	console.debug("Read webhook headers", { id, timestamp, signature });
 
 	// For better error messages
-	const missing = [];
+	const missing: string[] = [];
 	if (!id) missing.push("webhook-id");
 	if (!timestamp) missing.push("webhook-timestamp");
 	if (!signature) missing.push("webhook-signature");
@@ -50,8 +50,8 @@ const assertValidWebhook = async (event: H3Event): Promise<Prediction> => {
 	const validation = {
 		body,
 		secret,
-		// We have asserted above that these are not null. So we make typescript
-		// happy
+		// We have asserted above that these are not null/undefined. So we make
+		// typescript happy
 		id: id as string,
 		timestamp: timestamp as string,
 		signature: signature as string,
@@ -70,18 +70,22 @@ const assertValidWebhook = async (event: H3Event): Promise<Prediction> => {
 		// to use `zod`
 		return JSON.parse(body) as Prediction;
 	} catch (e) {
-		console.warn(e);
+		console.warn("Error parsing webhook body", e);
 		throw createError({ status: 400, message: "Invalid JSON body" });
 	}
 };
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async (event): Promise<string> => {
 	const prediction = await assertValidWebhook(event);
+	console.info(`Received event: ${prediction.id} - ${prediction.status}`);
+	console.debug(prediction);
 
-	console.info("Updating creation", prediction);
+	console.info("Updating creation", prediction.id);
 	await db
 		.update(Creations)
 		.set({ data: prediction })
 		.where(eq(Creations.id, prediction.id));
-	console.info("Updated creation", prediction);
+	console.info("Updated creation", prediction.id);
+
+	return "OK";
 });
