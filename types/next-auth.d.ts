@@ -1,4 +1,5 @@
 import type { DefaultSession } from "next-auth";
+import type { User } from "@/server/utils/db";
 
 // This file is needed for us extend the types of the next-auth module.
 //
@@ -11,11 +12,6 @@ import type { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
 	interface Session extends DefaultSession {
-		user?: {
-			id: string;
-			name: string;
-			email: string;
-			image: string;
-		};
+		user?: User;
 	}
 }

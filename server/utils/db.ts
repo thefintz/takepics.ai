@@ -41,6 +41,7 @@ export const Checkouts = sqliteTable("checkouts", {
 	session: text("session", { mode: "json" })
 		.$type<Stripe.Checkout.Session>()
 		.notNull(),
+	price: text("price", { mode: "json" }).$type<Stripe.Price>().notNull(),
 });
 
 export type User = typeof Users.$inferSelect;
