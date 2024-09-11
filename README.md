@@ -84,8 +84,8 @@ PostHog, at least, is easier to configure. Thanks to the posthog nuxt module.
 We simply need to set the following environment variables:
 
 ```conf
-POSTHOG_HOST=https://us.i.posthog.com
-POSTHOG_PUBLIC_KEY=phc_**********
+POSTHOG_API_KEY=phc_**********
+POSTHOG_API_HOST=https://us.i.posthog.com
 ```
 
 Once you set those, it is done! If you don't know where to find the public key,
@@ -95,7 +95,7 @@ you can generate one in your PostHog project settings:
 - "Settings" (bottom left)
 
 Scroll down a little bit, or search for "API Key". Just copy that value and set
-to the `POSTHOG_PUBLIC_KEY` environment variable in your `.env` file.
+to the `POSTHOG_API_KEY` environment variable in your `.env` file.
 
 #### Posthog component
 
@@ -104,3 +104,69 @@ function. This function is used for us to identify an user in a session from
 PostHog. For example, in our application, we identify the user by adding email
 information if they are logged in. This way we can group sessions and search for
 info by user in PostHog.
+
+### Stripe
+
+After you create/login to your stripe account, you need to:
+
+1. Create a price (Product Catalogue > Add Product)
+2. Create a webhook (Developers > Webhooks > Add Endpoint)
+3. Get your credentials (Developers > API Keys)
+
+For (1), a price is like a product. So, create a new price when you want to
+create a new product. Or, edit it. 
+
+For (2), you need to setup a webhook to receive the `checkout.session.completed`
+event. This event is fired when a user completes the checkout process from
+Stripe Checkout. You must configure the webshook secret so you can verify the
+event was sent by Stripe and not by some malicious actor. In this application,
+we have set up our webhook in:
+
+```
+/api/webhooks/stripe
+```
+
+For (3), you will need the `Secret key`.
+
+Finally, set the following environment variables:
+
+```conf
+NUXT_STRIPE_SECRET_KEY=sk_**********
+NUXT_STRIPE_WEBHOOK_SECRET=whsec_**********
+NUXT_STRIPE_PRICE_ID=price_**********
+```
+
+#### Developing
+
+Checkout the [Stripe documentation](https://stripe.com/docs/webhooks) for more
+information on webhooks and how to use Stripe CLI to test them locally. As an
+alternative, you can also use [Ngrok](https://dashboard.ngrok.com/) to make your
+`localhost:3000` available to the internet.
+
+### Replicate
+
+Replicate is a service that allows you to run AI models in the cloud. We use it
+to run our AI models. To setup Replicate, you need to get the the following
+credentials:
+
+1. Webhook signing key (Account Settings > Webhooks > Show signing key)
+2. API token (Account Settings > API tokens > Create token)
+
+Differently from Stripe, Replicate's way of configuring is to tell a webhook URL
+on a per request basis. In this application, we have configured to be:
+
+```conf
+NUXT_REPLICATE_WEBHOOK_URL=https://your.host.com/api/webhooks/replicate
+```
+
+So, you need to setup the above environment variable with the actual host of
+your application when you deploy to production. Again, to test the webhooks
+locally... Try [Ngrok](https://dashboard.ngrok.com/).
+
+Finallt, add your credentials and here is your final configuration:
+
+```conf
+NUXT_REPLICATE_API_TOKEN=r8_**********
+NUXT_REPLICATE_WEBHOOK_SECRET=whsec_**********
+NUXT_REPLICATE_WEBHOOK_URL=https://your.host.com/api/webhooks/replicate
+```

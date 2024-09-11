@@ -47,9 +47,3 @@ export const createCheckout = async (
 
 	return dbCheckout;
 };
-
-export const fetchQuantity = async (user: User): Promise<number> => {
-	const stripe = useServerStripe();
-	const customer = await stripe.prices.retrieve;
-	return customer.credits_data[0].remaining;
-};

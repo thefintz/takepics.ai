@@ -65,8 +65,6 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		secret: "",
 
-		authOrigin: "",
-
 		auth0: {
 			issuer: "",
 			clientId: "",
@@ -89,9 +87,8 @@ export default defineNuxtConfig({
 		// Eg. in the browser
 		public: {
 			posthog: {
-				disabled: true,
-				host: "",
-				publicKey: "",
+				// Uncomment this to disable PostHog
+				// disabled: true,
 			},
 		},
 	},
