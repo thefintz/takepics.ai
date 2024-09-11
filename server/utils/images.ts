@@ -32,7 +32,7 @@ export const insertImage = async (
 		console.debug(image);
 
 		console.info("Inserting creation for image", image.id);
-		const [creation] = await db
+		const [creation] = await tx
 			.insert(Creations)
 			.values({ id: prediction.id, imageId: image.id, data: prediction })
 			.returning();
