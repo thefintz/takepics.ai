@@ -1,7 +1,7 @@
 import { NuxtAuthHandler } from "#auth";
-import Auth0Provider from "next-auth/providers/auth0";
+import type { UserUpsert } from "@/server/utils/db";
 import type { AuthOptions } from "next-auth";
-import type { User } from "@/server/utils/db";
+import Auth0Provider from "next-auth/providers/auth0";
 
 const config = useRuntimeConfig();
 
@@ -56,7 +56,7 @@ const options: AuthOptions = {
 				return false;
 			}
 
-			const newUser: User = {
+			const newUser: UserUpsert = {
 				id: user.id,
 				name: user.name,
 				email: user.email,

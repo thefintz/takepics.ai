@@ -1,19 +1,22 @@
 {
-  "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.indentSize": 2,
-    "editor.tabSize": 2
-  },
-  "[typescript]": {
-    "editor.indentSize": 2,
-    "editor.tabSize": 2
-  },
-  "[vue]": {
-    "editor.indentSize": 2,
-    "editor.tabSize": 2
-  },
-  "[json]": {
-    "editor.indentSize": 2,
-    "editor.tabSize": 2
-  }
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "always"
+	},
+	"[javascript]": {
+		"editor.indentSize": 2,
+		"editor.tabSize": 2
+	},
+	"[typescript]": {
+		"editor.indentSize": 2,
+		"editor.tabSize": 2
+	},
+	"[vue]": {
+		"editor.indentSize": 2,
+		"editor.tabSize": 2
+	},
+	"[json]": {
+		"editor.indentSize": 2,
+		"editor.tabSize": 2
+	}
 }

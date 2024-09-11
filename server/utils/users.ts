@@ -1,7 +1,7 @@
-import { db, Users, type User } from "./db";
 import { eq } from "drizzle-orm";
+import { type User, type UserUpsert, Users, db } from "./db";
 
-export const upsertUser = async (u: User): Promise<User> => {
+export const upsertUser = async (u: UserUpsert): Promise<User> => {
 	console.info("Upserting user", u.id);
 
 	// Should always return a single user

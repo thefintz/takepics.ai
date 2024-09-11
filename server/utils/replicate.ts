@@ -1,5 +1,5 @@
-import Replicate from "replicate";
 import type { H3Event } from "h3";
+import Replicate from "replicate";
 
 export const useServerReplicate = (event?: H3Event) => {
 	const config = useRuntimeConfig(event);

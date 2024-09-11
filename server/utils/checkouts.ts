@@ -1,5 +1,4 @@
-import type { Stripe } from "stripe";
-import { db, type CheckoutInsert, Checkouts, type Checkout } from "./db";
+import { type Checkout, type CheckoutInsert, Checkouts, db } from "./db";
 
 export const createCheckout = async (
 	user: User,

@@ -1,6 +1,6 @@
 import { getServerSession } from "#auth";
-import { fetchUser } from "../utils/users";
 import type { User } from "../utils/db";
+import { fetchUser } from "../utils/users";
 
 export default defineEventHandler(async (event): Promise<User> => {
 	const session = await getServerSession(event);

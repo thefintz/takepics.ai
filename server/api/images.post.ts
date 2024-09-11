@@ -1,7 +1,7 @@
 import { getServerSession } from "#auth";
-import { z } from "zod";
 import { insertImage } from "@/server/utils/images";
 import { getReplicateWebhook } from "@/server/utils/replicate";
+import { z } from "zod";
 
 const schema = z.object({
 	url: z.string().url(),

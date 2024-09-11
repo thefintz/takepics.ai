@@ -1,6 +1,6 @@
 import { getServerSession } from "#auth";
-import { fetchImages } from "@/server/utils/images";
 import type { ImageWithCreation } from "@/server/utils/db";
+import { fetchImages } from "@/server/utils/images";
 
 export default defineEventHandler(
 	async (event): Promise<ImageWithCreation[]> => {

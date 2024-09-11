@@ -1,5 +1,5 @@
-import { db, Images, Creations } from "./db";
 import { eq } from "drizzle-orm";
+import { Creations, Images, db } from "./db";
 import { useServerReplicate } from "./replicate";
 
 interface CreateImage {

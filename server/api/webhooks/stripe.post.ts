@@ -1,7 +1,7 @@
+import { Checkouts, db } from "@/server/utils/db";
+import { eq } from "drizzle-orm";
 import type { H3Event } from "h3";
 import Stripe from "stripe";
-import { db, Checkouts } from "@/server/utils/db";
-import { eq } from "drizzle-orm";
 
 const assertValidWebhook = async (event: H3Event): Promise<Stripe.Event> => {
 	const config = useRuntimeConfig(event);
