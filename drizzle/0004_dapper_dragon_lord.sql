@@ -1,0 +1,1 @@
+ALTER TABLE "users" ADD COLUMN "creations_remaining" integer DEFAULT 5 NOT NULL;
