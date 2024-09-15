@@ -73,6 +73,7 @@ export default defineNuxtConfig({
 
 		replicate: {
 			apiToken: "",
+			model: "",
 			webhookSecret: "",
 			webhookUrl: "",
 		},
@@ -81,6 +82,8 @@ export default defineNuxtConfig({
 			apiToken: "",
 			webhookSecret: "",
 			priceId: "",
+			successUrl: "",
+			creditsPerCheckout: 0,
 		},
 
 		// Configurations inside the `public` object are available to the client.

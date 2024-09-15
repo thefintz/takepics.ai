@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ImageWithCreation } from "~/server/utils/db";
+import type { ImageWithCreation } from "~/server/utils/db/schema";
 const props = defineProps<{ image: ImageWithCreation }>();
 const image = toRef(props, "image");
 </script>

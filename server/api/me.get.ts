@@ -1,14 +1,14 @@
-import { getServerSession } from "#auth";
-import type { User } from "../utils/db";
-import { fetchUser } from "../utils/users";
+export default defineEventHandler(async (event): Promise<UserSelect> => {
+	const user = await assertAuthenticated(event);
 
-export default defineEventHandler(async (event): Promise<User> => {
-	const session = await getServerSession(event);
+	const userDb = await db.transaction(async (tx) => {
+		const service = createUserService(tx, event);
+		return await service.fetch(user.id);
+	});
 
-	// If session is null, it means we are not authenticated
-	if (!session?.user) {
-		throw createError({ status: 401, message: "unauthenticated" });
+	if (!userDb) {
+		throw createError({ status: 404, message: `user ${user.id} not found` });
 	}
 
-	return await fetchUser(session.user.id);
+	return user;
 });

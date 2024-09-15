@@ -1,7 +1,8 @@
 import { NuxtAuthHandler } from "#auth";
-import type { UserUpsert } from "@/server/utils/db";
 import type { AuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
+import type { UserInsert } from "~/server/utils/db/schema";
+import { createUserService } from "~/server/utils/services/users";
 
 const config = useRuntimeConfig();
 
@@ -27,22 +28,21 @@ const options: AuthOptions = {
 	],
 
 	callbacks: {
-		// Use this function to add more properties to the session object, the
-		// object. The one returned by `const { data } = useAuth()`. See example
-		// below
 		/**
 		 * Fetches the user from the database and adds it to the session object
+		 *
+		 * Use this function to add more properties to the session object, the
+		 * object. The one returned by `const { data } = useAuth()`. See example
+		 * below
 		 */
 		async session({ session, token }) {
-			// For example, add user properties to the session object
-			// session.user = fetchUserFromDatabase()  // not implemented
-			// Now the user object will be available in the session object
-
 			if (!token.sub) {
+				console.warn("Missing subject in JWT");
 				return session;
 			}
 
-			const user = await fetchUser(token.sub);
+			const service = createUserService(db);
+			const user = await service.fetch(token.sub);
 
 			return { ...session, user };
 		},
@@ -56,14 +56,24 @@ const options: AuthOptions = {
 				return false;
 			}
 
-			const newUser: UserUpsert = {
+			const newUser: UserInsert = {
 				id: user.id,
 				name: user.name,
 				email: user.email,
 				image: user.image,
 			};
 
-			await upsertUser(newUser);
+			await db.transaction(async (tx) => {
+				const service = createUserService(tx);
+
+				if (await service.exists(user.id)) {
+					console.info(`User ${user.id} exists. Updating...`);
+					return await service.update(newUser);
+				}
+
+				console.info(`User ${user.id} does not exist. Creating...`);
+				return await service.create({ ...newUser, credits: 5 });
+			});
 
 			return true;
 		},

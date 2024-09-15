@@ -1,6 +1,3 @@
-import { getServerSession } from "#auth";
-import { insertImage } from "@/server/utils/images";
-import { getReplicateWebhook } from "@/server/utils/replicate";
 import { z } from "zod";
 
 const schema = z.object({
@@ -9,18 +6,11 @@ const schema = z.object({
 });
 
 export default defineEventHandler(async (event): Promise<ImageWithCreation> => {
-	const session = await getServerSession(event);
-
-	if (!session?.user) {
-		throw createError({ status: 401, message: "unauthenticated" });
-	}
-
+	const user = await assertAuthenticated(event);
 	const body = await readValidatedBody(event, (body) => schema.parse(body));
 
-	return await insertImage({
-		userId: session.user.id,
-		url: body.url,
-		caption: body.caption,
-		webhook: getReplicateWebhook(event),
+	return await db.transaction(async (tx) => {
+		const service = createReplicateImageService(tx, event);
+		return await service.create(user, body.url, body.caption);
 	});
 });

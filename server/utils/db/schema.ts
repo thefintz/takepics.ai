@@ -1,7 +1,12 @@
 import { sql } from "drizzle-orm";
-import { index, jsonb, pgTable, text, timestamp } from "drizzle-orm/pg-core";
-import { drizzle } from "drizzle-orm/postgres-js";
-import postgres from "postgres";
+import {
+	index,
+	integer,
+	jsonb,
+	pgTable,
+	text,
+	timestamp,
+} from "drizzle-orm/pg-core";
 import type { Prediction } from "replicate";
 import type { Stripe } from "stripe";
 
@@ -12,6 +17,7 @@ export const Users = pgTable(
 		name: text("name").notNull(),
 		email: text("email").notNull().unique(),
 		image: text("image").notNull(),
+		credits: integer("credits").notNull().default(5),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)
 			.notNull(),
@@ -120,10 +126,10 @@ export const Checkouts = pgTable(
 	},
 );
 
-export type User = typeof Users.$inferSelect;
-export type Image = typeof Images.$inferSelect;
-export type Creation = typeof Creations.$inferSelect;
-export type Checkout = typeof Checkouts.$inferSelect;
+export type UserSelect = typeof Users.$inferSelect;
+export type ImageSelect = typeof Images.$inferSelect;
+export type CreationSelect = typeof Creations.$inferSelect;
+export type CheckoutSelect = typeof Checkouts.$inferSelect;
 
 export type UserInsert = typeof Users.$inferInsert;
 export type ImageInsert = typeof Images.$inferInsert;
@@ -131,18 +137,6 @@ export type CreationInsert = typeof Creations.$inferInsert;
 export type CheckoutInsert = typeof Checkouts.$inferInsert;
 
 // Utility interfaces
-export interface ImageWithCreation extends Image {
-	creation: Creation;
+export interface ImageWithCreation extends ImageSelect {
+	creation: CreationSelect;
 }
-export interface UserUpsert extends Omit<User, "createdAt" | "updatedAt"> {}
-
-const client = postgres("postgresql://postgres@localhost:5432/postgres");
-export const db = drizzle(client, {
-	logger: true,
-	schema: {
-		Users,
-		Images,
-		Creations,
-		Checkouts,
-	},
-});

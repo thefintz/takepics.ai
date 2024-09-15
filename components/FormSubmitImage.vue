@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ImageWithCreation } from "~/server/utils/db";
+import type { ImageWithCreation } from "~/server/utils/db/schema";
 
 const url = ref("");
 const caption = ref("");

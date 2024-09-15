@@ -2,6 +2,7 @@
   <div class="flex flex-col justify-center gap-4">
     <Card>
       <template #content>
+        <p>Creations remaining: {{ session?.user?.credits }}</p>
         <FormSubmitImage @response="() => refresh()" />
         <button @click="() => buy()">Buy</button>
       </template>
@@ -11,12 +12,14 @@
 </template>
 
 <script lang="ts" setup>
+const { data: session } = useAuth();
+
 const { data, refresh } = await useFetch("/api/images", {
 	default: () => [],
 });
 
 const buy = async () => navigateTo("/api/checkout", { external: true });
 
-// const interval = useIntervalFn(() => refresh(), 1_000); // refresh every 5s
-// useTimeoutFn(() => interval.pause(), 100_000); // stops refresing after 100s
+const interval = useIntervalFn(() => refresh(), 1_000); // refresh every 5s
+useTimeoutFn(() => interval.pause(), 100_000); // stops refresing after 100s
 </script>

@@ -1,7 +1,5 @@
-import { Checkouts, db } from "@/server/utils/db";
-import { eq } from "drizzle-orm";
 import type { H3Event } from "h3";
-import Stripe from "stripe";
+import type Stripe from "stripe";
 
 const assertValidWebhook = async (event: H3Event): Promise<Stripe.Event> => {
 	const config = useRuntimeConfig(event);
@@ -33,7 +31,7 @@ const assertValidWebhook = async (event: H3Event): Promise<Stripe.Event> => {
 		throw createError({ status: 400, message: "Missing body" });
 	}
 
-	const stripe = new Stripe(config.stripe.apiToken);
+	const stripe = useServerStripe(event);
 
 	try {
 		return stripe.webhooks.constructEvent(
@@ -57,15 +55,10 @@ export default defineEventHandler(async (event): Promise<string> => {
 		return "OK";
 	}
 
-	const session = data.data.object;
-
-	console.info("Updating checkout", session.id);
-	await db
-		.update(Checkouts)
-		.set({ event: data })
-		.where(eq(Checkouts.id, session.id))
-		.returning();
-	console.info("Updated checkout", session.id);
+	await db.transaction(async (tx) => {
+		const service = createStripeCheckoutService(tx, event);
+		await service.webhook(data);
+	});
 
 	return "OK";
 });

@@ -1,4 +1,3 @@
-import { Creations, db } from "@/server/utils/db";
 import { eq } from "drizzle-orm";
 import type { H3Event } from "h3";
 import { type Prediction, validateWebhook } from "replicate";

@@ -1,28 +1,15 @@
-import { getServerSession } from "#auth";
-import { createCheckout } from "@/server/utils/checkouts";
-
 export default defineEventHandler(async (event): Promise<void> => {
-	const session = await getServerSession(event);
+	const user = await assertAuthenticated(event);
 
-	if (!session?.user) {
-		throw createError({ status: 401, message: "unauthenticated" });
+	const url = await db.transaction(async (tx) => {
+		const service = createStripeCheckoutService(tx, event);
+		const checkout = await service.create(user);
+		return checkout.session.url;
+	});
+
+	if (!url) {
+		throw createError({ status: 500, message: "no checkout URL found" });
 	}
 
-	const config = useRuntimeConfig(event);
-
-	const checkout = await createCheckout(
-		session.user,
-		config.stripe.priceId,
-		"https://e348-2804-1b3-8401-857-90c-b8cd-279c-840.ngrok-free.app",
-	);
-
-	if (!checkout.session.url) {
-		console.error("Invalid session. No redirect URL returned");
-		throw createError({
-			status: 500,
-			message: "Failed to create checkout session",
-		});
-	}
-
-	return await sendRedirect(event, checkout.session.url);
+	return await sendRedirect(event, url);
 });
