@@ -20,6 +20,6 @@ const { data, refresh } = await useFetch("/api/images", {
 
 const buy = async () => navigateTo("/api/checkout", { external: true });
 
-const interval = useIntervalFn(() => refresh(), 1_000); // refresh every 5s
+const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 100_000); // stops refresing after 100s
 </script>
