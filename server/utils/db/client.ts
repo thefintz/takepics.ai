@@ -3,7 +3,12 @@ import postgres from "postgres";
 
 import { Checkouts, Creations, Images, Users } from "./schema";
 
-const client = postgres("postgresql://postgres@localhost:5432/postgres");
+const config = useRuntimeConfig();
+if (!config.public.POSTGRES_URL) {
+	throw new Error("POSTGRES_URL is not set");
+}
+
+const client = postgres(config.public.POSTGRES_URL);
 export const db = drizzle(client, {
 	// logger: true,
 	schema: { Users, Images, Creations, Checkouts },
