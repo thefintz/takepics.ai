@@ -1,16 +1,18 @@
-# NuxtAuth
+# AI Photo
 
-A small template to use Nuxt with some features already baked in
+Use AI to generate images based on your photos + custom prompts.
 
 ## About
 
-This is a small project to be used as a template of sorts. It comes with the
-following features:
+This project makes use of the following technologies:
 
-- PrimeVue, for UI components
-- Tailwind, for styling
-- Auth0, for authentication
-- PostHog, for analytics
+- [Drizzle](https://drizzle.dev/) for database
+- [Auth0](https://auth0.com/) for authentication
+- [PrimeVue](https://primevue.org/) for UI components
+- [Stripe](https://stripe.com/) for payments
+- [Vercel](https://vercel.com/) for deployment
+- [Replicate](https://replicate.com/) for AI models
+- [PostHog](https://posthog.com/) for analytics
 
 ## Setup
 
@@ -24,6 +26,20 @@ That is it, you can run your development application using:
 
 ```bash
 npm run dev
+```
+
+For local development, I highly recommend using the `ngrok` CLI to expose your
+local server to the internet. This way, you can test your webhooks locally.
+
+```bash
+ngrok http 3000
+```
+
+I also suggest you to make use of the static domain feature in `ngrok`. This
+way, you won't need to update your `.env` file every time you restart `ngrok`.
+
+```bash
+ngrok http --domain=nice-river-production.ngrok-free.app 3000
 ```
 
 ## Configuration
@@ -69,8 +85,7 @@ We are not done yet... You will need to further configure the application to
 work with our application. You should add the following URLs to the list of
 "Allowed Callback URLs" (:warning: they must be separated by commas :warning:):
 
-```
-http://localhost:3000/auth/auth0,
+```conf
 http://localhost:3000/api/auth/callback/auth0,
 https://PATH-TO-YOUR-HOSTED-APP/api/auth/callback/auth0
 ```
@@ -134,6 +149,15 @@ Finally, set the following environment variables:
 NUXT_STRIPE_SECRET_KEY=sk_**********
 NUXT_STRIPE_WEBHOOK_SECRET=whsec_**********
 NUXT_STRIPE_PRICE_ID=price_**********
+```
+
+You also need to the following variables:
+
+```conf
+# Redirects the user to this page after a successful payment
+NUXT_STRIPE_SUCCESS_URL=https://PATH-TO-YOUR-HOSTED-APP/sucesspage
+# Number of credits purchased per checkout
+NUXT_STRIPE_CREDITS_PER_CHECKOUT=5
 ```
 
 #### Developing
