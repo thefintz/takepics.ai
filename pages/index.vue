@@ -14,10 +14,7 @@
 <script lang="ts" setup>
 const { data: session } = useAuth();
 
-const { data, refresh } = await useFetch("/api/images", {
-	default: () => [],
-});
-
+const { data, refresh } = await useFetch("/api/images", { default: () => [] });
 const buy = async () => navigateTo("/api/checkout", { external: true });
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s

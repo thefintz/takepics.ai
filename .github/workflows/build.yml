@@ -32,4 +32,4 @@ jobs:
         with:
           node-version: current
           cache: npm
-      - run: npx vercel --prod
+      - run: npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }}
