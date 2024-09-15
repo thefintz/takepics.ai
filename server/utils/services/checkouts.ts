@@ -110,7 +110,7 @@ export class StripeCheckoutService
 
 export const useServerStripe = (event?: H3Event): Stripe => {
 	const config = useRuntimeConfig(event);
-	return new Stripe(config.stripe.apiToken);
+	return new Stripe(config.stripe.secretKey);
 };
 
 export const createStripeCheckoutService = (

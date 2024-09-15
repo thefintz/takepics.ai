@@ -65,6 +65,8 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		secret: "",
 
+		postgresUrl: "",
+
 		auth0: {
 			issuer: "",
 			clientId: "",
@@ -79,11 +81,11 @@ export default defineNuxtConfig({
 		},
 
 		stripe: {
-			apiToken: "",
-			webhookSecret: "",
 			priceId: "",
-			successUrl: "",
 			creditsPerCheckout: 0,
+			secretKey: "",
+			webhookSecret: "",
+			successUrl: "",
 		},
 
 		// Configurations inside the `public` object are available to the client.

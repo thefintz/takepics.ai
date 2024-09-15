@@ -3,7 +3,7 @@ import type { H3Event } from "h3";
 import type { DB } from "../db/client";
 import { type UserInsert, Users, type UserSelect } from "../db/schema";
 
-export class UserService {
+export class UsersService {
 	private readonly db: DB;
 
 	constructor(db: DB) {
@@ -52,6 +52,6 @@ export class UserService {
 	}
 }
 
-export const createUserService = (tx: DB, event?: H3Event): UserService => {
-	return new UserService(tx);
+export const createUsersService = (tx: DB, event?: H3Event): UsersService => {
+	return new UsersService(tx);
 };

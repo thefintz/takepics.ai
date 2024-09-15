@@ -2,7 +2,7 @@ import { NuxtAuthHandler } from "#auth";
 import type { AuthOptions } from "next-auth";
 import Auth0Provider from "next-auth/providers/auth0";
 import type { UserInsert } from "~/server/utils/db/schema";
-import { createUserService } from "~/server/utils/services/users";
+import { createUsersService } from "~/server/utils/services/users";
 
 const config = useRuntimeConfig();
 
@@ -41,7 +41,7 @@ const options: AuthOptions = {
 				return session;
 			}
 
-			const service = createUserService(db);
+			const service = createUsersService(db);
 			const user = await service.fetch(token.sub);
 
 			return { ...session, user };
@@ -64,7 +64,7 @@ const options: AuthOptions = {
 			};
 
 			await db.transaction(async (tx) => {
-				const service = createUserService(tx);
+				const service = createUsersService(tx);
 
 				if (await service.exists(user.id)) {
 					console.info(`User ${user.id} exists. Updating...`);
