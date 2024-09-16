@@ -1,1 +1,0 @@
-ALTER TABLE "users" RENAME COLUMN "creations_remaining" TO "credits";

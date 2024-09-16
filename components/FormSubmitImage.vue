@@ -20,7 +20,20 @@ const selectedPrompt = ref("");
 const promptOptions = [
     { name: 'Formula 1', prompt: 'ultra realistic photograph of GABRIELNOVAK, male, as Formula 1 race driver' },
     { name: 'Aurora Boreal', prompt: 'GABRIELNOVAK, male, at night at the Northern Lights Aurora Borealis' },
-    { name: 'Policial', prompt: 'GABRIELNOVAK, male, as a SWAT Officer. wearing black swat vest, swat helmet, holding pdw' }
+    {
+      name: 'Policial', prompt: 'GABRIELNOVAK, male, as a SWAT Officer. wearing black swat vest, swat helmet,' +
+            ' holding pdw'
+    },
+    {
+      name: 'Tarot', prompt: 'GABRIELNOVAK, male, with coiled serpents beautiful detailed romantic art nouveau by' +
+            ' alphonse mucha, kay nielsen, yoshitaka amano, and gustav klimt, hauntingly beautiful refined moody' +
+            ' dreamscape'
+    },
+    {
+      name: 'GTA', prompt: 'GABRIELNOVAK, male, gta vice city cover art, borderlands style, celshading, trending on ' +
+            'artstation, by rhads, andreas rocha, rossdraws, makoto shinkai, laurie greasley, lois van baarle,' +
+            ' ilya kuvshinov and greg rutkowski'
+    }
 ];
 
 const emits = defineEmits({

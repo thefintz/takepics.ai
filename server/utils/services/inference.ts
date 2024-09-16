@@ -1,4 +1,4 @@
-import { eq, and } from "drizzle-orm";
+import { eq, and, desc } from "drizzle-orm";
 import type { H3Event } from "h3";
 import Replicate from "replicate";
 import type { DB } from "~/server/utils/db/client";
@@ -41,7 +41,10 @@ export class ReplicateInferenceImageService implements InferenceService {
 		const prediction = await this.replicate.predictions.create({
 			model: this.conf.model,
 			version: this.conf.version,
-			input: { prompt: prompt, hf_lora: lora, output_format: 'png'},
+			input: {
+				prompt: prompt, hf_lora: lora, output_format: 'png', lora_scale: 0.8, aspect_ratio: '2:3',
+				guidance_scale: 3.5, prompt_strength: 0.8, num_inference_steps: 28, disable_safety_checker: true
+			},
 			webhook: this.conf.webhookUrl,
 		});
 		console.info(`Created prediction ${prediction.id} for user ${user.id}`);
@@ -84,7 +87,8 @@ export class ReplicateInferenceImageService implements InferenceService {
 		const items = await this.tx
 			.select()
 			.from(Creations)
-			.where(eq(Creations.userId, userId));
+			.where(eq(Creations.userId, userId))
+			.orderBy(desc(Creations.createdAt));
 		console.info(`Fetched ${items.length} images for user ${userId}`);
 		console.debug(items);
 

@@ -5,50 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1726025737012,
-      "tag": "0000_whole_banshee",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1726025999787,
-      "tag": "0001_careless_vapor",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1726026141141,
-      "tag": "0002_furry_tombstone",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1726027092830,
-      "tag": "0003_nasty_lily_hollister",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1726336724055,
-      "tag": "0004_dapper_dragon_lord",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1726340813651,
-      "tag": "0005_damp_bill_hollister",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1726490921285,
-      "tag": "0006_neat_jazinda",
+      "when": 1726506354278,
+      "tag": "0000_dry_nebula",
       "breakpoints": true
     }
   ]

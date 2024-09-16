@@ -4,7 +4,7 @@ import {createReplicateInferenceService} from "~/server/utils/services/inference
 
 const schema = z.object({
 	prompt: z.string().min(5).max(256),
-	lora: z.string().min(80).max(512)
+	lora: z.string().min(1).max(512)
 });
 
 export default defineEventHandler(async (event): Promise<CreationSelect> => {
