@@ -65,12 +65,10 @@ export const Creations = pgTable(
 	"creations",
 	{
 		id: text("id").primaryKey(),
-		imageId: text("image_id")
+		userId: text("user_id")
 			.notNull()
-			.references(() => Images.id, {
-				onDelete: "cascade",
-				onUpdate: "cascade",
-			}),
+			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),
+		prompt: text("prompt").notNull(),
 		data: jsonb("data").$type<Prediction>().notNull(),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)
@@ -82,7 +80,7 @@ export const Creations = pgTable(
 	},
 	(table) => {
 		return {
-			imageIdIdx: index("creations_image_id_idx").on(table.imageId),
+			userIdIdx: index("creations_user_id_idx").on(table.userId),
 			createdAtIdx: index("creations_created_at_idx").on(
 				table.createdAt.desc(),
 			),

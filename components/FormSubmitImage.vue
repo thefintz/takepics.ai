@@ -1,38 +1,50 @@
 <template>
 	<form @submit.prevent="() => execute()">
-		<InputText v-model="url" name="url" placeholder="Url..." />
-		<InputText v-model="caption" name="url" placeholder="Caption..." />
+    <Dropdown
+        v-model="selectedPrompt"
+        :options="promptOptions"
+        optionLabel="name"
+        optionValue="prompt"
+        placeholder="Selecione o estilo"
+    />
 		<Button label="Generate" type="submit" ></Button>
 	</form>
 </template>
 
 <script lang="ts" setup>
-import type { ImageWithCreation } from "~/server/utils/db/schema";
+import type { CreationSelect } from "~/server/utils/db/schema";
 
-const url = ref("");
-const caption = ref("");
+const selectedPrompt = ref("");
+
+// Temp
+const promptOptions = [
+    { name: 'Formula 1', prompt: 'ultra realistic photograph of GABRIELNOVAK, male, as Formula 1 race driver' },
+    { name: 'Aurora Boreal', prompt: 'GABRIELNOVAK, male, at night at the Northern Lights Aurora Borealis' },
+    { name: 'Policial', prompt: 'GABRIELNOVAK, male, as a SWAT Officer. wearing black swat vest, swat helmet, holding pdw' }
+];
 
 const emits = defineEmits({
 	/**
 	 * Emmited when the image response is ready
 	 */
-	response: (data: ImageWithCreation) => {
+	response: (data: CreationSelect) => {
 		if (!data) return false;
 		return true;
 	},
 });
 
 const postGeneration = async () => {
-	if (!url.value) return;
-	if (!caption.value) return;
+	if (!selectedPrompt.value) return;
 
-	const data: ImageWithCreation = await $fetch("/api/images", {
+  const data: CreationSelect = await $fetch("/api/inference", {
 		method: "POST",
-		body: { url: url.value, caption: caption.value },
+		body: {
+      prompt: selectedPrompt.value,
+      lora: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar"
+    },
 	});
 
-	url.value = "";
-	caption.value = "";
+  selectedPrompt.value = ""
 	emits("response", data);
 
 	return data;

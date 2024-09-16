@@ -76,6 +76,7 @@ export default defineNuxtConfig({
 		replicate: {
 			apiToken: "",
 			model: "",
+			version: "",
 			webhookSecret: "",
 			webhookUrl: "",
 		},
@@ -93,7 +94,7 @@ export default defineNuxtConfig({
 		public: {
 			posthog: {
 				// Uncomment this to disable PostHog
-				// disabled: true,
+				disabled: true,
 			},
 		},
 	},
