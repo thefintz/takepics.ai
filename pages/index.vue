@@ -2,12 +2,16 @@
   <div class="flex flex-col justify-center gap-4">
     <Card>
       <template #content>
-        <p>Creations remaining: {{ session?.user?.credits }}</p>
+        <div class="flex items-center gap-4 mb-4">
+          <span>Credits: {{ session?.user?.credits }}</span>
+          <button @click="() => buy()" class="text-sky-400 text-sm">Buy Credits (1 credit = 1 image)</button>
+        </div>
         <FormSubmitImage @response="() => refresh()" />
-        <button @click="() => buy()">Buy</button>
       </template>
     </Card>
-    <ImageCard v-for="i in data" :key="i.id" :image="i" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <ImageCard v-for="i in data" :key="i.id" :image="i" />
+    </div>
   </div>
 </template>
 
@@ -18,5 +22,9 @@ const { data, refresh } = await useFetch("/api/inference", { default: () => [] }
 const buy = async () => navigateTo("/api/checkout", { external: true });
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
-useTimeoutFn(() => interval.pause(), 100_000); // stops refresing after 100s
+useTimeoutFn(() => interval.pause(), 100_000); // stops refreshing after 100s
 </script>
+
+<style scoped>
+/* Optional: Scoped styles if you need any additional specific styling */
+</style>
