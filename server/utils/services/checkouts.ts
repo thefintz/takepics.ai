@@ -17,8 +17,7 @@ interface StripeCheckoutServiceConf {
 }
 
 export class StripeCheckoutService
-	implements CheckoutService<Stripe.CheckoutSessionCompletedEvent>
-{
+	implements CheckoutService<Stripe.CheckoutSessionCompletedEvent> {
 	private readonly stripe: Stripe;
 	private readonly tx: DB;
 	private readonly conf: StripeCheckoutServiceConf;
@@ -40,7 +39,7 @@ export class StripeCheckoutService
 
 		console.info("Fetching new checkout for user", user.id);
 		const sessionPromise = this.stripe.checkout.sessions.create({
-			mode: "payment",
+			mode: "subscription",
 			line_items: [{ price: this.conf.priceId, quantity: 1 }],
 			success_url: this.conf.successUrl,
 			metadata: {
