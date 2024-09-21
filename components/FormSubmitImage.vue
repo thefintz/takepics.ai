@@ -1,54 +1,66 @@
 <template>
   <form @submit.prevent="() => execute()">
-    <Dropdown class=" min-w-60 max-w-full " v-model="selectedPrompt" :options="promptOptions" optionLabel="name"
-      optionValue="prompt" placeholder="Select style" />
+    <!-- First Dropdown: Specify optionValue=name -->
+    <Dropdown
+      class="min-w-60 max-w-full"
+      v-model="selectedCategory"
+      :options="categories"
+      optionLabel=name
+      optionValue=name
+      placeholder="Select category"
+      @change="onCategoryChange"
+    />
+    
+    <!-- Second Dropdown: Remains mostly unchanged -->
+    <Dropdown
+      class="min-w-60 max-w-full ml-4"
+      v-model="selectedPrompt"
+      :options="filteredPrompts"
+      optionLabel=name
+      optionValue=prompt
+      placeholder="Select style"
+      :disabled="!selectedCategory"
+    />
+    
     <Button class="ml-4" label="Create Images" type="submit"></Button>
   </form>
 </template>
 
 <script lang="ts" setup>
+import { computed, ref } from 'vue';
 import type { CreationSelect } from "~/server/utils/db/schema";
 
-const selectedPrompt = ref("");
+// State Variables
+const selectedCategory = ref<string | null>(null);
+const selectedPrompt = ref<string>("");
 
-// Temp
-const promptOptions = [
-  {
-    name: 'Formula 1',
-    prompt: 'ultra realistic photograph of GABRIELNOVAK as Formula 1 race driver. Male, green eyes, visible face.'
-  },
-  {
-    name: 'Aurora Borealis',
-    prompt: 'close-up photo of GABRIELNOVAK at night at the Northern Lights Aurora Borealis. Male, green eyes, visible face.'
-  },
-  {
-    name: 'SWAT Officer',
-    prompt: 'GABRIELNOVAK as a SWAT Officer. Wearing black swat vest written "SWAT", SWAT helmet, holding PDW, wearing black gloves. Male, green eyes, visible face'
-  },
-  {
-    name: 'Art Nouveau Card',
-    prompt: 'GABRIELNOVAK with coiled serpents beautiful detailed romantic art nouveau by alphonse mucha, kay nielsen, yoshitaka amano, and gustav klimt, hauntingly beautiful refined moody dreamscape. Male, green eyes, visible face'
-  },
-  {
-    name: 'Tarot Card',
-    prompt: 'GABRIELNOVAK as tarot card. Written "Gabriel Novak" in the bottom center of the card.  Male, green eyes, visible face'
-  },
-  {
-    name: 'GTA',
-    prompt: 'GABRIELNOVAK gta vice city cover art, borderlands style, celshading, trending on artstation, by rhads, andreas rocha, rossdraws, makoto shinkai, laurie greasley, lois van baarle, ilya kuvshinov and greg rutkowski. Male, green eyes. Wide angle.'
-  }
-];
+import promptOptions from '~/assets/promptOptions.json';
 
-const emits = defineEmits({
-  /**
-   * Emmited when the image response is ready
-   */
-  response: (data: CreationSelect) => {
-    if (!data) return false;
-    return true;
-  },
+// Compute unique categories
+const categories = computed(() => {
+  const uniqueCategories = [...new Set(promptOptions.map(option => option.category))];
+  return uniqueCategories.map(category => ({ name: category }));
 });
 
+// Update filteredPrompts based on selectedCategory
+const filteredPrompts = computed(() => {
+  if (selectedCategory.value) {
+    return promptOptions.filter(option => option.category === selectedCategory.value);
+  }
+  return [];
+});
+
+// Handle category change
+const onCategoryChange = () => {
+  selectedPrompt.value = "";
+};
+
+// Define Emits
+const emits = defineEmits<{
+  (e: 'response', data: CreationSelect): void;
+}>();
+
+// Post Generation Function
 const postGeneration = async () => {
   if (!selectedPrompt.value) return;
 
@@ -60,11 +72,12 @@ const postGeneration = async () => {
     },
   });
 
-  selectedPrompt.value = ""
+  selectedPrompt.value = "";
   emits("response", data);
 
   return data;
 };
 
+// Execute Async Data
 const { execute } = await useAsyncData(postGeneration, { immediate: false });
 </script>
