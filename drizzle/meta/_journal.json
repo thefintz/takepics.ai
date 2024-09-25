@@ -8,6 +8,13 @@
       "when": 1726506354278,
       "tag": "0000_dry_nebula",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1727271216507,
+      "tag": "0001_magenta_madrox",
+      "breakpoints": true
     }
   ]
 }

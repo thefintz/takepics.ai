@@ -3,7 +3,10 @@
 		<Card class="w-full">
 			<template #content>
 				<p class="text-sm text-gray-400"> {{ formattedDate }} </p>
-				<NuxtImg :src="image.data.output?.at(0)" class="w-full h-auto object-cover" />
+				<NuxtImg v-if="image.url" :src="image.url" class="w-full h-auto object-cover" />
+        <div v-else class="w-full h-auto flex justify-center items-center">
+					<img src="https://media.tenor.com/hQz0Kl373E8AAAAi/loading-waiting.gif" alt="Loading" class="object-cover">
+				</div>
 			</template>
 		</Card>
 
@@ -13,7 +16,7 @@
 				<h2 class="text-lg font-semibold">Image Preview</h2>
 			</template>
 			<div class="flex justify-center items-center">
-				<NuxtImg :src="image.data.output?.at(0)" class="max-w-full h-auto object-cover" />
+				<NuxtImg v-if="image.url" :src="image.url" class="max-w-full h-auto object-cover" />
 			</div>
 			<template #footer>
 				<Button label="Close" class="mt-4" @click="isModalVisible = false" />

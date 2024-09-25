@@ -66,6 +66,8 @@ export default defineNuxtConfig({
 		secret: "",
 
 		postgresUrl: "",
+		supabaseUrl: "",
+		supabaseKey: "",
 
 		auth0: {
 			issuer: "",

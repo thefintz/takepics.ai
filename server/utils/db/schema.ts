@@ -69,6 +69,7 @@ export const Creations = pgTable(
 			.notNull()
 			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),
 		prompt: text("prompt").notNull(),
+		url: text("url"),
 		data: jsonb("data").$type<Prediction>().notNull(),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)

@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 import type { H3Event } from "h3";
 import { type Prediction, validateWebhook } from "replicate";
+import {randomUUID} from "crypto";
 
 const assertValidWebhook = async (event: H3Event): Promise<Prediction> => {
 	const config = useRuntimeConfig();
@@ -79,10 +80,28 @@ export default defineEventHandler(async (event): Promise<string> => {
 	console.info(`Received event: ${prediction.id} - ${prediction.status}`);
 	console.debug(prediction);
 
+	const response = await fetch(prediction.output?.at(0));
+	const imageBuffer = await response.arrayBuffer();
+	const uniqueFileName = randomUUID();
+	const filePath = `public/${uniqueFileName}.png`;
+	const { data, error } = await supabase
+		  .storage
+		  .from('generated-images')
+		  .upload(filePath, Buffer.from(imageBuffer), {
+			cacheControl: '3600',
+			upsert: false
+		  });
+
+	if (!data) {
+		return "Erro"
+	}
+
+ 	const publicURL = `${process.env.SUPABASE_URL}/storage/v1/object/public/generated-images/${filePath}`;
+
 	console.info("Updating creation", prediction.id);
 	await db
 		.update(Creations)
-		.set({ data: prediction })
+		.set({ data: prediction, url: publicURL })
 		.where(eq(Creations.id, prediction.id));
 	console.info("Updated creation", prediction.id);
 
