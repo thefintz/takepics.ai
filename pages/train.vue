@@ -1,15 +1,7 @@
 <template>
-  <Card>
-    <template #header>
-      ToDo
-    </template>
-
-    <template #title> ToDo </template>
-
-    <template #content>
-      <pre> ToDo </pre>
-    </template>
-  </Card>
+  <div>
+    <TrainForm />
+  </div>
 </template>
 
 <script lang="ts" setup>

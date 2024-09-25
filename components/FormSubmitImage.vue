@@ -68,7 +68,8 @@ const postGeneration = async () => {
     method: "POST",
     body: {
       prompt: selectedPrompt.value,
-      lora: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar"
+      // lora: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar" // Novak
+      lora: "https://replicate.delivery/yhqm/SeiW8UpnSwz5QaopW3VfFeb49fZbcvTpeNmkAc8Em8FzgC4bC/trained_model.tar" // Dantas
     },
   });
 
