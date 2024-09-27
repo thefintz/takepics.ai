@@ -90,8 +90,10 @@
 <script setup>
 import { useToast } from 'primevue/usetoast';
 import { computed, ref } from 'vue';
+import { useTrainingService } from '~/composables/useTrainingService';
 
 const toast = useToast();
+const trainingService = useTrainingService();
 
 const uploadedImages = ref([]);
 const selectedGender = ref('');
@@ -144,27 +146,14 @@ const startTraining = async () => {
 
   try {
     const trainingData = {
-      version: "YOUR_MODEL_VERSION",
-      input: {
-        images: uploadedImages.value,
-        training_type: selectedTrainingType.value,
-        name: trainingName.value,
-      },
+      images: uploadedImages.value,
+      training_type: selectedTrainingType.value,
+      name: trainingName.value,
+      gender: selectedTrainingType.value === 'person' ? selectedGender.value : null,
+      eye_color: selectedTrainingType.value === 'person' ? selectedEyeColor.value.value : null,
     };
 
-    if (selectedTrainingType.value === 'person') {
-      trainingData.input.gender = selectedGender.value;
-      trainingData.input.eye_color = selectedEyeColor.value.value;
-    }
-
-    const response = await fetch('https://api.replicate.com/v1/trainings', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Token YOUR_REPLICATE_API_TOKEN',
-      },
-      body: JSON.stringify(trainingData),
-    });
+    const response = await trainingService.startTraining(trainingData);
 
     if (response.ok) {
       trainingStarted.value = true;

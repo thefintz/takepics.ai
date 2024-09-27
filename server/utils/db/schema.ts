@@ -1,11 +1,13 @@
 import { sql } from "drizzle-orm";
 import {
+	boolean,
 	index,
 	integer,
 	jsonb,
 	pgTable,
 	text,
 	timestamp,
+	varchar,
 } from "drizzle-orm/pg-core";
 import type { Prediction } from "replicate";
 import type { Stripe } from "stripe";
@@ -125,15 +127,48 @@ export const Checkouts = pgTable(
 	},
 );
 
+export const Trainings = pgTable(
+	"trainings",
+	{
+		id: text("id").primaryKey().default(sql`gen_random_uuid()`),
+		userId: text("user_id")
+			.notNull()
+			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),
+		modelName: varchar("model_name", { length: 20 }).notNull(),
+		zipUrl: text("zip_url").notNull(),
+		modelUrl: text("model_url"),
+		isPersonModel: boolean("is_person_model").notNull(),
+		eyeColor: varchar("eye_color", { length: 20 }),
+		gender: varchar("gender", { length: 20 }),
+		status: varchar("status", { length: 20 }).notNull().default("pending"),
+		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
+			.default(sql`now()`)
+			.notNull(),
+		updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
+			.default(sql`now()`)
+			.notNull()
+			.$onUpdate(() => sql`now()`),
+	},
+	(table) => {
+		return {
+			userIdIdx: index("trainings_user_id_idx").on(table.userId),
+			createdAtIdx: index("trainings_created_at_idx").on(table.createdAt.desc()),
+			updatedAtIdx: index("trainings_updated_at_idx").on(table.updatedAt.desc()),
+		};
+	},
+);
+
 export type UserSelect = typeof Users.$inferSelect;
 export type ImageSelect = typeof Images.$inferSelect;
 export type CreationSelect = typeof Creations.$inferSelect;
 export type CheckoutSelect = typeof Checkouts.$inferSelect;
+export type TrainingSelect = typeof Trainings.$inferSelect;
 
 export type UserInsert = typeof Users.$inferInsert;
 export type ImageInsert = typeof Images.$inferInsert;
 export type CreationInsert = typeof Creations.$inferInsert;
 export type CheckoutInsert = typeof Checkouts.$inferInsert;
+export type TrainingInsert = typeof Trainings.$inferInsert;
 
 // Utility interfaces
 export interface ImageWithCreation extends ImageSelect {

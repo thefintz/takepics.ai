@@ -81,6 +81,7 @@ export default defineNuxtConfig({
 			version: "",
 			webhookSecret: "",
 			webhookUrl: "",
+			webhookUrlTrainings: ""
 		},
 
 		stripe: {

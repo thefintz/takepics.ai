@@ -4,7 +4,7 @@ import { type Prediction, validateWebhook } from "replicate";
 import {randomUUID} from "crypto";
 
 const assertValidWebhook = async (event: H3Event): Promise<Prediction> => {
-	const config = useRuntimeConfig();
+	const config = useRuntimeConfig(event);
 	const secret = config.replicate.webhookSecret;
 
 	if (!secret) {
