@@ -1,76 +1,150 @@
-import { eq } from 'drizzle-orm';
-import type { DB } from '../db/client';
-import type { TrainingInsert } from '../db/schema';
-import { Trainings } from '../db/schema';
-import { useServerReplicateClient } from './inference';
+import { desc, eq } from "drizzle-orm";
+import type { H3Event } from "h3";
+import type Replicate from "replicate";
+import type { Model, Training } from "replicate";
+import type { DB } from "../db/client";
+import type { TrainingSelect } from "../db/schema";
+import { Trainings } from "../db/schema";
+import { useServerReplicateClient } from "./inference";
+import { useServerStorageService, type StorageService } from "./storage";
 
 export class TrainingService {
-  private readonly db: DB;
+	private readonly db: DB;
+	private readonly owner: string;
+	private readonly client: Replicate;
+	private readonly storage: StorageService;
+	private readonly webhookUrl: string;
 
-  constructor(db: DB) {
-    this.db = db;
-  }
+	constructor(
+		db: DB,
+		client: Replicate,
+		owner: string,
+		storage: StorageService,
+		webhookUrl: string,
+	) {
+		this.db = db;
+		this.client = client;
+		this.owner = owner;
+		this.storage = storage;
+		this.webhookUrl = webhookUrl;
+	}
 
-  async createReplicateModel(modelName: string): Promise<string> {
-    const replicate = useServerReplicateClient();
+	async model(name: string): Promise<Model> {
+		console.info("Creating model:", name);
+		const model = await this.client.models.create(this.owner, name, {
+			visibility: "public",
+			// replicate ignora pra esse modelo (Flux) e direciona pra H100, que
+			// ainda não é opção na API.
+			hardware: "gpu-a100-large",
+		});
+		console.info("Created model:", model.name);
+		console.debug(model);
+		return model;
+	}
 
-    const response = await replicate.models.create(
-      // process.env.REPLICATE_USERNAME,
-      "model owner", modelName, {
-      visibility: "public",
-      hardware: "gpu-a100-large" // replicate ignora pra esse modelo (Flux) e direciona pra H100, que ainda não é opção na API.
-    });
+	async start(user: UserSelect, zip: string): Promise<TrainingSelect> {
+		// Create a new model for this training
+		const date = new Date().getTime();
+		const id = user.id.replace("|", "_");
 
-    return response.name;
-  }
+		const name = `training_${date}_${id}`;
+		const fileName = `${name}.zip`;
+		const model = await this.model(name);
 
-  async startTraining(trainingData: TrainingInsert): Promise<TrainingInsert> {
-    const replicate = useServerReplicateClient();
+		const upload = await this.storage.uploadZip(fileName, zip);
 
-    // Create a new model for this training
-    const modelName = `training-${Date.now()}`; // name should be unique, maybe random? or useremail_timestamp? or...?
-    const newModelName = await this.createReplicateModel(modelName);
+		// Start training on Replicate
+		console.info("Starting training:", name);
+		const response = await this.client.trainings.create(
+			"ostris",
+			"flux-dev-lora-trainer",
+			"6f1e7ae9f285cfae6e12f8c18618418cfefe24b07172a17ff10a64fb23a6b772",
+			{
+				destination: `${this.owner}/${name}`,
+				webhook: `${this.webhookUrl}/training`,
+				input: {
+					steps: 10,
+					lora_rank: 16,
+					optimizer: "adamw8bit",
+					batch_size: 1,
+					resolution: "512,768,1024",
+					autocaption: true,
+					input_images: upload.url.publicUrl,
+					trigger_word: "TOK",
+					learning_rate: 0.0004,
+					wandb_project: "flux_train_replicate",
+					wandb_save_interval: 100,
+					caption_dropout_rate: 0.05,
+					cache_latents_to_disk: false,
+					wandb_sample_interval: 100,
+				},
+			},
+		);
+		console.info("Started training:", response.id);
+		console.debug(response);
 
-    // Start training on Replicate
-    const replicateResponse = await replicate.trainings.create(
-      "model owner", "model name", "version id",
-      {
-        destination: `${process.env.REPLICATE_USERNAME}/${newModelName}`,
-        input: { training_data: "..." },
-        webhook: "https://example.com/replicate-webhook",
-      });
+		// Save training data to database
+		console.info("Saving training to database:", response.id);
+		const [training] = await this.db
+			.insert(Trainings)
+			.values({
+				id: response.id,
+				userId: user.id,
+				zipUrl: upload.url.publicUrl,
+				model: model,
+				training: response,
+			})
+			.returning();
+		console.info("Saved training to database:", training.id);
+		console.debug(training);
 
-    // Save training data to database
-    const [training] = await this.db
-      .insert(Trainings)
-      .values({
-        id: replicateResponse.id,
-        ...trainingData,
-        status: replicateResponse.status,
-        // replicateModelName: newModelName,
-        // replicateResponse: JSON.stringify(replicateResponse),
-        // salvar toda a resposta do replicate no banco
-        // Add any other necessary fields
-      })
-      .returning();
+		return training;
+	}
 
-    return training;
-  }
+	async list(user: UserSelect): Promise<TrainingSelect[]> {
+		console.info("Fetching trainings for user:", user.id);
+		const trainings = await this.db
+			.select()
+			.from(Trainings)
+			.where(eq(Trainings.userId, user.id))
+			.orderBy(desc(Trainings.createdAt));
+		const log = `Fetched ${trainings.length} trainings for user: ${user.id}`;
+		console.info(log);
+		console.debug(trainings);
 
-  async updateTrainingStatus(id: string, status: string, modelUrl?: string): Promise<void> {
-    await this.db
-      .update(Trainings)
-      .set({ status, modelUrl })
-      .where(eq(Trainings.id, id));
-  }
+		return trainings;
+	}
 
-  async saveZipToStorage(zipFile: File): Promise<string> {
-    // Implement Supabase storage upload logic here
-    // Return the URL of the uploaded file
-    return 'https://example.com/path/to/uploaded/file.zip';
-  }
+	async fetch(id: string): Promise<Training> {
+		return await this.client.trainings.get(id);
+	}
+
+	async update(training: Training): Promise<TrainingSelect> {
+		console.info("Updating training:", training.id);
+		const [updated] = await this.db
+			.update(Trainings)
+			.set({ training })
+			.where(eq(Trainings.id, training.id))
+			.returning();
+		console.info("Updated training:", updated.id);
+		console.debug(updated);
+		return updated;
+	}
 }
 
-export const createTrainingService = (db: DB): TrainingService => {
-  return new TrainingService(db);
+export const createTrainingService = (
+	db: DB,
+	event?: H3Event,
+): TrainingService => {
+	const config = useRuntimeConfig(event);
+	const replicate = useServerReplicateClient(event);
+	const storage = useServerStorageService(event);
+
+	return new TrainingService(
+		db,
+		replicate,
+		config.replicate.username,
+		storage,
+		config.replicate.webhookUrl,
+	);
 };

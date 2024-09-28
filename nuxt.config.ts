@@ -66,6 +66,7 @@ export default defineNuxtConfig({
 		secret: "",
 
 		postgresUrl: "",
+
 		supabaseUrl: "",
 		supabaseKey: "",
 
@@ -76,12 +77,13 @@ export default defineNuxtConfig({
 		},
 
 		replicate: {
+			username: "",
 			apiToken: "",
 			model: "",
 			version: "",
 			webhookSecret: "",
 			webhookUrl: "",
-			webhookUrlTrainings: ""
+			webhookUrlTrainings: "",
 		},
 
 		stripe: {

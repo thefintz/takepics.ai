@@ -1,8 +1,5 @@
 <template>
   <div>
-    <TrainForm />
+    <TrainFormContainer />
   </div>
 </template>
-
-<script lang="ts" setup>
-</script>

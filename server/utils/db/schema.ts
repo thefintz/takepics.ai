@@ -1,15 +1,13 @@
 import { sql } from "drizzle-orm";
 import {
-	boolean,
 	index,
 	integer,
 	jsonb,
 	pgTable,
 	text,
 	timestamp,
-	varchar,
 } from "drizzle-orm/pg-core";
-import type { Prediction } from "replicate";
+import type { Model, Prediction, Training } from "replicate";
 import type { Stripe } from "stripe";
 
 export const Users = pgTable(
@@ -134,13 +132,9 @@ export const Trainings = pgTable(
 		userId: text("user_id")
 			.notNull()
 			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),
-		modelName: varchar("model_name", { length: 20 }).notNull(),
 		zipUrl: text("zip_url").notNull(),
-		modelUrl: text("model_url"),
-		isPersonModel: boolean("is_person_model").notNull(),
-		eyeColor: varchar("eye_color", { length: 20 }),
-		gender: varchar("gender", { length: 20 }),
-		status: varchar("status", { length: 20 }).notNull().default("pending"),
+		model: jsonb("model").$type<Model>().notNull(),
+		training: jsonb("training").$type<Training>().notNull(),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)
 			.notNull(),
@@ -152,8 +146,12 @@ export const Trainings = pgTable(
 	(table) => {
 		return {
 			userIdIdx: index("trainings_user_id_idx").on(table.userId),
-			createdAtIdx: index("trainings_created_at_idx").on(table.createdAt.desc()),
-			updatedAtIdx: index("trainings_updated_at_idx").on(table.updatedAt.desc()),
+			createdAtIdx: index("trainings_created_at_idx").on(
+				table.createdAt.desc(),
+			),
+			updatedAtIdx: index("trainings_updated_at_idx").on(
+				table.updatedAt.desc(),
+			),
 		};
 	},
 );

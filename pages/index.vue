@@ -18,8 +18,11 @@
 <script lang="ts" setup>
 const { data: session } = useAuth();
 
-const { data, refresh } = await useFetch("/api/inference", { default: () => [] });
+const { data, refresh } = await useFetch("/api/inference", {
+	default: () => [],
+});
 const buy = async () => navigateTo("/api/checkout", { external: true });
+console.log(data.value);
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 100_000); // stops refreshing after 100s
