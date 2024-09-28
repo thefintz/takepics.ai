@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS "creations" (
 	"id" text PRIMARY KEY NOT NULL,
 	"user_id" text NOT NULL,
 	"prompt" text NOT NULL,
+	"url" text,
 	"data" jsonb NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
@@ -22,6 +23,20 @@ CREATE TABLE IF NOT EXISTS "images" (
 	"user_id" text NOT NULL,
 	"url" text NOT NULL,
 	"caption" text DEFAULT '' NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "trainings" (
+	"id" text PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"user_id" text NOT NULL,
+	"model_name" varchar(20) NOT NULL,
+	"zip_url" text NOT NULL,
+	"model_url" text,
+	"is_person_model" boolean NOT NULL,
+	"eye_color" varchar(20),
+	"gender" varchar(20),
+	"status" varchar(20) DEFAULT 'pending' NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -55,6 +70,12 @@ EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "trainings" ADD CONSTRAINT "trainings_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE cascade;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "checkouts_created_at_idx" ON "checkouts" USING btree ("created_at" DESC NULLS LAST);--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "checkouts_updated_at_idx" ON "checkouts" USING btree ("updated_at" DESC NULLS LAST);--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "creations_user_id_idx" ON "creations" USING btree ("user_id");--> statement-breakpoint
@@ -63,6 +84,9 @@ CREATE INDEX IF NOT EXISTS "creations_updated_at_idx" ON "creations" USING btree
 CREATE INDEX IF NOT EXISTS "images_user_id_idx" ON "images" USING btree ("user_id");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "images_created_at_idx" ON "images" USING btree ("created_at" DESC NULLS LAST);--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "images_updated_at_idx" ON "images" USING btree ("updated_at" DESC NULLS LAST);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "trainings_user_id_idx" ON "trainings" USING btree ("user_id");--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "trainings_created_at_idx" ON "trainings" USING btree ("created_at" DESC NULLS LAST);--> statement-breakpoint
+CREATE INDEX IF NOT EXISTS "trainings_updated_at_idx" ON "trainings" USING btree ("updated_at" DESC NULLS LAST);--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "users_email_idx" ON "users" USING btree ("email");--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "users_created_at_idx" ON "users" USING btree ("created_at" DESC NULLS LAST);--> statement-breakpoint
 CREATE INDEX IF NOT EXISTS "users_updated_at_idx" ON "users" USING btree ("updated_at" DESC NULLS LAST);

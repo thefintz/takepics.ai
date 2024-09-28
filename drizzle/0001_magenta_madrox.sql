@@ -1,1 +1,0 @@
-ALTER TABLE "creations" ADD COLUMN "url" text;

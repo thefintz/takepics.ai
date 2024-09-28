@@ -1,9 +1,9 @@
 import { z } from "zod";
+import { createReplicateInferenceService } from "~/server/utils/services/inference";
 import { createUsersService } from "~/server/utils/services/users";
-import {createReplicateInferenceService} from "~/server/utils/services/inference";
 
 const schema = z.object({
-	prompt: z.string().min(5).max(256),
+	prompt: z.string().min(5).max(512),
 	lora: z.string().min(1).max(512)
 });
 
