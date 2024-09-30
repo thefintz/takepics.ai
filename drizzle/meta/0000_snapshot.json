@@ -1,5 +1,5 @@
 {
-  "id": "5817f948-e129-43a2-8a42-6f7696a5b0c8",
+  "id": "2458166b-e629-4528-bab3-bf7d062ba93f",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -344,48 +344,23 @@
           "primaryKey": false,
           "notNull": true
         },
-        "model_name": {
-          "name": "model_name",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true
-        },
         "zip_url": {
           "name": "zip_url",
           "type": "text",
           "primaryKey": false,
           "notNull": true
         },
-        "model_url": {
-          "name": "model_url",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "is_person_model": {
-          "name": "is_person_model",
-          "type": "boolean",
+        "model": {
+          "name": "model",
+          "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
-        "eye_color": {
-          "name": "eye_color",
-          "type": "varchar(20)",
+        "training": {
+          "name": "training",
+          "type": "jsonb",
           "primaryKey": false,
-          "notNull": false
-        },
-        "gender": {
-          "name": "gender",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "status": {
-          "name": "status",
-          "type": "varchar(20)",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "'pending'"
+          "notNull": true
         },
         "created_at": {
           "name": "created_at",

@@ -30,13 +30,9 @@ CREATE TABLE IF NOT EXISTS "images" (
 CREATE TABLE IF NOT EXISTS "trainings" (
 	"id" text PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"user_id" text NOT NULL,
-	"model_name" varchar(20) NOT NULL,
 	"zip_url" text NOT NULL,
-	"model_url" text,
-	"is_person_model" boolean NOT NULL,
-	"eye_color" varchar(20),
-	"gender" varchar(20),
-	"status" varchar(20) DEFAULT 'pending' NOT NULL,
+	"model" jsonb NOT NULL,
+	"training" jsonb NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );

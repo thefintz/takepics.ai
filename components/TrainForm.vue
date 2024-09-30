@@ -36,7 +36,7 @@
         accept="image/*"
         :maxFileSize="10000000"
         chooseLabel="Select Images"
-        :showUploadButton="false"
+        :showUploadButton="true"
         @select="onFileSelected"
       />
     <Button label="Train" @click="submit" />

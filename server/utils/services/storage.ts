@@ -1,6 +1,5 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import type { H3Event } from "h3";
-import { toBase64 } from "../common";
 
 export class StorageService {
 	private readonly supabase: SupabaseClient;
@@ -11,7 +10,7 @@ export class StorageService {
 
 	async url(id: string) {
 		console.info("Getting public URL for file:", id);
-		const { data } = this.supabase.storage.from("aiphoto-dev").getPublicUrl(id);
+		const { data } = this.supabase.storage.from("generated-images").getPublicUrl(id);
 		console.info(`Got public URL ${data.publicUrl} for file: ${id}`);
 		console.debug(data);
 		return data;
@@ -25,7 +24,7 @@ export class StorageService {
 		console.info("Uploading file to:", path);
 		console.debug("File size:", data.length);
 		const { data: upload, error } = await this.supabase.storage
-			.from("aiphoto-dev")
+			.from("generated-images")
 			.upload(path, data, opts);
 		if (error) throw error;
 		console.info("Uploaded file:", upload.id);
@@ -39,20 +38,19 @@ export class StorageService {
 		const file = await this.upload(path, buffer, {
 			contentType: "application/zip",
 		});
-		const url = await this.url(file.id);
+		const url = await this.url(path);
 		return { file, url };
 	}
 
-	async uploadImage(path: string, data: Blob) {
-		const base64 = await toBase64(data);
-		const file = await this.upload(path, base64, { contentType: "image/jpeg" });
-		const url = await this.url(file.id);
+	async uploadImage(path: string, data: Buffer) {
+		const file = await this.upload(path, data, { contentType: "image/png" });
+		const url = await this.url(path);
 		return { file, url };
 	}
 }
 
 export const useServerStorageService = (event?: H3Event) => {
 	const config = useRuntimeConfig(event);
-	const client = createClient(config.supabaseUrl, config.supabaseKey);
+	const client = createClient(config.supabase.url, config.supabase.key);
 	return new StorageService(client);
 };

@@ -105,11 +105,16 @@ export class ReplicateInferenceImageService implements InferenceService {
 		}
 
 		console.info(`Fetching image ${url}`);
-		const blob: Blob = await $fetch(url, { responseType: "blob" });
+		const response = await fetch(url);
+		if (!response.ok) {
+			throw new Error(`Failed to fetch image: ${response.statusText}`);
+		}
+		const arrayBuffer = await response.arrayBuffer();
+		const buffer = Buffer.from(arrayBuffer);
 		console.info(`Fetched image ${url}`);
-		console.debug("Image size:", blob.size);
+		console.debug("Image size:", buffer.length);
 
-		return await this.storage.uploadImage(`image_${prediction.id}.png`, blob);
+		return await this.storage.uploadImage(`image_${prediction.id}.png`, buffer);
 	}
 
 	async update(data: Prediction): Promise<CreationSelect> {
