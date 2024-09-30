@@ -69,11 +69,11 @@ model.value = models.value?.[0]?.id ?? null;
 // Post Generation Function
 const postGeneration = async () => {
 	if (!model.value) return;
-	if (!prompt.value) return;
+	if (!selectedPrompt.value) return;
 
 	const data: CreationSelect = await $fetch("/api/inference", {
 		method: "POST",
-		body: { prompt: prompt.value, model: model.value },
+		body: { prompt: selectedPrompt.value, model: model.value },
 	});
 
 	model.value = null;
