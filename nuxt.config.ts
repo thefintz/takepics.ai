@@ -69,7 +69,8 @@ export default defineNuxtConfig({
 
 		supabase: {
 			url: "",
-			key: ""
+			key: "",
+			bucket: ""
 		},
 
 		auth0: {

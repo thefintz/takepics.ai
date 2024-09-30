@@ -3,14 +3,16 @@ import type { H3Event } from "h3";
 
 export class StorageService {
 	private readonly supabase: SupabaseClient;
+	private readonly bucket: string;
 
-	constructor(supabase: SupabaseClient) {
+	constructor(supabase: SupabaseClient, bucket: string) {
 		this.supabase = supabase;
+		this.bucket = bucket;
 	}
 
 	async url(id: string) {
 		console.info("Getting public URL for file:", id);
-		const { data } = this.supabase.storage.from("generated-images").getPublicUrl(id);
+		const { data } = this.supabase.storage.from(this.bucket).getPublicUrl(id);
 		console.info(`Got public URL ${data.publicUrl} for file: ${id}`);
 		console.debug(data);
 		return data;
@@ -24,7 +26,7 @@ export class StorageService {
 		console.info("Uploading file to:", path);
 		console.debug("File size:", data.length);
 		const { data: upload, error } = await this.supabase.storage
-			.from("generated-images")
+			.from(this.bucket)
 			.upload(path, data, opts);
 		if (error) throw error;
 		console.info("Uploaded file:", upload.id);
@@ -52,5 +54,5 @@ export class StorageService {
 export const useServerStorageService = (event?: H3Event) => {
 	const config = useRuntimeConfig(event);
 	const client = createClient(config.supabase.url, config.supabase.key);
-	return new StorageService(client);
+	return new StorageService(client, config.supabase.bucket);
 };
