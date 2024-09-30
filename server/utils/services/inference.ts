@@ -59,8 +59,8 @@ export class ReplicateInferenceImageService implements InferenceService {
 
 		console.info(`Creating prediction for training ${training.id}`);
 		const prediction = await this.replicate.predictions.create({
-			model: training.id,
-			version: training.version,
+			model: this.conf.model,
+			version: this.conf.version,
 			webhook: `${this.conf.webhookUrl}/inference`,
 			input: {
 				prompt: prompt,
