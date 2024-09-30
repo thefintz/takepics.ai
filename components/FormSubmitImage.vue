@@ -1,23 +1,25 @@
 <template>
   <form @submit.prevent="() => execute()">
-    <!-- First Dropdown: Specify optionValue=name -->
-    <Dropdown
+    <!-- First Select: Replace Dropdown with Select -->
+    <Select
       class="min-w-60 max-w-full"
+      filled
       v-model="selectedCategory"
       :options="categories"
-      optionLabel=name
-      optionValue=name
+      optionLabel="name"
+      optionValue="name"
       placeholder="Select category"
       @change="onCategoryChange"
     />
     
-    <!-- Second Dropdown: Remains mostly unchanged -->
-    <Dropdown
+    <!-- Second Select: Replace Dropdown with Select -->
+    <Select
       class="min-w-60 max-w-full ml-4"
+      filled
       v-model="selectedPrompt"
-      :options="filteredPrompts"
-      optionLabel=name
-      optionValue=prompt
+      :options="getFilteredPrompts()"
+      optionLabel="name"
+      optionValue="prompt"
       placeholder="Select style"
       :disabled="!selectedCategory"
     />
@@ -30,27 +32,24 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import promptOptions from '~/assets/promptOptions.json';
 import type { CreationSelect } from "~/server/utils/db/schema";
 
 // State Variables
 const selectedCategory = ref<string | null>(null);
 const selectedPrompt = ref<string>("");
 
-import promptOptions from '~/assets/promptOptions.json';
+// Create categories array
+const categories = [...new Set(promptOptions.map(option => option.category))]
+  .map(category => ({ name: category }));
 
-// Compute unique categories
-const categories = computed(() => {
-  const uniqueCategories = [...new Set(promptOptions.map(option => option.category))];
-  return uniqueCategories.map(category => ({ name: category }));
-});
-
-// Update filteredPrompts based on selectedCategory
-const filteredPrompts = computed(() => {
+// Function to filter prompts based on selected category
+const getFilteredPrompts = () => {
   if (selectedCategory.value) {
     return promptOptions.filter(option => option.category === selectedCategory.value);
   }
   return [];
-});
+};
 
 // Handle category change
 const onCategoryChange = () => {
