@@ -135,6 +135,7 @@ export const Trainings = pgTable(
 		zipUrl: text("zip_url").notNull(),
 		model: jsonb("model").$type<Model>().notNull(),
 		training: jsonb("training").$type<Training>().notNull(),
+		weights_url: text("weights_url"),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)
 			.notNull(),

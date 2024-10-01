@@ -115,15 +115,31 @@ export class TrainingService {
     return trainings;
   }
 
-  async fetch(id: string): Promise<Training> {
-    return await this.client.trainings.get(id);
+  async fetch(id: string): Promise<TrainingSelect> {
+    console.info("Fetching training:", id);
+    const [training] = await this.db
+      .select()
+      .from(Trainings)
+      .where(eq(Trainings.id, id));
+
+    if (!training) {
+      console.warn(`Training not found: ${id}`);
+      throw new Error(`Training not found: ${id}`);
+    }
+
+    const log = `Fetched training: ${training.id}`;
+    console.info(log);
+    console.debug(training);
+
+    return training;
   }
 
   async update(training: Training): Promise<TrainingSelect> {
     console.info("Updating training:", training.id);
+    const weights_url = training.output?.weights;
     const [updated] = await this.db
       .update(Trainings)
-      .set({ training })
+      .set({ training, weights_url })
       .where(eq(Trainings.id, training.id))
       .returning();
     console.info("Updated training:", updated.id);

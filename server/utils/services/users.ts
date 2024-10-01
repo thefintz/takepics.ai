@@ -50,6 +50,55 @@ export class UsersService {
 		console.debug(userDb);
 		return userDb;
 	}
+
+	async addModelToUser(userId: string, modelData: Omit<typeof Trainings.$inferInsert, 'user_id'>): Promise<void> {
+		console.info(`Adding model to user ${userId}`);
+		await this.db.insert(Trainings).values({
+			...modelData,
+			userId: userId,
+		});
+		console.info(`Added model to user ${userId}`);
+	}
+
+	async createUserWithOnboardingModel(user: UserInsert): Promise<UserSelect> {
+		console.info(`Creating user ${user.id} with onboarding model`);
+
+		const userDb = await this.db.transaction(async (tx) => {
+			const [createdUser] = await tx.insert(Users).values(user).returning();
+
+			await this.addModelToUser(createdUser.id, {
+				id: "onboarding_model_1",
+				zipUrl: "www.fintz.com.br",
+				model: {
+					url: "",
+					owner: "",
+					name: "",
+					visibility: "public",
+					run_count: 0
+				},
+				training: {
+					id: "onboarding_model_1",
+					model: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar",
+					created_at: new Date().toISOString(),
+					status: "succeeded",
+					version: "1.0",
+					input: {},
+					source: "api",
+					urls: {
+						get: "www.fintz.com.br",
+						cancel: "www.fintz.com.br",
+					},
+				},
+				userId: createdUser.id
+			});
+
+			return createdUser;
+		});
+
+		console.info(`Created user ${userDb.id} with onboarding model`);
+		console.debug(userDb);
+		return userDb;
+	}
 }
 
 export const createUsersService = (tx: DB, event?: H3Event): UsersService => {

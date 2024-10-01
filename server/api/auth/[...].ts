@@ -71,8 +71,8 @@ const options: AuthOptions = {
 					return await service.update(newUser);
 				}
 
-				console.info(`User ${user.id} does not exist. Creating...`);
-				return await service.create({ ...newUser, credits: 5 });
+				console.info(`User ${user.id} does not exist. Creating with onboarding model...`);
+				return await service.createUserWithOnboardingModel({ ...newUser, credits: 5 });
 			});
 
 			return true;

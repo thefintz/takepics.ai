@@ -51,10 +51,10 @@ export class ReplicateInferenceImageService implements InferenceService {
 		console.info(`Creating inference for user ${user.id}`);
 
 		const training = await this.trainings.fetch(model);
-		if (!training.output.weights) {
-			console.error(`Training ${training.id} has no weights`);
+		if (!training.weights_url) {
+			console.error(`Training ${training.id} has no weights URL`);
 			console.debug(training);
-			throw new Error(`Training ${training.id} has no weights`);
+			throw new Error(`Training ${training.id} has no weights URL`);
 		}
 
 		console.info(`Creating prediction for training ${training.id}`);
@@ -64,7 +64,7 @@ export class ReplicateInferenceImageService implements InferenceService {
 			webhook: `${this.conf.webhookUrl}/inference`,
 			input: {
 				prompt: prompt,
-				hf_lora: training.output.weights,
+				hf_lora: training.weights_url,
 				output_format: "png",
 				lora_scale: 0.8,
 				aspect_ratio: "2:3",
