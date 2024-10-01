@@ -51,7 +51,7 @@ export class UsersService {
 		return userDb;
 	}
 
-	async addModelToUser(userId: string, modelData: Omit<typeof Trainings.$inferInsert, 'user_id'>): Promise<void> {
+	async addModelToUser(userId: string, modelData: typeof Trainings.$inferInsert): Promise<void> {
 		console.info(`Adding model to user ${userId}`);
 		await this.db.insert(Trainings).values({
 			...modelData,
