@@ -89,6 +89,7 @@ export class TrainingService {
       .insert(Trainings)
       .values({
         id: response.id,
+        name: "test",
         userId: user.id,
         zipUrl: upload.url.publicUrl,
         model: model,

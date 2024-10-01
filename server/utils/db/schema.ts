@@ -129,6 +129,7 @@ export const Trainings = pgTable(
 	"trainings",
 	{
 		id: text("id").primaryKey().default(sql`gen_random_uuid()`),
+		name: text("name").notNull(),
 		userId: text("user_id")
 			.notNull()
 			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),

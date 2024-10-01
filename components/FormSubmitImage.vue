@@ -25,7 +25,7 @@
     />
 
 		<!-- Model (name) selector -->
-		<Select v-model="model" :options="models ?? []" optionLabel="id" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4" />
+    <Select v-model="model" :options="models ?? []" optionLabel="name" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4" />
     <Button class="ml-4" label="Create Images" type="submit"></Button>
   </form>
 </template>

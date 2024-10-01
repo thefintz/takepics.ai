@@ -39,6 +39,10 @@
         :showUploadButton="true"
         @select="onFileSelected"
       />
+
+      <div class="mt-4">
+        <InputText v-model="modelName" placeholder="Enter Model Name" />
+      </div>
     <Button label="Train" @click="submit" />
   </form>
 </template>
@@ -93,6 +97,8 @@ const onFileSelected = (event: FileUploadSelectEvent) => {
 	files.value = [...event.files];
 };
 
+const modelName = ref<string>('');
+
 const submit = async () => {
 	const zipped = await useZippedFiles(files.value);
 
@@ -101,6 +107,7 @@ const submit = async () => {
 		gender: selectedGender.value as Gender,
 		eyeColor: selectedEyeColor.value as EyeColor,
 		trainingType: selectedTrainingType.value as Training,
+    name: modelName.value || `Model_${new Date().toISOString().split('T')[0]}`,    // User input or Model_YYYY-MM-DD
 	};
 
 	emits("submit", values);

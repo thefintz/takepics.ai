@@ -67,7 +67,8 @@ export class UsersService {
 			const [createdUser] = await tx.insert(Users).values(user).returning();
 
 			await this.addModelToUser(createdUser.id, {
-				id: "onboarding_model_1",
+				name: "onboarding_model_1",
+				weights_url: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar",
 				zipUrl: "www.fintz.com.br",
 				model: {
 					url: "",
