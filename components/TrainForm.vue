@@ -1,55 +1,54 @@
 <template>
   <form @submit.prevent="submit">
-    <div v-for="option in OPTIONS_TRAINING_TYPE" :key="option.value">
-      <RadioButton
-        :inputId="option.value"
-        name="trainingType"
-        :value="option.value"
-        v-model="selectedTrainingType"
-      />
-      <label :for="option.value" class="ml-2">{{ option.label }}</label>
-    </div>
 
       <div class="mt-4">
+        <p class="text-lg font-bold my-1 ml-1">Select gender</p>
         <Select
           v-model="selectedGender"
           :options="OPTIONS_GENDER"
           optionLabel="label"
           optionValue="value"
-          placeholder="Select Gender"
+          placeholder="Gender"
         />
       </div>
 
-      <div class="mt-4">
+      <div class="my-4">
+        <p class="text-lg font-bold my-1 ml-1">Select eye color</p>
         <Select
           v-model="selectedEyeColor"
           :options="OPTIONS_EYE_COLOR"
           optionLabel="label"
           optionValue="value"
-          placeholder="Select Eye Color"
+          placeholder="Eye Color"
         />
       </div>
 
-      <FileUpload
-        mode="advanced"
-        :multiple="true"
-        accept="image/*"
-        :maxFileSize="10000000"
-        chooseLabel="Select Images"
-        :showUploadButton="true"
-        @select="onFileSelected"
-      />
+      <div class="max-w-xl">
+        <FileUpload
+          mode="advanced"
+          :multiple="true"
+          accept="image/*"
+          :maxFileSize="10000000"
+          :auto="true"
+          chooseLabel="Select Images"
+          :showUploadButton="false"
+          :showCancelButton="false"
+          @select="onFileSelected"
+        />
+      </div>
 
       <div class="mt-4">
+        <p class="text-lg font-bold my-1 ml-1">Choose model name</p>
         <InputText v-model="modelName" placeholder="Enter Model Name" />
       </div>
-    <Button label="Train" @click="submit" />
+
+    <Button class="mt-4" label="Train" @click="submit" :disabled="!isFormValid" />
   </form>
 </template>
 
 <script setup lang="ts">
 import type { FileUploadSelectEvent } from "primevue/fileupload";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 interface File {
 	objectURL: string;
@@ -88,7 +87,7 @@ type EyeColor = "brown" | "blue" | "green" | "hazel" | "black";
 
 const selectedGender = ref<Gender | null>(null);
 const selectedEyeColor = ref<EyeColor | null>(null);
-const selectedTrainingType = ref<Training | null>(null);
+const selectedTrainingType = ref<Training>("person");
 
 const emits = defineEmits<(e: "submit", data: TrainFormValues) => void>();
 
@@ -98,6 +97,17 @@ const onFileSelected = (event: FileUploadSelectEvent) => {
 };
 
 const modelName = ref<string>('');
+
+// Add this computed property to check form validity
+const isFormValid = computed(() => {
+	return (
+		selectedTrainingType.value !== null &&
+		selectedGender.value !== null &&
+		selectedEyeColor.value !== null &&
+		files.value.length > 0 &&
+		modelName.value.trim() !== ''
+	);
+});
 
 const submit = async () => {
 	const zipped = await useZippedFiles(files.value);
