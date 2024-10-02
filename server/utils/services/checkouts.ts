@@ -13,7 +13,8 @@ export interface CheckoutService<T> {
 interface StripeCheckoutServiceConf {
 	priceId: string;
 	successUrl: string;
-	creditsPerCheckout: number;
+	imageCreditsPerCheckout: number;
+	trainingCreditsPerCheckout: number; // Added for training credits
 }
 
 export class StripeCheckoutService
@@ -94,14 +95,18 @@ export class StripeCheckoutService
 		console.info(`Updated checkout ${dbCheckout.id}`);
 		console.debug(dbCheckout);
 
-		console.info(`Adding credits to user ${dbCheckout.userId}`);
+		console.info(`Adding imageCredits and trainingCredits to user ${dbCheckout.userId}`);
 		const [userDb] = await this.tx
 			.update(Users)
-			.set({ credits: sql`${Users.credits} + ${this.conf.creditsPerCheckout}` })
+			.set({
+				imageCredits: sql`${Users.imageCredits} + ${this.conf.imageCreditsPerCheckout}`,
+				trainingCredits: sql`${Users.trainingCredits} + ${this.conf.trainingCreditsPerCheckout}` // {{ edit_1 }}
+			})
 			.where(eq(Users.id, dbCheckout.userId))
 			.returning();
-		console.info(`Added credits to user ${userDb.id}`);
-		console.debug(`Total credits: ${userDb.credits}`);
+		console.info(`Added imageCredits and trainingCredits to user ${userDb.id}`);
+		console.debug(`Total imageCredits: ${userDb.imageCredits}`);
+		console.debug(`Total trainingCredits: ${userDb.trainingCredits}`); // {{ edit 2 }}
 
 		return dbCheckout;
 	}

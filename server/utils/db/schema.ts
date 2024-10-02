@@ -17,7 +17,8 @@ export const Users = pgTable(
 		name: text("name").notNull(),
 		email: text("email").notNull().unique(),
 		image: text("image").notNull(),
-		credits: integer("credits").notNull().default(5),
+		imageCredits: integer("image_credits").notNull().default(100),
+		trainingCredits: integer("training_credits").notNull().default(1),
 		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
 			.default(sql`now()`)
 			.notNull(),

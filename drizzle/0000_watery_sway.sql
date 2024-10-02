@@ -38,7 +38,8 @@ CREATE TABLE IF NOT EXISTS "users" (
 	"name" text NOT NULL,
 	"email" text NOT NULL,
 	"image" text NOT NULL,
-	"credits" integer DEFAULT 5 NOT NULL,
+	"image_credits" integer DEFAULT 100 NOT NULL,
+	"training_credits" integer DEFAULT 1 NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	CONSTRAINT "users_email_unique" UNIQUE("email")

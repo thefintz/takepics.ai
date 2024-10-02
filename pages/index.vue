@@ -3,7 +3,7 @@
     <Card>
       <template #content>
         <div class="flex items-center gap-4 mb-4">
-          <span>Credits: {{ session?.user?.credits }}</span>
+          <span>Image credits: {{ session?.user?.imageCredits }}</span>
           <button @click="() => buy()" class="text-sky-400 text-sm">Buy Credits (1 credit = 1 image)</button>
         </div>
         <FormSubmitImage @response="() => refresh()" />

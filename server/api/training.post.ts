@@ -13,8 +13,20 @@ export default defineEventHandler(async (event: H3Event) => {
 	const user = await assertAuthenticated(event);
 	const body = await readValidatedBody(event, (i) => schema.parse(i));
 
+	if (user.trainingCredits <= 0) {
+		console.info(`User ${user.id} has no trainingCredits: ${user.trainingCredits}`);
+		throw createError({ statusCode: 400, statusMessage: "not enough trainingCredits" });
+	}
+
 	return db.transaction(async (tx) => {
+		const users = createUsersService(tx, event);
 		const service = createTrainingService(tx, event);
-		return await service.start(user, body.zip, body.customName, body.gender, body.eyeColor, body.trainingType);
+
+		const training = await service.start(user, body.zip, body.customName, body.gender, body.eyeColor, body.trainingType);
+
+		user.trainingCredits -= 1;
+		await users.update(user);
+
+		return training;
 	});
 });

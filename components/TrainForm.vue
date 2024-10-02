@@ -1,54 +1,60 @@
 <template>
-  <form @submit.prevent="submit">
+  <form @submit.prevent="submit" class="flex flex-col items-center">
 
-      <div class="mt-4">
-        <p class="text-lg font-bold my-1 ml-1">Select gender</p>
-        <Select
-          v-model="selectedGender"
-          :options="OPTIONS_GENDER"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Gender"
-        />
-      </div>
+    <div class="mt-4">
+      <p class="text-lg font-bold my-1 ml-1 text-center">Select gender</p>
+      <Select
+        class="w-56"
+        v-model="selectedGender"
+        :options="OPTIONS_GENDER"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Gender"
+      />
+    </div>
 
-      <div class="my-4">
-        <p class="text-lg font-bold my-1 ml-1">Select eye color</p>
-        <Select
-          v-model="selectedEyeColor"
-          :options="OPTIONS_EYE_COLOR"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Eye Color"
-        />
-      </div>
+    <div class="mt-4">
+      <p class="text-lg font-bold my-1 ml-1 text-center">Select eye color</p>
+      <Select
+        class="w-56"
+        v-model="selectedEyeColor"
+        :options="OPTIONS_EYE_COLOR"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Eye Color"
+      />
+    </div>
 
-      <div class="max-w-xl">
-        <FileUpload
-          mode="advanced"
-          :multiple="true"
-          accept="image/*"
-          :maxFileSize="10000000"
-          :auto="true"
-          chooseLabel="Select Images"
-          :showUploadButton="false"
-          :showCancelButton="false"
-          @select="onFileSelected"
-        />
-      </div>
+    <div class="my-4">
+      <p class="text-lg font-bold my-1 ml-1 text-center">Choose model name</p>
+      <InputText class="min-w-56" v-model="modelName" placeholder="Enter Model Name" />
+    </div>
 
-      <div class="mt-4">
-        <p class="text-lg font-bold my-1 ml-1">Choose model name</p>
-        <InputText v-model="modelName" placeholder="Enter Model Name" />
-      </div>
+    <div class="max-w-xl my-4">
+      <FileUpload
+        class="min-w-56"
+        mode="advanced"
+        :multiple="true"
+        accept="image/*"
+        :maxFileSize="10000000"
+        :auto="true"
+        chooseLabel="Select Images"
+        :showUploadButton="false"
+        :showCancelButton="false"
+        @select="onFileSelected"
+      />
+    </div>
 
-    <Button class="mt-4" label="Train" @click="submit" :disabled="!isFormValid" />
+    <Button class="mt-4 w-56" label="Train" @click="submit" :disabled="!isFormValid" />
+    <p class="text-md mt-4 font-medium">Training Credits: {{ session?.user?.trainingCredits }}</p>
+    <button @click="() => buy()" class="text-sky-400 text-sm">Buy Credits (1 training credit = 1 model)</button>
   </form>
 </template>
 
 <script setup lang="ts">
 import type { FileUploadSelectEvent } from "primevue/fileupload";
 import { computed, ref } from "vue";
+const { data: session } = useAuth();
 
 interface File {
 	objectURL: string;
@@ -122,4 +128,6 @@ const submit = async () => {
 
 	emits("submit", values);
 };
+
+const buy = async () => navigateTo("/api/checkout", { external: true });
 </script>

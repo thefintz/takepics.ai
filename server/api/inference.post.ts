@@ -11,9 +11,9 @@ export default defineEventHandler(async (event): Promise<ImageSelect> => {
 	const user = await assertAuthenticated(event);
 	const body = await readValidatedBody(event, (body) => schema.parse(body));
 
-	if (user.credits <= 0) {
-		console.info(`User ${user.id} has no credits: ${user.credits}`);
-		throw createError({ statusCode: 400, statusMessage: "not enough credits" });
+	if (user.imageCredits <= 0) {
+		console.info(`User ${user.id} has no imageCredits: ${user.imageCredits}`);
+		throw createError({ statusCode: 400, statusMessage: "not enough imageCredits" });
 	}
 
 	return await db.transaction(async (tx) => {
@@ -21,7 +21,7 @@ export default defineEventHandler(async (event): Promise<ImageSelect> => {
 		const service = useServerInferenceService(tx, event);
 		const image = await service.create(user, body.prompt, body.model);
 
-		user.credits -= 1;
+		user.imageCredits -= 1;
 		await users.update(user);
 		return image;
 	});

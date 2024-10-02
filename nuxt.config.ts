@@ -91,7 +91,8 @@ export default defineNuxtConfig({
 
 		stripe: {
 			priceId: "",
-			creditsPerCheckout: 0,
+			imageCreditsPerCheckout: 100,
+			trainingCreditsPerCheckout: 1,
 			secretKey: "",
 			webhookSecret: "",
 			successUrl: "",

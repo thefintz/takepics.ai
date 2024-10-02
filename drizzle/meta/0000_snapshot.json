@@ -1,5 +1,5 @@
 {
-  "id": "9326efd3-e6d1-4a31-9771-6f619ad6dba6",
+  "id": "c906c6e7-afc3-4272-a83e-b68d1950aab5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -390,12 +390,19 @@
           "primaryKey": false,
           "notNull": true
         },
-        "credits": {
-          "name": "credits",
+        "image_credits": {
+          "name": "image_credits",
           "type": "integer",
           "primaryKey": false,
           "notNull": true,
-          "default": 5
+          "default": 100
+        },
+        "training_credits": {
+          "name": "training_credits",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
         },
         "created_at": {
           "name": "created_at",
