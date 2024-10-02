@@ -4,8 +4,9 @@
 			<template #content>
 				<p class="text-sm text-gray-400"> {{ formattedDate }} </p>
 				<NuxtImg v-if="image.url" :src="image.url" class="w-full h-auto object-cover" />
-        <div v-else class="w-full h-auto flex justify-center items-center">
-					<img src="https://media.tenor.com/hQz0Kl373E8AAAAi/loading-waiting.gif" alt="Loading" class="object-cover">
+        <div v-else class="w-full h-40 flex flex-col justify-center items-center">
+					<ProgressSpinner />
+					<p class="mt-2">{{ countdownText }}</p>
 				</div>
 			</template>
 		</Card>
@@ -26,10 +27,39 @@
 </template>
 
 <script lang="ts" setup>
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const props = defineProps<{ image: ImageSelect }>();
 const image = toRef(props, "image");
 const isModalVisible = ref(false);
+
+const countdown = ref(30);
+let timer: NodeJS.Timeout | null = null;
+
+const countdownText = computed(() => {
+	return `Creating... ${countdown.value}s`;
+});
+
+const startCountdown = () => {
+	if (image.value.url) return;
+	
+	countdown.value = 45;
+	timer = setInterval(() => {
+		if (countdown.value > 0) {
+			countdown.value--;
+		} else {
+			if (timer) clearInterval(timer);
+		}
+	}, 1000);
+};
+
+onMounted(() => {
+	startCountdown();
+});
+
+onUnmounted(() => {
+	if (timer) clearInterval(timer);
+});
 
 const showImage = () => {
 	isModalVisible.value = true;
