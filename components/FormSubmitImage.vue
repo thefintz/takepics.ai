@@ -25,7 +25,7 @@
     />
 
 		<!-- Model (name) selector -->
-    <Select v-model="model" :options="models ?? []" optionLabel="name" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4" />
+    <Select v-model="model" :options="models ?? []" optionLabel="customName" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4" />
     <Button class="ml-4" label="Create Images" type="submit"></Button>
   </form>
 </template>
@@ -33,7 +33,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import promptOptions from '~/assets/promptOptions.json';
-import type { CreationSelect } from "~/server/utils/db/schema";
+import type { ImageSelect } from "~/server/utils/db/schema";
 
 // State Variables
 const selectedCategory = ref<string | null>(null);
@@ -57,7 +57,7 @@ const onCategoryChange = () => {
 };
 
 // Define Emits
-const emits = defineEmits<(e: "response", data: CreationSelect) => void>();
+const emits = defineEmits<(e: "response", data: ImageSelect) => void>();
 
 const prompt = ref<string | null>(null);
 const model = ref<string | null>(null);
@@ -70,7 +70,7 @@ const postGeneration = async () => {
 	if (!model.value) return;
 	if (!selectedPrompt.value) return;
 
-	const data: CreationSelect = await $fetch("/api/inference", {
+	const data: ImageSelect = await $fetch("/api/inference", {
 		method: "POST",
 		body: { prompt: selectedPrompt.value, model: model.value },
 	});

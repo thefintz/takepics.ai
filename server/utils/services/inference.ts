@@ -2,7 +2,7 @@ import { and, desc, eq } from "drizzle-orm";
 import type { H3Event } from "h3";
 import Replicate, { type Prediction } from "replicate";
 import type { DB } from "~/server/utils/db/client";
-import { Creations } from "~/server/utils/db/schema";
+import { Images } from "~/server/utils/db/schema";
 import { useServerStorageService, type StorageService } from "./storage";
 import type { TrainingService } from "./training";
 
@@ -11,9 +11,9 @@ export interface InferenceService {
 		user: UserSelect,
 		prompt: string,
 		lora: string,
-	): Promise<CreationSelect>;
-	fetch(userId: string, creationId: string): Promise<CreationSelect>;
-	list(userId: string): Promise<CreationSelect[]>;
+	): Promise<ImageSelect>;
+	fetch(userId: string, imageId: string): Promise<ImageSelect>;
+	list(userId: string): Promise<ImageSelect[]>;
 }
 
 interface ReplicateImageServiceConf {
@@ -47,7 +47,7 @@ export class ReplicateInferenceImageService implements InferenceService {
 		user: UserSelect,
 		prompt: string,
 		model: string,
-	): Promise<CreationSelect> {
+	): Promise<ImageSelect> {
 		console.info(`Creating inference for user ${user.id}`);
 
 		const training = await this.trainings.fetch(model);
@@ -79,9 +79,9 @@ export class ReplicateInferenceImageService implements InferenceService {
 		);
 		console.debug(prediction);
 
-		console.info(`Inserting creation ${prediction.id} for user ${user.id}`);
-		const [creation] = await this.tx
-			.insert(Creations)
+		console.info(`Inserting image ${prediction.id} for user ${user.id}`);
+		const [image] = await this.tx
+			.insert(Images)
 			.values({
 				id: prediction.id,
 				userId: user.id,
@@ -89,10 +89,10 @@ export class ReplicateInferenceImageService implements InferenceService {
 				data: prediction,
 			})
 			.returning();
-		console.info("Inserted creation", creation.id);
-		console.debug(creation);
+		console.info("Inserted image", image.id);
+		console.debug(image);
 
-		return creation;
+		return image;
 	}
 
 	async #syncImage(prediction: Prediction) {
@@ -117,46 +117,46 @@ export class ReplicateInferenceImageService implements InferenceService {
 		return await this.storage.uploadImage(`image_${prediction.id}.png`, buffer);
 	}
 
-	async update(data: Prediction): Promise<CreationSelect> {
-		const image = await this.#syncImage(data);
+	async update(data: Prediction): Promise<ImageSelect> {
+		const updatedImage = await this.#syncImage(data);
 
-		console.info(`Updating creation ${data.id}`);
+		console.info(`Updating image ${data.id}`);
 		console.debug(data);
-		const [creation] = await this.tx
-			.update(Creations)
-			.set({ data, url: image.url.publicUrl })
-			.where(eq(Creations.id, data.id));
-		console.info(`Updated creation ${data.id}`);
-		console.debug(creation);
+		const [image] = await this.tx
+			.update(Images)
+			.set({ data, url: updatedImage.url.publicUrl })
+			.where(eq(Images.id, data.id));
+		console.info(`Updated image ${data.id}`);
+		console.debug(image);
 
-		return creation;
+		return image;
 	}
 
-	async fetch(userId: string, creationId: string): Promise<CreationSelect> {
-		console.info(`Fetching image ${creationId} for user ${userId}`);
-		const creations = await this.tx
+	async fetch(userId: string, imageId: string): Promise<ImageSelect> {
+		console.info(`Fetching image ${imageId} for user ${userId}`);
+		const images = await this.tx
 			.select()
-			.from(Creations)
-			.where(and(eq(Creations.userId, userId), eq(Creations.id, creationId)));
-		console.info(`Fetched ${creations.length} images for user ${userId}`);
-		console.debug(creations);
+			.from(Images)
+			.where(and(eq(Images.userId, userId), eq(Images.id, imageId)));
+		console.info(`Fetched ${images.length} images for user ${userId}`);
+		console.debug(images);
 
-		if (!creations) {
+		if (!images) {
 			throw new Error(
-				`Creation not found for image ${creationId}. Expected one`,
+				`Image not found for image ${imageId}. Expected one`,
 			);
 		}
 
-		return creations[0];
+		return images[0];
 	}
 
-	async list(userId: string): Promise<CreationSelect[]> {
+	async list(userId: string): Promise<ImageSelect[]> {
 		console.info(`Fetching images for user ${userId}`);
 		const items = await this.tx
 			.select()
-			.from(Creations)
-			.where(eq(Creations.userId, userId))
-			.orderBy(desc(Creations.createdAt));
+			.from(Images)
+			.where(eq(Images.userId, userId))
+			.orderBy(desc(Images.createdAt));
 		console.info(`Fetched ${items.length} images for user ${userId}`);
 		console.debug(items);
 

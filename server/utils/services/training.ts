@@ -3,8 +3,8 @@ import type { H3Event } from "h3";
 import type Replicate from "replicate";
 import type { Model, Training } from "replicate";
 import type { DB } from "../db/client";
-import type { TrainingSelect } from "../db/schema";
-import { Trainings } from "../db/schema";
+import type { ModelSelect } from "../db/schema";
+import { Models } from "../db/schema";
 import { useServerReplicateClient } from "./inference";
 import { useServerStorageService, type StorageService } from "./storage";
 
@@ -29,7 +29,7 @@ export class TrainingService {
     this.webhookUrl = webhookUrl;
   }
 
-  async model(name: string): Promise<Model> {
+  async createModel(name: string): Promise<Model> {
     console.info("Creating model:", name);
     const model = await this.client.models.create(this.owner, name, {
       visibility: "public",
@@ -42,14 +42,14 @@ export class TrainingService {
     return model;
   }
 
-  async start(user: UserSelect, zip: string): Promise<TrainingSelect> {
+  async start(user: UserSelect, zip: string, customName: string, gender: string, eyeColor: string, trainingType: string): Promise<ModelSelect> {
     // Create a new model for this training
     const date = new Date().getTime();
     const id = user.id.replace("|", "_");
 
     const name = `training_${date}_${id}`;
     const fileName = `${name}.zip`;
-    const model = await this.model(name);
+    const model = await this.createModel(name);
 
     const upload = await this.storage.uploadZip(fileName, zip);
 
@@ -86,14 +86,17 @@ export class TrainingService {
     // Save training data to database
     console.info("Saving training to database:", response.id);
     const [training] = await this.db
-      .insert(Trainings)
+      .insert(Models)
       .values({
         id: response.id,
-        name: "test",
+        customName: customName,
         userId: user.id,
         zipUrl: upload.url.publicUrl,
-        model: model,
-        training: response,
+        modelResponseData: model,
+        trainingResponseData: response,
+        gender: gender,
+        eyeColor: eyeColor,
+        trainingType: trainingType
       })
       .returning();
     console.info("Saved training to database:", training.id);
@@ -102,50 +105,50 @@ export class TrainingService {
     return training;
   }
 
-  async list(user: UserSelect): Promise<TrainingSelect[]> {
-    console.info("Fetching trainings for user:", user.id);
-    const trainings = await this.db
+  async list(user: UserSelect): Promise<ModelSelect[]> {
+    console.info("Fetching models for user:", user.id);
+    const models = await this.db
       .select()
-      .from(Trainings)
-      .where(eq(Trainings.userId, user.id))
-      .orderBy(desc(Trainings.createdAt));
-    const log = `Fetched ${trainings.length} trainings for user: ${user.id}`;
+      .from(Models)
+      .where(eq(Models.userId, user.id))
+      .orderBy(desc(Models.createdAt));
+    const log = `Fetched ${models.length} models for user: ${user.id}`;
     console.info(log);
-    console.debug(trainings);
+    console.debug(models);
 
-    return trainings;
+    return models;
   }
 
-  async fetch(id: string): Promise<TrainingSelect> {
+  async fetch(id: string): Promise<ModelSelect> {
     console.info("Fetching training:", id);
-    const [training] = await this.db
+    const [model] = await this.db
       .select()
-      .from(Trainings)
-      .where(eq(Trainings.id, id));
+      .from(Models)
+      .where(eq(Models.id, id));
 
-    if (!training) {
-      console.warn(`Training not found: ${id}`);
-      throw new Error(`Training not found: ${id}`);
+    if (!model) {
+      console.warn(`Model not found: ${id}`);
+      throw new Error(`Model not found: ${id}`);
     }
 
-    const log = `Fetched training: ${training.id}`;
+    const log = `Fetched model: ${model.id}`;
     console.info(log);
-    console.debug(training);
+    console.debug(model);
 
-    return training;
+    return model;
   }
 
-  async update(training: Training): Promise<TrainingSelect> {
-    console.info("Updating training:", training.id);
-    const weights_url = training.output?.weights;
-    const [updated] = await this.db
-      .update(Trainings)
-      .set({ training, weights_url })
-      .where(eq(Trainings.id, training.id))
+  async update(trainingResponseData: Training): Promise<ModelSelect> {
+    console.info("Updating training:", trainingResponseData.id);
+    const weights_url = trainingResponseData.output?.weights;
+    const [updatedModel] = await this.db
+      .update(Models)
+      .set({ trainingResponseData, weights_url })
+      .where(eq(Models.id, trainingResponseData.id))
       .returning();
-    console.info("Updated training:", updated.id);
-    console.debug(updated);
-    return updated;
+    console.info("Updated model:", updatedModel.id);
+    console.debug(updatedModel);
+    return updatedModel;
   }
 }
 

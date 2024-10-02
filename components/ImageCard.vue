@@ -27,7 +27,7 @@
 
 <script lang="ts" setup>
 
-const props = defineProps<{ image: CreationSelect }>();
+const props = defineProps<{ image: ImageSelect }>();
 const image = toRef(props, "image");
 const isModalVisible = ref(false);
 

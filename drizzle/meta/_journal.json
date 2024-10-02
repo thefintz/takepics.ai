@@ -5,22 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1727706880218,
-      "tag": "0000_special_gorilla_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1727804358085,
-      "tag": "0001_redundant_madame_masque",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1727810425689,
-      "tag": "0002_shallow_spot",
+      "when": 1727829868220,
+      "tag": "0000_sudden_lockheed",
       "breakpoints": true
     }
   ]

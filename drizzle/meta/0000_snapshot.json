@@ -1,5 +1,5 @@
 {
-  "id": "2458166b-e629-4528-bab3-bf7d062ba93f",
+  "id": "9326efd3-e6d1-4a31-9771-6f619ad6dba6",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -103,8 +103,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.creations": {
-      "name": "creations",
+    "public.images": {
+      "name": "images",
       "schema": "",
       "columns": {
         "id": {
@@ -136,116 +136,6 @@
           "type": "jsonb",
           "primaryKey": false,
           "notNull": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp with time zone",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {
-        "creations_user_id_idx": {
-          "name": "creations_user_id_idx",
-          "columns": [
-            {
-              "expression": "user_id",
-              "isExpression": false,
-              "asc": true,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "creations_created_at_idx": {
-          "name": "creations_created_at_idx",
-          "columns": [
-            {
-              "expression": "created_at",
-              "isExpression": false,
-              "asc": false,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        },
-        "creations_updated_at_idx": {
-          "name": "creations_updated_at_idx",
-          "columns": [
-            {
-              "expression": "updated_at",
-              "isExpression": false,
-              "asc": false,
-              "nulls": "last"
-            }
-          ],
-          "isUnique": false,
-          "concurrently": false,
-          "method": "btree",
-          "with": {}
-        }
-      },
-      "foreignKeys": {
-        "creations_user_id_users_id_fk": {
-          "name": "creations_user_id_users_id_fk",
-          "tableFrom": "creations",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "cascade",
-          "onUpdate": "cascade"
-        }
-      },
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
-    },
-    "public.images": {
-      "name": "images",
-      "schema": "",
-      "columns": {
-        "id": {
-          "name": "id",
-          "type": "text",
-          "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
-        },
-        "user_id": {
-          "name": "user_id",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "url": {
-          "name": "url",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "caption": {
-          "name": "caption",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "''"
         },
         "created_at": {
           "name": "created_at",
@@ -327,8 +217,8 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {}
     },
-    "public.trainings": {
-      "name": "trainings",
+    "public.models": {
+      "name": "models",
       "schema": "",
       "columns": {
         "id": {
@@ -337,6 +227,12 @@
           "primaryKey": true,
           "notNull": true,
           "default": "gen_random_uuid()"
+        },
+        "custom_name": {
+          "name": "custom_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         },
         "user_id": {
           "name": "user_id",
@@ -350,17 +246,23 @@
           "primaryKey": false,
           "notNull": true
         },
-        "model": {
-          "name": "model",
+        "model_response_data": {
+          "name": "model_response_data",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": true
         },
-        "training": {
-          "name": "training",
+        "training_response_data": {
+          "name": "training_response_data",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": true
+        },
+        "weights_url": {
+          "name": "weights_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "created_at": {
           "name": "created_at",
@@ -375,6 +277,24 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
+        },
+        "gender": {
+          "name": "gender",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "eye_color": {
+          "name": "eye_color",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "training_type": {
+          "name": "training_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {
@@ -425,9 +345,9 @@
         }
       },
       "foreignKeys": {
-        "trainings_user_id_users_id_fk": {
-          "name": "trainings_user_id_users_id_fk",
-          "tableFrom": "trainings",
+        "models_user_id_users_id_fk": {
+          "name": "models_user_id_users_id_fk",
+          "tableFrom": "models",
           "tableTo": "users",
           "columnsFrom": [
             "user_id"

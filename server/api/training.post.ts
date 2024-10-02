@@ -6,6 +6,7 @@ const schema = z.object({
 	gender: z.enum(["male", "female", "other"]),
 	eyeColor: z.enum(["blue", "brown", "green", "gray", "other"]),
 	trainingType: z.enum(["person", "object"]),
+	customName: z.string(),
 });
 
 export default defineEventHandler(async (event: H3Event) => {
@@ -14,6 +15,6 @@ export default defineEventHandler(async (event: H3Event) => {
 
 	return db.transaction(async (tx) => {
 		const service = createTrainingService(tx, event);
-		return await service.start(user, body.zip);
+		return await service.start(user, body.zip, body.customName, body.gender, body.eyeColor, body.trainingType);
 	});
 });

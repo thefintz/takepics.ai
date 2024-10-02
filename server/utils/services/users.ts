@@ -51,9 +51,9 @@ export class UsersService {
 		return userDb;
 	}
 
-	async addModelToUser(userId: string, modelData: typeof Trainings.$inferInsert): Promise<void> {
+	async addModelToUser(userId: string, modelData: typeof Models.$inferInsert): Promise<void> {
 		console.info(`Adding model to user ${userId}`);
-		await this.db.insert(Trainings).values({
+		await this.db.insert(Models).values({
 			...modelData,
 			userId: userId,
 		});
@@ -67,17 +67,20 @@ export class UsersService {
 			const [createdUser] = await tx.insert(Users).values(user).returning();
 
 			await this.addModelToUser(createdUser.id, {
-				name: "onboarding_model_1",
+				customName: "example_model_gabriel_novak",
+				eyeColor: "green",
+				gender: "male",
+				trainingType: "person",
 				weights_url: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar",
 				zipUrl: "www.fintz.com.br",
-				model: {
+				modelResponseData: {
 					url: "",
 					owner: "",
 					name: "",
 					visibility: "public",
 					run_count: 0
 				},
-				training: {
+				trainingResponseData: {
 					id: "onboarding_model_1",
 					model: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar",
 					created_at: new Date().toISOString(),

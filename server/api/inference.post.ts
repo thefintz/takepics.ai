@@ -7,7 +7,7 @@ const schema = z.object({
 	model: z.string().min(5).max(64),
 });
 
-export default defineEventHandler(async (event): Promise<CreationSelect> => {
+export default defineEventHandler(async (event): Promise<ImageSelect> => {
 	const user = await assertAuthenticated(event);
 	const body = await readValidatedBody(event, (body) => schema.parse(body));
 

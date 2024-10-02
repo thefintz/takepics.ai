@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event): Promise<CreationSelect[]> => {
+export default defineEventHandler(async (event): Promise<ImageSelect[]> => {
 	const user = await assertAuthenticated(event);
 
 	return db.transaction(async (tx) => {
