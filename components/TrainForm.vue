@@ -117,7 +117,7 @@ const submit = async () => {
 		gender: selectedGender.value as Gender,
 		eyeColor: selectedEyeColor.value as EyeColor,
 		trainingType: selectedTrainingType.value as Training,
-    name: modelName.value || `Model_${new Date().toISOString().split('T')[0]}`,    // User input or Model_YYYY-MM-DD
+    customName: modelName.value || `Model_${new Date().toISOString().split('T')[0]}`,    // User input or Model_YYYY-MM-DD
 	};
 
 	emits("submit", values);
