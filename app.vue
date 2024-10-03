@@ -4,7 +4,7 @@
   </ClientOnly>
 
   <main>
-    <Navbar class="m-2" />
+    <Navbar class="" />
     <NuxtPage class="m-2" />
   </main>
 </template>

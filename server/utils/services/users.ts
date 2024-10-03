@@ -67,7 +67,7 @@ export class UsersService {
 			const [createdUser] = await tx.insert(Users).values(user).returning();
 
 			await this.addModelToUser(createdUser.id, {
-				customName: "example_model_gabriel_novak",
+				customName: "Gabriel (example model)",
 				eyeColor: "green",
 				gender: "male",
 				trainingType: "person",
@@ -81,7 +81,7 @@ export class UsersService {
 					run_count: 0
 				},
 				trainingResponseData: {
-					id: "onboarding_model_1",
+					id: "onboarding_model_gabriel_novak",
 					model: "https://replicate.delivery/yhqm/NAf0H2U0kO1PMqyBnrzctA37p40SfEAUD9xBec3DeGLqWopNB/trained_model.tar",
 					created_at: new Date().toISOString(),
 					status: "succeeded",

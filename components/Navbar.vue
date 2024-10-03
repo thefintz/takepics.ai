@@ -1,5 +1,5 @@
 <template>
-	<Menubar :model="items" class="menubar">
+	<Menubar :model="items" class="menubar border-none bg-gray-800">
 		<template #item="slotProps">
 			<a :href="slotProps.item.to" @click.prevent="handleClick(slotProps.item)" :class="[
 				'block px-4 py-1',
@@ -24,17 +24,24 @@ type Item = {
 };
 
 const HOME: Item = {
-	label: "Create Images",
-	icon: "pi pi-images",
+	label: "Home",
+	icon: "pi pi-home",
 	to: "/",
 	command: () => router.push("/"),
 };
 
-const TRAIN: Item = {
+const CREATEIMAGES: Item = {
+	label: "Create Images",
+	icon: "pi pi-images",
+	to: "/createimages",
+	command: () => router.push("/createimages"),
+};
+
+const CREATEMODEL: Item = {
 	label: "Create Model",
 	icon: "pi pi-palette",
-	to: "/train",
-	command: () => router.push("/train"),
+	to: "/createmodel",
+	command: () => router.push("/createmodel"),
 };
 
 const INSTRUCTIONS: Item = {
@@ -47,8 +54,8 @@ const INSTRUCTIONS: Item = {
 const PROFILE: Item = {
 	label: "Profile",
 	icon: "pi pi-user",
-	to: "/me",
-	command: () => router.push("/me"),
+	to: "/profile",
+	command: () => router.push("/profile"),
 };
 
 const LOGIN: Item = {
@@ -67,7 +74,7 @@ const LOGOUT: Item = {
 
 const items = ref<Item[]>([HOME, LOGIN]);
 if (status.value === "authenticated") {
-	items.value = [INSTRUCTIONS, TRAIN, HOME, PROFILE, LOGOUT];
+	items.value = [HOME, INSTRUCTIONS, CREATEMODEL, CREATEIMAGES, PROFILE, LOGOUT];
 }
 
 const activeRoute = computed(() => router.currentRoute.value.path);
