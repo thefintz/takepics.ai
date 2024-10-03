@@ -1,19 +1,50 @@
 <template>
   <Card>
+    <!-- Header: Profile Picture -->
     <template #header>
-      <Avatar size="xlarge">
-        <NuxtImg alt="profile picture" :src="data?.image ?? undefined" />
-      </Avatar>
+      <div class="flex items-center gap-4 p-8">
+        <Avatar size="xlarge">
+          <NuxtImg alt="Profile Picture" :src="data?.image ?? placeholderImage" />
+        </Avatar>
+        <div>
+          <h2 class="text-xl font-semibold">{{ data?.email }}</h2>
+          <p v-if="data?.createdAt" class="text-gray-400">Created: {{ formatDate(data.createdAt) }}</p>
+        </div>
+      </div>
     </template>
 
-    <template #title> {{ data?.name }} </template>
-
+    <!-- Content: Detailed Profile Information -->
     <template #content>
-      <pre> {{ data }} </pre>
+      <div class="">
+        <div class="mb-6">
+          <h4 class="mb-2 text-xl font-semibold text-gray-100">Subscription</h4>
+          <p v-if="data?.name" class="text-gray-400"><strong>Training credits:</strong> {{ data?.trainingCredits }}</p>
+          <p v-if="data?.name" class="text-gray-400"><strong>Image credits:</strong> {{ data?.imageCredits }}</p>
+          <p class="text-gray-400"><strong> Current plan: (hardcoded) PRO</strong></p>
+          <p class="text-gray-400"><strong> Next renewal: (hardcoded) November, 2, 2024</strong></p>
+        </div>
+
+        <!-- Additional Information for Development Purpose -->
+        <!-- <div v-if="isDevMode" class="bg-gray-100 p-4 rounded-lg text-gray-600">
+          <h4 class="mb-2 text-lg font-semibold">Debug Data</h4>
+          <pre>{{ data }}</pre>
+        </div> -->
+      </div>
     </template>
   </Card>
 </template>
 
 <script lang="ts" setup>
-const { data } = await useFetch("/api/me");
+import { ref } from 'vue';
+const { data } = await useFetch('/api/me');
+const placeholderImage = 'https://via.placeholder.com/150';
+let isDevMode = ref(process.env.NODE_ENV === 'development');
+
+function formatDate(dateString: string) {
+  const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString(undefined, options);
+}
 </script>
+
+<style scoped>
+</style>
