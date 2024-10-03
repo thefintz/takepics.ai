@@ -5,6 +5,6 @@
 
   <main>
     <Navbar class="" />
-    <NuxtPage class="m-2" />
+    <NuxtPage class="" />
   </main>
 </template>
