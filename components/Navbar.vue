@@ -44,13 +44,6 @@ const CREATEMODEL: Item = {
 	command: () => router.push("/createmodel"),
 };
 
-const INSTRUCTIONS: Item = {
-	label: "Instructions",
-	icon: "pi pi-map",
-	to: "/instructions",
-	command: () => router.push("/instructions"),
-};
-
 const PROFILE: Item = {
 	label: "Profile",
 	icon: "pi pi-user",
@@ -74,7 +67,7 @@ const LOGOUT: Item = {
 
 const items = ref<Item[]>([HOME, LOGIN]);
 if (status.value === "authenticated") {
-	items.value = [HOME, INSTRUCTIONS, CREATEMODEL, CREATEIMAGES, PROFILE, LOGOUT];
+	items.value = [HOME, CREATEMODEL, CREATEIMAGES, PROFILE, LOGOUT];
 }
 
 const activeRoute = computed(() => router.currentRoute.value.path);
