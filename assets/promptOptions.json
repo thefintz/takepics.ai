@@ -2,611 +2,611 @@
   {
     "category": "Cities",
     "name": "New York Statue of Liberty",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing in front of the Statue of Liberty in New York City. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing in front of the Statue of Liberty in New York City. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Beijing Great Wall",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing on the Great Wall of China in Beijing, surrounded by the iconic stone wall and scenic mountainous landscape. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing on the Great Wall of China in Beijing, surrounded by the iconic stone wall and scenic mountainous landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Berlin Wall",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing beside the Berlin Wall in Berlin, featuring the colorful and vibrant murals and graffiti art that adorn the wall. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing beside the Berlin Wall in Berlin, featuring the colorful and vibrant murals and graffiti art that adorn the wall. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Paris Eiffel Tower",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing near the Eiffel Tower in Paris. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing near the Eiffel Tower in Paris. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Dubai Burj Khalifa",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK in front of the Burj Khalifa in Dubai, UAE. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} in front of the Burj Khalifa in Dubai, UAE. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Pisa Leaning Tower",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK posing with the Leaning Tower of Pisa in Pisa, Italy. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} posing with the Leaning Tower of Pisa in Pisa, Italy. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Cairo Great Pyramid",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing in front of the Great Pyramid of Giza in Cairo, Egypt. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing in front of the Great Pyramid of Giza in Cairo, Egypt. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Sydney Opera House",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK in front of the Sydney Opera House in Sydney, Australia. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} in front of the Sydney Opera House in Sydney, Australia. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "London Big Ben",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK standing beside Big Ben in London, UK. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} standing beside Big Ben in London, UK. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Agra Taj Mahal",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK admiring the Taj Mahal in Agra, India. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} admiring the Taj Mahal in Agra, India. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Rome Colosseum",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK exploring the Colosseum in Rome, Italy. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} exploring the Colosseum in Rome, Italy. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
     "name": "Rio Christ the Redeemer",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK with Christ the Redeemer statue in Rio de Janeiro, Brazil. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} with Christ the Redeemer statue in Rio de Janeiro, Brazil. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cities",
-    "name": "GABRIELNOVAKyo Mount Fuji",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK with Mount Fuji in the background near GABRIELNOVAKyo, Japan. Male, green eyes, visible face."
+    "name": "Tokyo Mount Fuji",
+    "prompt": "ultra realistic photograph of {character_name} with Mount Fuji in the background near Tokyo, Japan. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Formula 1",
     "name": "F1 Action Shot",
-    "prompt": "Ultra realistic action photo of GABRIELNOVAK driving a red F1 car at high speed on a sunlit track. Dynamic angle, motion blur on wheels and background, showing speed. Male, green eyes, visible face, detailed racing suit with sponsor logos."
+    "prompt": "Ultra realistic action photo of {character_name} driving a red F1 car at high speed on a sunlit track. Dynamic angle, motion blur on wheels and background, showing speed. {character_gender}, {eye_color} eyes, visible face, detailed racing suit with sponsor logos."
   },
   {
     "category": "Formula 1",
     "name": "F1 Podium",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK proudly on the F1 podium holding a gleaming trophy. Background has race cars, waving flags, and an enthusiastic crowd under bright stadium lights. Male, green eyes, visible face, championship racing suit."
+    "prompt": "Ultra realistic photo of {character_name} proudly on the F1 podium holding a gleaming trophy. Background has race cars, waving flags, and an enthusiastic crowd under bright stadium lights. {character_gender}, {eye_color} eyes, visible face, championship racing suit."
   },
   {
     "category": "Formula 1",
     "name": "F1 Close-Up",
-    "prompt": "Ultra realistic close-up of GABRIELNOVAK as an F1 driver. Detailed face view with green eyes visible through a high-tech racing helmet visor. Reflective surfaces show the track and team support in background. Male, focused expression."
+    "prompt": "Ultra realistic close-up of {character_name} as an F1 driver. Detailed face view with {eye_color} eyes visible through a high-tech racing helmet visor. Reflective surfaces show the track and team support in background. {character_gender}, focused expression."
   },
   {
     "category": "Formula 1",
     "name": "F1 Full-Body",
-    "prompt": "Ultra realistic full-body photo of GABRIELNOVAK as an F1 driver. Wide shot showing his racing suit, gloves, and helmet, standing confidently beside a sleek F1 car. Backdrop has pit lane and team garage. Male, green eyes, visible face."
+    "prompt": "Ultra realistic full-body photo of {character_name} as an F1 driver. Wide shot showing his racing suit, gloves, and helmet, standing confidently beside a sleek F1 car. Backdrop has pit lane and team garage. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Formula 1",
     "name": "F1 Driver with Car",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as an F1 driver standing beside a vibrant blue F1 car. Wide shot showing detailed sponsor decals and aerodynamic features. High quality, 8k resolution, clear sky background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} as an F1 driver standing beside a vibrant blue F1 car. Wide shot showing detailed sponsor decals and aerodynamic features. High quality, 8k resolution, clear sky background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Formula 1",
     "name": "F1 Pit Stop",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK during F1 pit stop. Mechanics swiftly change tires and refuel the car, capturing the high-energy environment. Dynamic angles and vibrant team colors in background. Male, green eyes, visible face, detailed racing gear."
+    "prompt": "Ultra realistic photo of {character_name} during F1 pit stop. Mechanics swiftly change tires and refuel the car, capturing the high-energy environment. Dynamic angles and vibrant team colors in background. {character_gender}, {eye_color} eyes, visible face, detailed racing gear."
   },
   {
     "category": "Formula 1",
     "name": "F1 Night Race",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK racing an F1 car under bright night race lights. Vibrant reflections on track showcase the car’s aerodynamic design and the driver’s intense focus. Male, green eyes, visible face, illuminated racing suit."
+    "prompt": "Ultra realistic photo of {character_name} racing an F1 car under bright night race lights. Vibrant reflections on track showcase the car’s aerodynamic design and the driver’s intense focus. {character_gender}, {eye_color} eyes, visible face, illuminated racing suit."
   },
   {
     "category": "Places",
     "name": "Aurora Borealis",
-    "prompt": "Ultra realistic close-up of GABRIELNOVAK under the Northern Lights Aurora Borealis at night. Vibrant green and purple hues illuminate the sky, reflecting off a snowy landscape. Soft light highlights, male, green eyes, visible face."
+    "prompt": "Ultra realistic close-up of {character_name} under the Northern Lights Aurora Borealis at night. Vibrant {eye_color} and purple hues illuminate the sky, reflecting off a snowy landscape. Soft light highlights, male, {eye_color} eyes, visible face."
   },
   {
     "category": "Places",
     "name": "Beach Sunset",
-    "prompt": "Ultra realistic close-up of GABRIELNOVAK on a beach at sunset, sky in orange, pink, and purple hues. Golden light on waves and sand highlights his green eyes, visible face, evoking peaceful, romantic vibes."
+    "prompt": "Ultra realistic close-up of {character_name} on a beach at sunset, sky in orange, pink, and purple hues. Golden light on waves and sand highlights his {eye_color} eyes, visible face, evoking peaceful, romantic vibes."
   },
   {
     "category": "Places",
     "name": "Urban Skyline",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK with a twilight urban skyline. City lights glow under a fading blue sky. Skyscrapers in the background. Soft city light highlights his green eyes, creating a vibrant urban scene."
+    "prompt": "Ultra realistic shot of {character_name} with a twilight urban skyline. City lights glow under a fading blue sky. Skyscrapers in the background. Soft city light highlights his {eye_color} eyes, creating a vibrant urban scene."
   },
   {
     "category": "Places",
     "name": "Grand Canyon Vista",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK at a Grand Canyon sunrise. Vibrant sky reflects on canyon walls. He stands at a scenic viewpoint, green eyes, visible face, capturing the vast beauty of the landscape."
+    "prompt": "Ultra realistic photo of {character_name} at a Grand Canyon sunrise. Vibrant sky reflects on canyon walls. He stands at a scenic viewpoint, {eye_color} eyes, visible face, capturing the vast beauty of the landscape."
   },
   {
     "category": "Places",
     "name": "Venice Canals",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK in a gondola sailing Venice’s canals. Historic buildings and graceful bridges line the scene. Soft daylight enhances his green eyes, visible face, creating a timeless Venetian moment."
+    "prompt": "Ultra realistic photo of {character_name} in a gondola sailing Venice’s canals. Historic buildings and graceful bridges line the scene. Soft daylight enhances his {eye_color} eyes, visible face, creating a timeless Venetian moment."
   },
   {
     "category": "Places",
     "name": "Santorini Cliffside",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK on Santorini’s white cliffs, overlooking the deep blue Aegean Sea. Traditional blue-domed churches add color to the serene landscape. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} on Santorini’s white cliffs, overlooking the deep blue Aegean Sea. Traditional blue-domed churches add color to the serene landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Places",
     "name": "Safari Sunset",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK on African savannah during sunset safari. Silhouettes of acacia trees dot the horizon. Sky ablaze with orange, red, and purple hues. Wildlife visible in the distance. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} on African savannah during sunset safari. Silhouettes of acacia trees dot the horizon. Sky ablaze with orange, red, and purple hues. Wildlife visible in the distance. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Professions",
     "name": "SWAT Officer",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK as a SWAT officer in tactical gear, black vest with 'SWAT', helmet, gloves, holding a PDW. Urban operation scene, gritty lighting. Male, green eyes, visible face, determined expression."
+    "prompt": "Ultra realistic shot of {character_name} as a SWAT officer in tactical gear, black vest with 'SWAT', helmet, gloves, holding a PDW. Urban operation scene, gritty lighting. {character_gender}, {eye_color} eyes, visible face, determined expression."
   },
   {
     "category": "Professions",
     "name": "Physician",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK as a physician in a white lab coat, wearing a stethoscope around his neck. In a bright, modern clinic setting, examining a patient chart. Male, green eyes, visible face, calm and focused expression."
+    "prompt": "Ultra realistic shot of {character_name} as a physician in a white lab coat, wearing a stethoscope around his neck. In a bright, modern clinic setting, examining a patient chart. {character_gender}, {eye_color} eyes, visible face, calm and focused expression."
   },
   {
     "category": "Professions",
     "name": "Astronaut",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as an astronaut on the moon. Detailed suit, Earth visible in the starry sky. Lunar dust and footprints foreground. Male, green eyes, visible face through visor, expressing wonder and exploration."
+    "prompt": "Ultra realistic photo of {character_name} as an astronaut on the moon. Detailed suit, Earth visible in the starry sky. Lunar dust and footprints foreground. {character_gender}, {eye_color} eyes, visible face through visor, expressing wonder and exploration."
   },
   {
     "category": "Professions",
     "name": "Chef",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK as a chef in a busy modern kitchen. White jacket, chef hat, holding knife or pan. Stainless appliances, fresh ingredients in background. Male, green eyes, visible face, focused, passionate expression."
+    "prompt": "Ultra realistic shot of {character_name} as a chef in a busy modern kitchen. White jacket, chef hat, holding knife or pan. Stainless appliances, fresh ingredients in background. {character_gender}, {eye_color} eyes, visible face, focused, passionate expression."
   },
   {
     "category": "Professions",
     "name": "Firefighter",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as a firefighter in full gear, helmet, jacket, gloves, holding a fire hose. Flames and smoke in background. Male, green eyes, visible face, determined, heroic stance, capturing intensity."
+    "prompt": "Ultra realistic photo of {character_name} as a firefighter in full gear, helmet, jacket, gloves, holding a fire hose. Flames and smoke in background. {character_gender}, {eye_color} eyes, visible face, determined, heroic stance, capturing intensity."
   },
   {
     "category": "Professions",
     "name": "Pilot",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as a pilot in a cockpit. Wearing uniform with insignia, holding flight controls, airplane instruments, sky outside. Male, green eyes, visible face, confident, professional demeanor."
+    "prompt": "Ultra realistic photo of {character_name} as a pilot in a cockpit. Wearing uniform with insignia, holding flight controls, airplane instruments, sky outside. {character_gender}, {eye_color} eyes, visible face, confident, professional demeanor."
   },
   {
     "category": "Professions",
     "name": "Police Officer",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK as a police officer in uniform with badge. Holding radio and flashlight. Urban street at night, patrol car, police lights. Male, green eyes, visible face, vigilant, authoritative expression."
+    "prompt": "Ultra realistic shot of {character_name} as a police officer in uniform with badge. Holding radio and flashlight. Urban street at night, patrol car, police lights. {character_gender}, {eye_color} eyes, visible face, vigilant, authoritative expression."
   },
   {
     "category": "Professions",
     "name": "Fire Marshal",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as a Fire Marshal in safety attire, reflective vest and cap. Inspecting a building with fire safety equipment. Male, green eyes, visible face, showing leadership and expertise in fire prevention."
+    "prompt": "Ultra realistic photo of {character_name} as a Fire Marshal in safety attire, reflective vest and cap. Inspecting a building with fire safety equipment. {character_gender}, {eye_color} eyes, visible face, showing leadership and expertise in fire prevention."
   },
   {
     "category": "Puppies",
     "name": "Puppies - park",
-    "prompt": "Ultra realistic wide shot of GABRIELNOVAK playing with several energetic puppies in a sunny, outdoor park. Puppies are running around. Male, green eyes, visible face, smiling expression, evoking warmth and happiness in a broader view of the surroundings."
+    "prompt": "Ultra realistic wide shot of {character_name} playing with several energetic puppies in a sunny, outdoor park. Puppies are running around. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness in a broader view of the surroundings."
   },
   {
     "category": "Puppies",
     "name": "Kittens - house",
-    "prompt": "Ultra realistic shot of GABRIELNOVAK holding and playing with playful kittens. Surrounded by wagging tails and fluffy fur in a joyful, bright setting. Male, green eyes, visible face, smiling expression, evoking warmth and happiness."
+    "prompt": "Ultra realistic shot of {character_name} holding and playing with playful kittens. Surrounded by wagging tails and fluffy fur in a joyful, bright setting. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness."
   },
   {
     "category": "Puppies",
     "name": "Rabbits - garden",
-    "prompt": "Ultra realistic wide-angle shot of GABRIELNOVAK gently playing with fluffy rabbits in a garden. The serene outdoor setting features lush greenery. Male, green eyes, visible face, long shot, far away."
+    "prompt": "Ultra realistic wide-angle shot of {character_name} gently playing with fluffy rabbits in a garden. The serene outdoor setting features lush {eye_color}ery. {character_gender}, {eye_color} eyes, visible face, long shot, far away."
   },
   {
     "category": "Lifestyle",
     "name": "Drag Queen",
-    "prompt": "Realistic shot of GABRIELNOVAK as a glamorous drag queen, wide shot, wearing bold makeup, vibrant purple wig, and an elaborate outfit. Lively stage, colorful lighting. Male, green eyes, visible face, confident expression, evoking pride and artistry."
+    "prompt": "Realistic shot of {character_name} as a glamorous drag queen, wide shot, wearing bold makeup, vibrant purple wig, and an elaborate outfit. Lively stage, colorful lighting. {character_gender}, {eye_color} eyes, visible face, confident expression, evoking pride and artistry."
   },
   {
     "category": "Lifestyle",
     "name": "Drag Queen pole dancing",
-    "prompt": "Realistic shot of GABRIELNOVAK as a glamorous drag queen, pole dancing, wide shot, wearing bold makeup, purple wig, and an elaborate outfit. Lively stage, colorful lighting. Male, green eyes, visible face, confident expression, evoking pride and artistry."
+    "prompt": "Realistic shot of {character_name} as a glamorous drag queen, pole dancing, wide shot, wearing bold makeup, purple wig, and an elaborate outfit. Lively stage, colorful lighting. {character_gender}, {eye_color} eyes, visible face, confident expression, evoking pride and artistry."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Serpents",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with coiled serpents, floral patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. 'Gabriel Novak' scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with coiled serpents, floral patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Eagles",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with eagles, star patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. 'Gabriel Novak' scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with eagles, star patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Peacock",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with elegant peacock feathers and intricate floral motifs. Inspired by Mucha and Klimt, it evokes a regal, enchanting beauty. 'Gabriel Novak' elegantly scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with elegant peacock feathers and intricate floral motifs. Inspired by Mucha and Klimt, it evokes a regal, enchanting beauty. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Butterflies",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK surrounded by delicate butterflies and ornate floral designs. Inspired by Mucha and Klimt, it captures a whimsical, ethereal beauty. 'Gabriel Novak' scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} surrounded by delicate butterflies and ornate floral designs. Inspired by Mucha and Klimt, it captures a whimsical, ethereal beauty. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Lion",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with a majestic lion and swirling floral patterns. Inspired by Mucha and Klimt, it radiates strength and grace. 'Gabriel Novak' artistically scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with a majestic lion and swirling floral patterns. Inspired by Mucha and Klimt, it radiates strength and grace. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Tarot Card",
-    "prompt": "Ultra realistic tarot card of GABRIELNOVAK as The Magician. Surrounded by mystical symbols and intricate designs. 'Gabriel Novak' elegantly written at bottom. Rich colors enhance the magical, enigmatic atmosphere. Male, green eyes, visible face."
+    "prompt": "Ultra realistic tarot card of {character_name} as The Magician. Surrounded by mystical symbols and intricate designs. Rich colors enhance the magical, enigmatic atmosphere. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Playing Card",
-    "prompt": "Ultra realistic playing card of GABRIELNOVAK as King of Hearts. Traditional, intricate design with heart motifs and borders. 'Gabriel Novak' inscribed at bottom. Vibrant colors and artistry emphasize regal authority. Male, green eyes, visible face."
+    "prompt": "Ultra realistic playing card of {character_name} as King of Hearts. Traditional, intricate design with heart motifs and borders. Vibrant colors and artistry emphasize regal authority. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Business Card",
-    "prompt": "Ultra realistic business card featuring GABRIELNOVAK. Minimalist, professional layout with job title, contact details, and branding elements. High-quality design conveys elegance and professionalism. Male, green eyes, visible face."
+    "prompt": "Ultra realistic business card featuring {character_name}. Minimalist, professional layout with job title, contact details, and branding elements. High-quality design conveys elegance and professionalism. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Vintage Postcard",
-    "prompt": "Ultra realistic vintage postcard featuring GABRIELNOVAK at a famous landmark. Nostalgic colors, distressed textures, and elegant typography. 'Greetings from Gabriel Novak' scripted at bottom. Male, green eyes, visible face, evoking timeless adventure."
+    "prompt": "Ultra realistic vintage postcard featuring {character_name} at a famous landmark. Nostalgic colors, distressed textures, and elegant typography. 'Greetings' scripted at bottom. {character_gender}, {eye_color} eyes, visible face, evoking timeless adventure."
   },
   {
     "category": "Cards",
     "name": "Holiday Greeting Card",
-    "prompt": "Ultra realistic holiday card featuring GABRIELNOVAK in a festive setting with Christmas lights or snowflakes. Warm, inviting colors with 'Happy Holidays from Gabriel Novak' elegantly displayed. Male, green eyes, visible face, conveying joy."
+    "prompt": "Ultra realistic holiday card featuring {character_name} in a festive setting with Christmas lights or snowflakes. Warm, inviting colors with 'Happy Holidays' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying joy."
   },
   {
     "category": "Cards",
     "name": "Fantasy Card",
-    "prompt": "Ultra realistic fantasy card of GABRIELNOVAK as a warrior or sorcerer. Background of enchanted forests and magical creatures. Vibrant colors, intricate designs. 'Gabriel Novak' integrated into the scene. Male, green eyes, visible face, embodying magic."
+    "prompt": "Ultra realistic fantasy card of {character_name} as a warrior or sorcerer. Background of enchanted forests and magical creatures. Vibrant colors, intricate designs. {character_gender}, {eye_color} eyes, visible face, embodying magic."
   },
   {
     "category": "Cards",
     "name": "Minimalist Card",
-    "prompt": "Ultra realistic minimalist card featuring GABRIELNOVAK. Clean lines, white space, and subtle accents. 'Gabriel Novak' elegantly placed in modern font. Sleek, contemporary design conveys elegance. Male, green eyes, visible face."
+    "prompt": "Ultra realistic minimalist card featuring {character_name}. Clean lines, white space, and subtle accents. Sleek, contemporary design conveys elegance. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Cockroaches",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with cockroaches crawling through ornate, dusty objects. Inspired by Mucha and Klimt, it evokes a haunting beauty in decay. 'Gabriel Novak' elegantly scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with cockroaches crawling through ornate, dusty objects. Inspired by Mucha and Klimt, it evokes a haunting beauty in decay. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Spiders",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with intricate spider webs. Spiders delicately placed, creating a mysterious, gothic atmosphere. 'Gabriel Novak' scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with intricate spider webs. Spiders delicately placed, creating a mysterious, gothic atmosphere. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Cards",
     "name": "Art Nouveau - Rats",
-    "prompt": "Ultra realistic Art Nouveau card of GABRIELNOVAK with rats intertwined through elegant, decaying urban motifs. Detailed patterns of winding tails and shadows evoke a dark, haunting beauty. 'Gabriel Novak' scripted at bottom. Male, green eyes, visible face."
+    "prompt": "Ultra realistic Art Nouveau card of {character_name} with rats intertwined through elegant, decaying urban motifs. Detailed patterns of winding tails and shadows evoke a dark, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Art",
     "name": "Van Gogh",
-    "prompt": "GABRIELNOVAK painted in the style of Van Gogh's Starry Night. Swirling, textured brushstrokes in rich blues and yellows. Male, green eyes, standing in a dreamlike landscape under a swirling sky, evoking an emotional and surreal atmosphere."
+    "prompt":  "{character_name} painted in the style of Van Gogh's Starry Night. Swirling, textured brushstrokes in rich blues and yellows. {character_gender}, {eye_color} eyes, standing in a dreamlike landscape under a swirling sky, evoking an emotional and surreal atmosphere."
   },
   {
     "category": "Art",
     "name": "Picasso Cubist",
-    "prompt": "GABRIELNOVAK painted in the style of Picasso's Cubism. Geometric shapes, fragmented features, bold colors. Male, green eyes, abstracted face, dynamic and multidimensional composition, evoking a sense of complexity and modernity."
+    "prompt":  "{character_name} painted in the style of Picasso's Cubism. Geometric shapes, fragmented features, bold colors. {character_gender}, {eye_color} eyes, abstracted face, dynamic and multidimensional composition, evoking a sense of complexity and modernity."
   },
   {
     "category": "Art",
     "name": "Monet Impressionist",
-    "prompt": "GABRIELNOVAK painted in the style of Monet's Impressionism. Soft, pastel colors with loose brushstrokes, set in a serene outdoor landscape. Male, green eyes, standing near water lilies and dappled light, evoking peace and natural beauty."
+    "prompt":  "{character_name} painted in the style of Monet's Impressionism. Soft, pastel colors with loose brushstrokes, set in a serene outdoor landscape. {character_gender}, {eye_color} eyes, standing near water lilies and dappled light, evoking peace and natural beauty."
   },
   {
     "category": "Art",
     "name": "Salvador Dalí Surrealist",
-    "prompt": "GABRIELNOVAK painted in the style of Salvador Dalí's Surrealism. Dreamlike, distorted reality with melting clocks and bizarre landscapes. Male, green eyes, standing amidst surreal, otherworldly elements, evoking a strange and imaginative atmosphere."
+    "prompt":  "{character_name} painted in the style of Salvador Dalí's Surrealism. Dreamlike, distorted reality with melting clocks and bizarre landscapes. {character_gender}, {eye_color} eyes, standing amidst surreal, otherworldly elements, evoking a strange and imaginative atmosphere."
   },
   {
     "category": "Games",
     "name": "Cyberpunk Game Cover",
-    "prompt": "Ultra realistic image of GABRIELNOVAK as the protagonist on a cyberpunk game cover. Neon lights, futuristic cityscape, high-tech attire. Male, green eyes, visible face. Dynamic pose."
+    "prompt": "Ultra realistic image of {character_name} as the protagonist on a cyberpunk game cover. Neon lights, futuristic cityscape, high-tech attire. {character_gender}, {eye_color} eyes, visible face. Dynamic pose."
   },
   {
     "category": "Games",
     "name": "GTA Style Cover",
-    "prompt": "Ultra realistic GABRIELNOVAK as GTA Vice City cover art. Borderlands style, cel shading, vibrant colors. Male, green eyes, wide angle view, urban backdrop."
+    "prompt": "Ultra realistic {character_name} as GTA Vice City cover art. Borderlands style, cel shading, vibrant colors. {character_gender}, {eye_color} eyes, wide angle view, urban backdrop."
   },
   {
     "category": "Games",
     "name": "Fantasy RPG Character",
-    "prompt": "Ultra realistic image of GABRIELNOVAK as a fantasy RPG character. Wearing ornate armor, holding a sword, enchanted forest background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic image of {character_name} as a fantasy RPG character. Wearing ornate armor, holding a sword, enchanted forest background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Games",
     "name": "Horror Game Scene",
-    "prompt": "Ultra realistic portrayal of GABRIELNOVAK in a horror game setting. Dark, eerie forest with mist, glowing eyes, tense expression. Male, green eyes, visible face."
+    "prompt": "Ultra realistic portrayal of {character_name} in a horror game setting. Dark, eerie forest with mist, glowing eyes, tense expression. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Games",
     "name": "Retro 8-Bit Character",
-    "prompt": "Pixel art of GABRIELNOVAK as a retro 8-bit game character. Bright colors, classic game environment, nostalgic vibe. Male, green eyes, visible face."
+    "prompt": "Pixel art of {character_name} as a retro 8-bit game character. Bright colors, classic game environment, nostalgic vibe. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Games",
     "name": "Super Mario Style",
-    "prompt": "Pixel art of GABRIELNOVAK as a retro 8-bit character in a Super Mario-style world. Bright colors, brick blocks, green pipes, and mushrooms. Male, green eyes, jumping pose, classic platformer environment, nostalgic vibe."
+    "prompt": "Pixel art of {character_name} as a retro 8-bit character in a Super Mario-style world. Bright colors, brick blocks, {eye_color} pipes, and mushrooms. {character_gender}, {eye_color} eyes, jumping pose, classic platformer environment, nostalgic vibe."
   },
   {
     "category": "Games",
     "name": "Pac-Man Style",
-    "prompt": "Pixel art of GABRIELNOVAK as a retro 8-bit character in a Pac-Man-style maze. Dark blue maze, neon outlines, dots, and ghosts. Male, green eyes, navigating the maze, classic arcade aesthetic, nostalgic feel."
+    "prompt": "Pixel art of {character_name} as a retro 8-bit character in a Pac-Man-style maze. Dark blue maze, neon outlines, dots, and ghosts. {character_gender}, {eye_color} eyes, navigating the maze, classic arcade aesthetic, nostalgic feel."
   },
   {
     "category": "Games",
     "name": "Action-Adventure Cover",
-    "prompt": "Ultra realistic image of GABRIELNOVAK on an action-adventure game cover. Dynamic action pose, exotic landscape, adventurous gear. Male, green eyes, visible face."
+    "prompt": "Ultra realistic image of {character_name} on an action-adventure game cover. Dynamic action pose, exotic landscape, adventurous gear. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Games",
     "name": "Battle Royale Fighter",
-    "prompt": "Ultra realistic depiction of GABRIELNOVAK as a battle royale fighter. Combat gear, intense battlefield background, ready for action. Male, green eyes, visible face."
+    "prompt": "Ultra realistic depiction of {character_name} as a battle royale fighter. Combat gear, intense battlefield background, ready for action. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Games",
     "name": "Virtual Reality Gamer",
-    "prompt": "Ultra realistic image of GABRIELNOVAK as a virtual reality gamer. Futuristic VR headset, immersive digital environment, focused expression. Male, green eyes, visible face."
+    "prompt": "Ultra realistic image of {character_name} as a virtual reality gamer. Futuristic VR headset, immersive digital environment, focused expression. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Spaceship Pilot",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as a spaceship pilot in a high-tech cockpit with futuristic controls and a stunning space view outside the window. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} as a spaceship pilot in a high-tech cockpit with futuristic controls and a stunning space view outside the window. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Alien Encounter",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK interacting with friendly aliens on a vibrant, otherworldly planet. Colorful alien flora and fauna in the background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} interacting with friendly aliens on a vibrant, otherworldly planet. Colorful alien flora and fauna in the background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Android Companion",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK alongside a humanoid android in a futuristic cityscape. High-tech buildings and holographic displays in the background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} alongside a humanoid android in a futuristic cityscape. High-tech buildings and holographic displays in the background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Time Traveler",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK as a time traveler with a sleek, futuristic suit, standing amidst a portal with swirling lights. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} as a time traveler with a sleek, futuristic suit, standing amidst a portal with swirling lights. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Space Explorer",
-    "prompt": "Ultra realistic photo of GABRIELNOVAK in a space suit, exploring the surface of a distant planet with rugged terrain and a star-filled sky. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photo of {character_name} in a space suit, exploring the surface of a distant planet with rugged terrain and a star-filled sky. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sci-Fi",
     "name": "Cosmic Face Melting",
-    "prompt": "GABRIELNOVAK’s face melting into a swirl of galaxies and nebulae. Stars, planets, and cosmic dust blend with his features, as if merging with the universe itself. Male, green eyes, a surreal cosmic transformation, evoking awe and wonder."
+    "prompt":  "{character_name}’s face melting into a swirl of galaxies and nebulae. Stars, planets, and cosmic dust blend with his features, as if merging with the universe itself. {character_gender}, {eye_color} eyes, a surreal cosmic transformation, evoking awe and wonder."
   },
   {
     "category": "Sci-Fi",
     "name": "Planetary Fusion",
-    "prompt": "GABRIELNOVAK’s face blending with a planet’s surface, his features seamlessly morphing into craters and oceans. Planetary rings orbit around his head, symbolizing unity with the cosmos. Male, green eyes, evoking mystery and the vastness of space."
+    "prompt":  "{character_name}’s face blending with a planet’s surface, his features seamlessly morphing into craters and oceans. Planetary rings orbit around his head, symbolizing unity with the cosmos. {character_gender}, {eye_color} eyes, evoking mystery and the vastness of space."
   },
   {
     "category": "Sci-Fi",
     "name": "Stellar Deconstruction",
-    "prompt": "GABRIELNOVAK’s face dissolving into a field of stars and black holes. His features fragment into stardust, drifting through the void of space. Male, green eyes, cosmic deconstruction, capturing the infinite scale and beauty of the universe."
+    "prompt":  "{character_name}’s face dissolving into a field of stars and black holes. His features fragment into stardust, drifting through the void of space. {character_gender}, {eye_color} eyes, cosmic deconstruction, capturing the infinite scale and beauty of the universe."
   },
   {
     "category": "Historical Figures",
     "name": "Leonardo da Vinci",
-    "prompt": "portrait of GABRIELNOVAK styled as Leonardo da Vinci, wearing Renaissance attire, holding a sketchbook, in a classical studio setting. Male, green eyes, visible face."
+    "prompt": "portrait of {character_name} styled as Leonardo da Vinci, wearing Renaissance attire, holding a sketchbook, in a classical studio setting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Napoleon Bonaparte",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK as Napoleon Bonaparte, in military uniform, standing on a battlefield. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} as Napoleon Bonaparte, in military uniform, standing on a battlefield. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Viking Warrior",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a Viking warrior, wearing traditional Viking armor, helmet with horns, holding a battle axe, standing on a rugged coastline. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a Viking warrior, wearing traditional Viking armor, helmet with horns, holding a battle axe, standing on a rugged coastline. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Samurai Warrior",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a samurai warrior, dressed in traditional samurai armor, holding a katana, standing in a serene Japanese garden. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a samurai warrior, dressed in traditional samurai armor, holding a katana, standing in a serene Japanese garden. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Nomad Indian Leader",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a nomad Indian leader, wearing traditional tribal attire, feathered headdress, holding a bow, set against a vast desert landscape. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a nomad Indian leader, wearing traditional tribal attire, feathered headdress, holding a bow, set against a vast desert landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Ancient Egyptian Pharaoh",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an ancient Egyptian pharaoh, wearing regal attire, crown with cobra, holding an ankh, standing in front of pyramids. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as an ancient Egyptian pharaoh, wearing regal attire, crown with cobra, holding an ankh, standing in front of pyramids. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Spartan Warrior",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a Spartan warrior, wearing traditional Spartan armor, red cape, holding a spear and shield, standing on a battlefield. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a Spartan warrior, wearing traditional Spartan armor, red cape, holding a spear and shield, standing on a battlefield. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Aztec Emperor",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an Aztec emperor, adorned with intricate headdress, traditional Aztec attire, holding a ceremonial staff, standing in an ancient Aztec temple. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as an Aztec emperor, adorned with intricate headdress, traditional Aztec attire, holding a ceremonial staff, standing in an ancient Aztec temple. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Historical Figures",
     "name": "Celtic Druid",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a Celtic druid, wearing traditional Celtic robes, carrying a staff, surrounded by ancient stone circles and lush green forests. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a Celtic druid, wearing traditional Celtic robes, carrying a staff, surrounded by ancient stone circles and lush {eye_color} forests. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Superman",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK as Superman soaring above the city, cape flowing, dramatic lighting. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} as Superman soaring above the city, cape flowing, dramatic lighting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes arabic",
     "name": "Superman arabic",
-    "prompt": "ultra realistic photograph of GABRIELNOVAK as Superman soaring above the Great Pyramid of Giza, cape flowing, dramatic lighting. Male, green eyes, visible face."
+    "prompt": "ultra realistic photograph of {character_name} as Superman soaring above the Great Pyramid of Giza, cape flowing, dramatic lighting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Aquaman",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an elemental superhero, controlling fire, water, earth, and air around him. Wearing a suit with elemental symbols, dynamic pose in a natural setting. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as an elemental superhero, controlling fire, water, earth, and air around him. Wearing a suit with elemental symbols, dynamic pose in a natural setting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Batman",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a stealth superhero, clad in a dark tactical suit, blending into the shadows of a city rooftop at night. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a stealth superhero, clad in a dark tactical suit, blending into the shadows of a city rooftop at night. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Iron Man",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a tech-based superhero, equipped with high-tech gadgets and holographic displays, set in a futuristic laboratory. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a tech-based superhero, equipped with high-tech gadgets and holographic displays, set in a futuristic laboratory. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Doctor Strange",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a mystic superhero, casting spells with glowing runes around him, wearing a magical robe in an enchanted forest. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a mystic superhero, casting spells with glowing runes around him, wearing a magical robe in an enchanted forest. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Superheroes",
     "name": "Black Panther",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a ninja-themed superhero, dressed in sleek dark attire with stealth gear, poised for action in a misty alley. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a ninja-themed superhero, dressed in sleek dark attire with stealth gear, poised for action in a misty alley. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Soccer Player",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a professional soccer player on the field, wearing team jersey and cleats, mid-action kicking a ball. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a professional soccer player on the field, wearing team jersey and cleats, mid-action kicking a ball. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Basketball Athlete",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a basketball player dunking the ball during a game. Wearing a basketball uniform, dynamic motion, male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a basketball player dunking the ball during a game. Wearing a basketball uniform, dynamic motion, male, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Cyclist",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a professional cyclist racing on a scenic mountain trail. Wearing a cycling kit, helmet, and holding handlebars in dynamic motion. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a professional cyclist racing on a scenic mountain trail. Wearing a cycling kit, helmet, and holding handlebars in dynamic motion. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Bungee Jumper",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK mid-bungee jump from a high bridge, capturing the thrill and adrenaline. Wearing a harness and helmet, surrounded by a scenic landscape. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} mid-bungee jump from a high bridge, capturing the thrill and adrenaline. Wearing a harness and helmet, surrounded by a scenic landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Parachutist",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK parachuting from an airplane, with a colorful parachute open against a clear blue sky. Dynamic pose capturing the freefall or landing. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} parachuting from an airplane, with a colorful parachute open against a clear blue sky. Dynamic pose capturing the freefall or landing. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Swimmer",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a competitive swimmer diving into a crystal-clear pool. Wearing a swim suit, captured in mid-dive or during a race. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a competitive swimmer diving into a crystal-clear pool. Wearing a swim suit, captured in mid-dive or during a race. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Archer",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an archer aiming a bow at a target in a serene outdoor setting. Wearing archery gear, focused expression. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as an archer aiming a bow at a target in a serene outdoor setting. Wearing archery gear, focused expression. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Skeet Shooter",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK engaging in skeet shooting, aiming a shotgun at flying clay targets in a shooting range. Wearing protective gear, concentrated stance. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} engaging in skeet shooting, aiming a shotgun at flying clay targets in a shooting range. Wearing protective gear, concentrated stance. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Surfer",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK surfing a large wave in a tropical beach setting. Wearing a wetsuit, dynamic action shot capturing the thrill of the sport. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} surfing a large wave in a tropical beach setting. Wearing a wetsuit, dynamic action shot capturing the thrill of the sport. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
     "name": "Snowboarder",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK snowboarding down a snowy mountain slope, performing a trick or carving through fresh powder. Wearing snowboarding gear and helmet. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} snowboarding down a snowy mountain slope, performing a trick or carving through fresh powder. Wearing snowboarding gear and helmet. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Musicians",
     "name": "Rock Star",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a rock star on stage, holding an electric guitar, surrounded by vibrant stage lights and crowd. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a rock star on stage, holding an electric guitar, surrounded by vibrant stage lights and crowd. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Musicians",
     "name": "Classical Conductor",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a classical music conductor, leading an orchestra with a baton, elegant attire. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a classical music conductor, leading an orchestra with a baton, elegant attire. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Musicians",
     "name": "Jazz Musician",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a jazz musician, playing a saxophone in a dimly lit jazz club, with a moody atmosphere. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a jazz musician, playing a saxophone in a dimly lit jazz club, with a moody atmosphere. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Musicians",
     "name": "DJ",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a DJ, mixing tracks at a vibrant nightclub with colorful lights and energetic crowd. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a DJ, mixing tracks at a vibrant nightclub with colorful lights and energetic crowd. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Fantasy",
     "name": "Dragon Rider",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK riding a majestic dragon in a fantasy landscape, wearing battle armor, dynamic action pose. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} riding a majestic dragon in a fantasy landscape, wearing battle armor, dynamic action pose. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Anime",
     "name": "Anime Hero",
-    "prompt": "Anime-style ultra realistic image of GABRIELNOVAK as an anime hero, vibrant colors, dynamic pose with special powers. Male, green eyes, visible face."
+    "prompt": "Anime-style ultra realistic image of {character_name} as an anime hero, vibrant colors, dynamic pose with special powers. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Anime",
     "name": "Mecha Pilot",
-    "prompt": "Anime-style ultra realistic photograph of GABRIELNOVAK as a mecha pilot inside a giant robot cockpit, futuristic design. Male, green eyes, visible face."
+    "prompt": "Anime-style ultra realistic photograph of {character_name} as a mecha pilot inside a giant robot cockpit, futuristic design. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Anime",
     "name": "Magical Girl",
-    "prompt": "Anime-style ultra realistic image of GABRIELNOVAK as a magical girl, wearing sparkling attire and wielding magical powers, set in a whimsical fantasy world. Male, green eyes, visible face."
+    "prompt": "Anime-style ultra realistic image of {character_name} as a magical girl, wearing sparkling attire and wielding magical powers, set in a whimsical fantasy world. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Anime",
     "name": "Samurai Anime Character",
-    "prompt": "Anime-style ultra realistic photograph of GABRIELNOVAK as a samurai anime character, dressed in traditional samurai armor, poised with a katana in a Japanese battlefield setting. Male, green eyes, visible face."
+    "prompt": "Anime-style ultra realistic photograph of {character_name} as a samurai anime character, dressed in traditional samurai armor, poised with a katana in a Japanese battlefield setting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Military",
     "name": "Marine Special Forces",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a Marine Special Forces operator, wearing tactical gear, in a combat scenario. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a Marine Special Forces operator, wearing tactical gear, in a combat scenario. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Military",
     "name": "Pilot in Flight Suit",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a military pilot, wearing a flight suit, standing next to a fighter jet. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a military pilot, wearing a flight suit, standing next to a fighter jet. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Military",
     "name": "Special Operations Sniper",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a military sniper, wearing camouflage gear and a ghillie suit, positioned in a tactical observation post with a blurred battlefield background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a military sniper, wearing camouflage gear and a ghillie suit, positioned in a tactical observation post with a blurred battlefield background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Military",
     "name": "Naval Officer",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a naval officer, dressed in a crisp naval uniform, standing on the deck of a warship with the ocean and sky in the background. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a naval officer, dressed in a crisp naval uniform, standing on the deck of a warship with the ocean and sky in the background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Military",
     "name": "Tank Commander",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a tank commander, wearing military attire, inside the turret of a modern tank with controls and armored exterior visible through the glass. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a tank commander, wearing military attire, inside the turret of a modern tank with controls and armored exterior visible through the glass. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Royalty",
     "name": "King",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a regal king, wearing a majestic crown and royal robes, seated on an ornate throne. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a regal king, wearing a majestic crown and royal robes, seated on an ornate throne. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Royalty",
     "name": "Queen",
-    "prompt": "Ultra realistic photograph of TOK as a graceful queen, adorned with a jeweled crown and elegant gown, standing in a grand palace hall. Female, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a graceful queen, adorned with a jeweled crown and elegant gown, standing in a grand palace hall. Female, {eye_color} eyes, visible face."
   },
   {
     "category": "Royalty",
     "name": "Sultan",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as a powerful Sultan, wearing an ornate turban and lavish robes, seated on a grand divan. Surrounded by luxurious fabrics and intricate patterns. Male, green eyes, visible face."
+    "prompt": "Ultra realistic photograph of {character_name} as a powerful Sultan, wearing an ornate turban and lavish robes, seated on a grand divan. Surrounded by luxurious fabrics and intricate patterns. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Royalty",
     "name": "Emperor",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an imposing Emperor, clad in imperial armor and a golden laurel crown, standing on a palace balcony overlooking his empire. Male, green eyes, visible face, conveying authority and grandeur."
+    "prompt": "Ultra realistic photograph of {character_name} as an imposing Emperor, clad in imperial armor and a golden laurel crown, standing on a palace balcony overlooking his empire. {character_gender}, {eye_color} eyes, visible face, conveying authority and grandeur."
   },
   {
     "category": "Royalty",
     "name": "Pharaoh",
-    "prompt": "Ultra realistic photograph of GABRIELNOVAK as an ancient Egyptian Pharaoh, wearing a golden nemes headdress and royal kilt, standing before a grand temple. Male, green eyes, visible face, evoking divine rulership and timeless power."
+    "prompt": "Ultra realistic photograph of {character_name} as an ancient Egyptian Pharaoh, wearing a golden nemes headdress and royal kilt, standing before a grand temple. {character_gender}, {eye_color} eyes, visible face, evoking divine rulership and timeless power."
   }
 ]

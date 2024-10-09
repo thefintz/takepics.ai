@@ -57,13 +57,21 @@ export class ReplicateInferenceImageService implements InferenceService {
 			throw new Error(`Training ${training.id} has no weights URL`);
 		}
 
+		const characterName = "TOK";
+    	const characterGender =  training ? training.gender : ""
+    	const eyeColor =  training ? training.eyeColor : ""
+		const modifiedPrompt: string = prompt
+			.replace('{character_name}', characterName)
+			.replace('{character_gender}', characterGender)
+			.replace('{eye_color}', eyeColor);
+
 		console.info(`Creating prediction for training ${training.id}`);
 		const prediction = await this.replicate.predictions.create({
 			model: this.conf.model,
 			version: this.conf.version,
 			webhook: `${this.conf.webhookUrl}/inference`,
 			input: {
-				prompt: prompt,
+				prompt: modifiedPrompt,
 				hf_lora: training.weights_url,
 				output_format: "png",
 				lora_scale: 0.8,
@@ -85,7 +93,7 @@ export class ReplicateInferenceImageService implements InferenceService {
 			.values({
 				id: prediction.id,
 				userId: user.id,
-				prompt: prompt,
+				prompt: modifiedPrompt,
 				data: prediction,
 			})
 			.returning();
