@@ -153,22 +153,10 @@
     <section class="w-full py-16 bg-gray-800">
       <div class="container mx-auto">
         <h2 class="text-3xl font-bold text-center mb-8">Choose Your Plan</h2>
-        <div class="flex justify-center mb-8">
-          <SelectButton v-model="pricingPeriod" :options="pricingPeriodOptions" optionLabel="label" />
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div v-for="plan in pricingPlans" :key="plan.name" class="card p-6">
-            <h3 class="text-2xl font-bold mb-4">{{ plan.name }}</h3>
-            <p class="text-4xl font-bold mb-4">${{ pricingPeriod === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice }}<span class="text-lg font-normal">/{{ pricingPeriod === 'monthly' ? 'mo' : 'yr' }}</span></p>
-            <ul class="mb-6">
-              <li v-for="feature in plan.features" :key="feature" class="flex items-center mb-2">
-                <i class="pi pi-check-circle mr-2 text-green-500"></i>
-                {{ feature }}
-              </li>
-            </ul>
-            <Button :label="`Choose ${plan.name}`" class="p-button-lg w-full" :class="plan.name === 'Pro' ? 'p-button-outlined' : ''" />
-          </div>
-        </div>
+        <LazyScriptStripePricingTable
+          :pricing-table-id="'prctbl_1Q84prP2aEWXlznlThXwZ00r'"
+          :publishable-key="'pk_test_51PxqQFP2aEWXlznl5pMNEs2KFFRxQ4k47rGyUjmmdRJpNYIMqdURdAXlnEOdOhXBL9xoiGKiFbCMEXCKOkedfN5v00FdpFFUiL'"
+        />
       </div>
     </section>
 
