@@ -18,7 +18,15 @@ export default defineNuxtConfig({
 		"@sidebase/nuxt-auth",
 		"nuxt-posthog",
 		"@vueuse/nuxt",
+		"@nuxt/scripts",
 	],
+
+	scripts: {
+		registry: {
+		  stripe: true,
+		}
+	},
+
 
 	// https://tailwind.primevue.org/nuxt/
 	// https://github.com/primefaces/primevue-examples/blob/main/nuxt-styled-tailwind/nuxt.config.ts
