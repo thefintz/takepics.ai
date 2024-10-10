@@ -25,7 +25,7 @@
     />
 
 		<!-- Model (name) selector -->
-    <Select v-model="model" :options="models ?? []" optionLabel="customName" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4 mb-2 md:mb-0" />
+    <Select v-model="model" :options="models?.filter(model => model.trainingResponseData.status === 'succeeded') ?? []" optionLabel="customName" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4 mb-2 md:mb-0" />
     <Button class="ml-4" label="Create Images" type="submit"></Button>
   </form>
 </template>
