@@ -1,42 +1,49 @@
 <template>
-  <div class="bg-gray-900 text-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
+  <div class="bg-zinc-800 text-gray-100 p-4 rounded-lg shadow-lg max-w-4xl mx-auto">
     <h2 class="text-2xl font-bold mb-4">How to Create Your Model and Generate Images</h2>
 
-    <p class="mb-4">
-      Follow these two simple steps to create your images:
+    <p class="mb-2">
+      To create photos of a person, you need to create/train a model for that person.
+    </p>
+    <p class="mb-2 font-semibold">
+      It's very easy, just 2 simple steps.
+    </p>
+    <p class="mb-2 text-sm text-gray-400">
+      Note: this training process only has to be done once per person.
     </p>
 
     <!-- Step 1 -->
-    <div class="mb-6">
-      <h3 class="text-xl font-semibold mb-2">Step 1: Create Your Model</h3>
+    <div class="my-6">
+      <h3 class="text-3xl font-semibold mb-2">Step 1: Create Your Model</h3>
       <p class="mb-2">
-        Upload 12-20 images to build your model. Make sure to include a variety of angles, clothing, and zoom levels. When ready, click the "Train" button. The AI will take about 1 hour to process. You can leave the page and return later.
+        Select the gender and eye color, and give the model a name (so you can identify it later).
       </p>
-    </div>
+      <p class="mb-2">
+        Upload 12-20 images of the person you want to create a model for.
+      </p>
+      <p class="underline mb-2"> Image tips for better results:</p>
+        <p class="mb-2 ml-4">
+          Include photos with different angles, clothing, facial expressions, and zoom levels.
+        </p>
+        <p class="ml-4">
+          Also try to avoid including images with more than one person, hats, sunglasses, covered faces, etc.
+        </p>
+        <p class="mb-2 ml-4">A few is ok, but many will make the AI think that is a feature of the person and not the specific image.</p>
+      </div>
 
     <!-- Step 2 -->
-    <div class="mb-6">
-      <h3 class="text-xl font-semibold mb-2">Step 2: Generate Your Images</h3>
+    <div class="">
+      <h3 class="text-2xl font-semibold mb-2">Step 2: Start Training</h3>
+      <p class="mb-2"> When ready, click the "Train" button. </p>
       <p class="mb-2">
-        After training, create your images by selecting a category and your style preferences. The AI will generate the images based on your input.
-      </p>
-    </div>
-
-    <!-- Restrictions Section -->
-    <div class="bg-gray-800 p-4 rounded-lg mt-6">
-      <h3 class="text-xl font-semibold mb-4">Image Restrictions</h3>
+        The AI will take about 1 hour to process and make the model available for you to create images.
+        You can leave this page/website and return later.
+      </p>      
       <p class="mb-2">
-        Please note that the following restrictions apply when uploading images:
+        <span class="underline font-medium"> Done!</span> After training, go to the "Create Images" page, select your model and create your images.
       </p>
-      <ul class="list-disc list-inside mb-4">
-        <li>No images of people smoking.</li>
-        <li>No images involving drug use.</li>
-        <li>No images of children.</li>
-        <li>No nudity or explicit content.</li>
-        <li>No violence or blood.</li>
-      </ul>
-      <p>
-        These limitations are enforced by the AI platform and must be followed at all times.
+      <p class="mb-2 text-sm text-gray-400">
+        Note: The model will only show up in the "Create Images" page if it has finished training.
       </p>
     </div>
 
