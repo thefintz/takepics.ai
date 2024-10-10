@@ -9,7 +9,7 @@
         <FormSubmitImage @response="() => refresh()" />
       </template>
     </Card>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 px-2">
       <ImageCard v-for="i in data" :key="i.id" :image="i" />
     </div>
   </div>

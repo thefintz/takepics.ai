@@ -2,7 +2,7 @@
   <form @submit.prevent="() => execute()">
     <!-- First Select: Replace Dropdown with Select -->
     <Select
-      class="min-w-60 max-w-full"
+      class="min-w-60 ml-4 mb-2 md:mb-0"
       filled
       v-model="selectedCategory"
       :options="categories"
@@ -14,7 +14,7 @@
     
     <!-- Second Select: Replace Dropdown with Select -->
     <Select
-      class="min-w-60 max-w-full ml-4"
+      class="min-w-60 max-w-full ml-4 mb-2 md:mb-0"
       filled
       v-model="selectedPrompt"
       :options="getFilteredPrompts()"
@@ -25,7 +25,7 @@
     />
 
 		<!-- Model (name) selector -->
-    <Select v-model="model" :options="models ?? []" optionLabel="customName" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4" />
+    <Select v-model="model" :options="models ?? []" optionLabel="customName" optionValue="id" placeholder="Select Model" class="min-w-60 max-w-full ml-4 mb-2 md:mb-0" />
     <Button class="ml-4" label="Create Images" type="submit"></Button>
   </form>
 </template>
