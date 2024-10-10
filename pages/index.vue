@@ -65,14 +65,14 @@
     </section>
 
     <!-- Section 4: AI-Created Images Gallery -->
-    <section class="container mx-auto py-16">
-  <h2 class="text-3xl font-bold text-center mb-8">AI-Created Images</h2>
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-    <div v-for="image in aiImages" :key="image.alt" class="aspect-[2/3]">
-      <NuxtImg :src="image.itemImageSrc" :alt="image.alt" class="w-full h-full object-cover rounded-lg" />
+  <section class="container mx-auto py-16">
+    <h2 class="text-3xl font-bold text-center mb-8">AI-Created Images</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
+      <div v-for="image in aiImages" :key="image.alt" class="aspect-[2/3]">
+        <NuxtImg :src="image.itemImageSrc" :alt="image.alt" class="w-full h-full object-cover rounded-lg" />
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
     <!-- Section 5: Login Button -->
     <section class="w-full py-32 bg-gradient-to-r from-blue-600 to-purple-700 text-white text-center">
@@ -92,7 +92,7 @@
 
     <!-- Section 7: Comparison with Competitors -->
     <section class="w-full py-16 bg-gradient-to-r from-blue-600 to-purple-700">
-      <div class="container mx-auto">
+      <div class="container mx-auto sm:w-full md:w-full  lg:w-4/5 xl:w-3/5 2xl:w-2/5">
         <h2 class="text-3xl font-bold text-center text-white mb-8">How does TakePics.AI compare to other AI image services?</h2>
         <div class="flex flex-col md:flex-row justify-center items-stretch gap-6">
           <ComparisonCard
@@ -101,7 +101,7 @@
             :features="{
               realPersonModel: false,
               lowResemblance: false,
-              mediumPhotorealism: true,
+              mediumRealism: true,
               mediumResolution: true,
               clearAndSharp: false
             }"
@@ -171,7 +171,7 @@
     <footer class="w-full bg-gray-800 text-white py-8">
       <div class="container mx-auto flex flex-wrap justify-between">
         <div class="w-full md:w-1/3 px-8 mb-6 md:mb-0">
-          <h4 class="text-lg font-bold mb-4">About Us</h4>
+          <h4 class="text-lg font-bold mb-4">TakePics.AI</h4>
           <p>Create awesome AI-generated photos for you and your friends.</p>
         </div>
         <div class="w-full md:w-1/3 px-8 mb-6 md:mb-0">
@@ -190,7 +190,7 @@
         </div>
       </div>
       <div class="mt-8 text-center">
-        <p>&copy; 2023 AI Photo Generation. All rights reserved.</p>
+        <p>&copy; 2024 AI Photo Generation. All rights reserved.</p>
       </div>
     </footer>
   </div>

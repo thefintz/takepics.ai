@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-white rounded-lg shadow-lg overflow-hidden" :class="{ 'ring-8 ring-yellow-500': highlighted }">
-    <div class="aspect-[2/3]">
-      <NuxtImg :src="imageSrc" :alt="title" class="w-content object-cover" />
+  <div class="bg-black rounded-lg shadow-lg overflow-hidden flex flex-col w-64 sm:w-72 md:w-full mx-auto" :class="{ 'ring-8 ring-yellow-500': highlighted }">
+    <div class="relative aspect-[2/3]">
+      <NuxtImg :src="imageSrc" :alt="title" class="w-full h-full object-cover" />
     </div>
-    <div class="p-4 bg-black">
+    <div class="py-2 px-3 bg-black text-white">
       <h3 class="text-xl font-bold mb-4">{{ title }}</h3>
       <ul>
         <li v-for="(value, key) in features" :key="key" class="flex items-center mb-2">
