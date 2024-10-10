@@ -5,6 +5,7 @@
         <div class="flex items-center gap-4 mb-4">
           <span>Image credits: {{ session?.user?.imageCredits }}</span>
           <button @click="() => buy()" class="text-sky-400 text-sm">Buy Credits (1 credit = 1 image)</button>
+          <span class="cursor-pointer text-sm text-gray-300 hover:underline ml-auto" @click="showLimitationsToast">limitations</span>
         </div>
         <FormSubmitImage @response="() => refresh()" />
       </template>
@@ -13,6 +14,7 @@
       <ImageCard v-for="i in data" :key="i.id" :image="i" />
     </div>
   </div>
+  <Toast />
 </template>
 
 <script lang="ts" setup>
@@ -26,6 +28,18 @@ console.log(data.value);
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 3_600_000); // stops refreshing after 1h
+
+const toast = useToast();
+
+const showLimitationsToast = () => {
+  toast.add({
+    severity: 'warn',
+    summary: 'AI Limitations',
+    detail: 'Images containing blood, children, drug use, or nudity will not be created due to AI limitations.',
+    life: 5000
+  });
+};
+
 </script>
 
 <style scoped>
