@@ -30,6 +30,13 @@ const HOME: Item = {
 	command: () => router.push("/"),
 };
 
+const PRICING: Item = {
+	label: "Pricing",
+	icon: "pi pi-home",
+	to: "/pricing",
+	command: () => router.push("/pricing"),
+};
+
 const CREATEIMAGES: Item = {
 	label: "Create Images",
 	icon: "pi pi-images",
@@ -67,7 +74,7 @@ const LOGOUT: Item = {
 
 const items = ref<Item[]>([HOME, LOGIN]);
 if (status.value === "authenticated") {
-	items.value = [HOME, CREATEMODEL, CREATEIMAGES, PROFILE, LOGOUT];
+	items.value = [HOME, PRICING, CREATEMODEL, CREATEIMAGES, PROFILE, LOGOUT];
 }
 
 const activeRoute = computed(() => router.currentRoute.value.path);

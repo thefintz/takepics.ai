@@ -85,8 +85,8 @@ export class StripeCheckoutService
 		event: Stripe.CheckoutSessionCompletedEvent,
 	): Promise<CheckoutSelect> {
 		const session = event.data.object;
-
 		console.info(`Updating checkout ${session.id}`);
+		console.info(`User to update ${session.client_reference_id}`);
 		const [dbCheckout] = await this.tx
 			.update(Checkouts)
 			.set({ event })

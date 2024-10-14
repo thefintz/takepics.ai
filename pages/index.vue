@@ -149,25 +149,14 @@
       </div>
     </section>
 
-    <!-- Section 9: Pricing Table -->
-    <section class="w-full py-16 bg-gray-800">
-      <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">Choose Your Plan</h2>
-        <LazyScriptStripePricingTable
-          :pricing-table-id="'prctbl_1Q84prP2aEWXlznlThXwZ00r'"
-          :publishable-key="'pk_test_51PxqQFP2aEWXlznl5pMNEs2KFFRxQ4k47rGyUjmmdRJpNYIMqdURdAXlnEOdOhXBL9xoiGKiFbCMEXCKOkedfN5v00FdpFFUiL'"
-        />
-      </div>
-    </section>
-
-    <!-- Section 10: Final CTA -->
+    <!-- Section 9: Final CTA -->
     <section class="w-full py-16 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-center">
       <h2 class="text-3xl font-bold mb-4">Create Your AI Model and Photos Now</h2>
       <p class="text-xl mb-8">Join thousands of satisfied users today!</p>
       <Button label="Get Started" icon="pi pi-image" @click="navigateToLogin" class="p-button-lg p-button p-button-white" />
     </section>
 
-    <!-- Section 11: Footer -->
+    <!-- Section 10: Footer -->
     <footer class="w-full bg-gray-800 text-white py-8">
       <div class="container mx-auto flex flex-wrap justify-between">
         <div class="w-full md:w-1/3 px-8 mb-6 md:mb-0">
