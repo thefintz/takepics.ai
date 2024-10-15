@@ -9,8 +9,20 @@
         <FormSubmitImage @response="() => refresh()" />
       </template>
     </Card>
+    <Paginator
+      :template="{
+        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
+        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
+        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
+        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink'
+      }"
+      :rows="rows"
+      :totalRecords="data.length"
+      :first="first"
+      @page="onPageChange"
+    />
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 px-2">
-      <ImageCard v-for="i in data" :key="i.id" :image="i" />
+      <ImageCard v-for="i in paginatedImages" :key="i.id" :image="i" />
     </div>
   </div>
   <Toast />
@@ -26,7 +38,8 @@ const { data, refresh } = await useFetch("/api/inference", {
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 3_600_000); // stops refreshing after 1h
-
+const first = ref(0);
+const rows = ref(15);
 const toast = useToast();
 
 const showLimitationsToast = () => {
@@ -36,6 +49,15 @@ const showLimitationsToast = () => {
     detail: 'Images containing blood, children, drug use, or nudity will not be created due to AI limitations.',
     life: 5000
   });
+};
+
+const paginatedImages = computed(() => {
+  return data.value?.slice(first.value, first.value + rows.value) || [];
+});
+
+const onPageChange = (event: any) => {
+  first.value = event.first;
+  rows.value = event.rows;
 };
 
 </script>
