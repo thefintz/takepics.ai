@@ -7,7 +7,7 @@ import { Checkouts } from "~/server/utils/db/schema";
 
 export interface CheckoutService<T> {
 	create(user: UserSelect): Promise<CheckoutSelect>;
-	webhook(event: T): Promise<CheckoutSelect>;
+	webhook(event: T): Promise<void>;
 }
 
 interface StripeCheckoutServiceConf {
@@ -83,32 +83,46 @@ export class StripeCheckoutService
 	 */
 	async webhook(
 		event: Stripe.CheckoutSessionCompletedEvent,
-	): Promise<CheckoutSelect> {
+	): Promise<void> {
 		const session = event.data.object;
 		console.info(`Updating checkout ${session.id}`);
 		console.info(`User to update ${session.client_reference_id}`);
-		const [dbCheckout] = await this.tx
-			.update(Checkouts)
-			.set({ event })
-			.where(eq(Checkouts.id, session.id))
-			.returning();
-		console.info(`Updated checkout ${dbCheckout.id}`);
-		console.debug(dbCheckout);
+		if (!session.client_reference_id)
+			return;
 
-		console.info(`Adding imageCredits and trainingCredits to user ${dbCheckout.userId}`);
+		if (!session.subscription) {
+			console.error(`No subscription found for session ${session.id}`);
+			return;
+		}
+
+		const subscription = await this.stripe.subscriptions.retrieve(session.subscription as string);
+		const product_id = subscription.items?.data[0]?.plan?.product;
+		if (!product_id) {
+			console.error(`No product found in subscription ${subscription.id}`);
+			return;
+		}
+
+		const product = await this.stripe.products.retrieve(product_id as string);
+		const metadata = product.metadata;
+		const value_images = metadata.monthly_images || metadata.yearly_images;
+		const value_models = metadata.monthly_models || metadata.yearly_models;
+		console.info(value_images)
+		console.info(value_models)
+
+		const user_id = session.client_reference_id.replace(/_/g, '|');
+		console.info(`Adding imageCredits and trainingCredits to user ${user_id}`);
 		const [userDb] = await this.tx
 			.update(Users)
 			.set({
-				imageCredits: sql`${Users.imageCredits} + ${this.conf.imageCreditsPerCheckout}`,
-				trainingCredits: sql`${Users.trainingCredits} + ${this.conf.trainingCreditsPerCheckout}` // {{ edit_1 }}
+				imageCredits: sql`${Users.imageCredits} + ${value_images}`,
+				trainingCredits: sql`${Users.trainingCredits} + ${value_models}` // {{ edit_1 }}
 			})
-			.where(eq(Users.id, dbCheckout.userId))
+			.where(eq(Users.id, user_id))
 			.returning();
 		console.info(`Added imageCredits and trainingCredits to user ${userDb.id}`);
 		console.debug(`Total imageCredits: ${userDb.imageCredits}`);
 		console.debug(`Total trainingCredits: ${userDb.trainingCredits}`); // {{ edit 2 }}
 
-		return dbCheckout;
 	}
 }
 
