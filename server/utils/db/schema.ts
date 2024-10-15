@@ -14,6 +14,7 @@ export const Users = pgTable(
 	"users",
 	{
 		id: text("id").primaryKey(),
+		idStripe: text("id_stripe"),
 		name: text("name").notNull(),
 		email: text("email").notNull().unique(),
 		image: text("image").notNull(),

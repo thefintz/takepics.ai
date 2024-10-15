@@ -82,48 +82,74 @@ export class StripeCheckoutService
 	 * Handles the webhook event when a checkout session is completed
 	 */
 	async webhook(
-		event: Stripe.CheckoutSessionCompletedEvent,
+		event: Stripe.Event,
 	): Promise<void> {
-		const session = event.data.object;
-		console.info(`Updating checkout ${session.id}`);
-		console.info(`User to update ${session.client_reference_id}`);
-		if (!session.client_reference_id)
-			return;
+		if (event.type == "checkout.session.completed") {
+			const session = event.data.object as Stripe.Checkout.Session;
+			if (!session.client_reference_id)
+				return;
+			console.info(`User to update ${session.client_reference_id}`);
 
-		if (!session.subscription) {
-			console.error(`No subscription found for session ${session.id}`);
-			return;
+			if (!session.subscription) {
+				console.error(`No subscription found for session ${session.id}`);
+				return;
+			}
+
+			const metadata = await this.getMetadataProduct(session.subscription as string)
+			const value_images = metadata.monthly_images || metadata.yearly_images;
+			const value_models = metadata.monthly_models || metadata.yearly_models;
+
+			const user_id = session.client_reference_id.replace(/_/g, '|');
+			console.info(`Adding imageCredits and trainingCredits to user ${user_id}`);
+			const [userDb] = await this.tx
+				.update(Users)
+				.set({
+					imageCredits: sql`${Users.imageCredits} + ${value_images}`,
+					trainingCredits: sql`${Users.trainingCredits} + ${value_models}`,
+					idStripe: `${session.customer}`
+				})
+				.where(eq(Users.id, user_id))
+				.returning();
+			console.info(`Added imageCredits and trainingCredits to user ${userDb.id}`);
+			console.debug(`Total imageCredits: ${userDb.imageCredits}`);
+			console.debug(`Total trainingCredits: ${userDb.trainingCredits}`);
 		}
 
-		const subscription = await this.stripe.subscriptions.retrieve(session.subscription as string);
-		const product_id = subscription.items?.data[0]?.plan?.product;
-		if (!product_id) {
-			console.error(`No product found in subscription ${subscription.id}`);
-			return;
+		if (event.type == "invoice.paid") {
+			const invoice = event.data.object as Stripe.Invoice;
+			if (invoice.billing_reason !== "subscription_cycle")
+				return;
+
+			if (!invoice.subscription) {
+				console.error(`No subscription found for session ${invoice.id}`);
+				return;
+			}
+			
+			const productMetadata = await this.getMetadataProduct(invoice.subscription as string);
+			const value_images = productMetadata.monthly_images || productMetadata.yearly_images;
+			const value_models = productMetadata.monthly_models || productMetadata.yearly_models;
+			const [userDb] = await this.tx
+				.update(Users)
+				.set({
+					imageCredits: sql`${Users.imageCredits} + ${value_images}`,
+					trainingCredits: sql`${Users.trainingCredits} + ${value_models}`,
+				})
+				.where(eq(Users.idStripe, invoice.customer as string))
+				.returning();
+			console.info(`Added imageCredits and trainingCredits to user ${userDb.id}`);
+			console.debug(`Total imageCredits: ${userDb.imageCredits}`);
+			console.debug(`Total trainingCredits: ${userDb.trainingCredits}`);
 		}
-
-		const product = await this.stripe.products.retrieve(product_id as string);
-		const metadata = product.metadata;
-		const value_images = metadata.monthly_images || metadata.yearly_images;
-		const value_models = metadata.monthly_models || metadata.yearly_models;
-		console.info(value_images)
-		console.info(value_models)
-
-		const user_id = session.client_reference_id.replace(/_/g, '|');
-		console.info(`Adding imageCredits and trainingCredits to user ${user_id}`);
-		const [userDb] = await this.tx
-			.update(Users)
-			.set({
-				imageCredits: sql`${Users.imageCredits} + ${value_images}`,
-				trainingCredits: sql`${Users.trainingCredits} + ${value_models}` // {{ edit_1 }}
-			})
-			.where(eq(Users.id, user_id))
-			.returning();
-		console.info(`Added imageCredits and trainingCredits to user ${userDb.id}`);
-		console.debug(`Total imageCredits: ${userDb.imageCredits}`);
-		console.debug(`Total trainingCredits: ${userDb.trainingCredits}`); // {{ edit 2 }}
-
 	}
+
+	private async getMetadataProduct(idSubscription: string): Promise<Stripe.Metadata> {
+		const subscription = await this.stripe.subscriptions.retrieve(idSubscription);
+		const product_id = subscription.items?.data[0]?.plan?.product;
+		const product = await this.stripe.products.retrieve(product_id as string);
+		return product.metadata
+	}
+
+
 }
 
 export const useServerStripe = (event?: H3Event): Stripe => {

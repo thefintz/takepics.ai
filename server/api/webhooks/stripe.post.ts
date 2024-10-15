@@ -50,7 +50,7 @@ export default defineEventHandler(async (event): Promise<string> => {
 	console.info(`Received event: ${data.id} - ${data.type}`);
 	console.debug(data);
 
-	if (data.type !== "checkout.session.completed") {
+	if (data.type !== "checkout.session.completed" && data.type !== "invoice.paid") {
 		console.warn(`Ignoring event: ${data.id} - ${data.type}`);
 		return "OK";
 	}
