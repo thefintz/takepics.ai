@@ -82,7 +82,7 @@
 
     <!-- Section 6: FAQ -->
     <section class="container mx-auto py-16">
-      <h2 class="text-3xl font-bold text-center mb-8">FAQ</h2>
+      <h2 class="text-3xl font-bold text-center mb-6">FAQ</h2>
       <Accordion :multiple="true">
         <AccordionTab v-for="faq in faqs" :key="faq.question" :header="faq.question" >
           <p>{{ faq.answer }}</p>
@@ -307,14 +307,15 @@ const galleriaResponsiveOptions = ref([
 // FAQ data
 const faqs = ref([
   { question: "How does it work?", answer: "Just 2 steps: 1) Upload a few photos of you or someone else and click 'train model'. After a few minutes our AI will learn the person's features. 2) Once the model is trained, you can create photos of that person in any clothes, location, and time period!" },
-  { question: "How long to create a new model?", answer: "It takes <1h for the AI to learn the person's features. This is the training time and only has to be done once per person you want to create images of. After that training, creating an image takes less than 40 seconds, and you can create many at the same time." },
-  { question: "How long does it take to generate AI photos?", answer: "Approximately 40 seconds, and you can create many at the same time." },
-  { question: "Can I create images of someone other than myself?", answer: "Yes, you can create images of anyone, as long as you have their photos and their permission." },
+  { question: "How long does it take to generate AI photos?", answer: "Approximately 40 seconds, and you can create many at the same time.Keep in mind that to create a new model (new person, it takes ~1h for the AI to learn the person's features. This is the training time and only has to be done once per person you want to create images of. Then, each image is generated in less than 40 seconds." },
+  { question: "Can I create images of someone other than myself?", answer: "Yes, you can create images of anyone, as long as you have their photos and their permission. That said, the current state of AI limits images to contain only one person." },
   { question: "Can I use the photos commercially?", answer: "Yes." },
-  { question: "Can I train a model that is pet or product instead of a person?", answer: "Not right now, but we are working on it." },
-  { question: "Can I download the images I created?", answer: "Yes" },
+  { question: "Can I train a model that is pet or product instead of a person?", answer: "Yes, although this software was intended for people first, we are working on improving the experience for creating images of pets and products." },
+  { question: "Can I download the images I created?", answer: "Yes, you can download the images you created." },
   { question: "What do you do with my photos?", answer: "Your real photos are used to train your AI, that only you have access to. You can delete your account any time and your photos will be deleted as well. Your AI created images are yours to use as you want." },
-  { question: "Can I create images of multiple people in the same photo?", answer: "No, the current state of AI limits creating images of a single person only." }
+  { question: "Is it refundable?", answer: "No, unfortunately it's not refundable due to the GPU (processing) costs associated with training the AI models." },
+  { question: "Can I create videos? What about sounds?", answer: "Not yet, but we are actively working on adding video and sound generation features soon!" },
+  { question: "How do I generate multiple images at a time?", answer: "You don't have to wait for one image to finish before starting another, so you can generate multiple images simultaneously." }
 ]);
 
 // Photo packs data
