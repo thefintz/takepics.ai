@@ -211,7 +211,7 @@ const testimonials = ref([
   },
   { 
     quote: "The most fun I've had with AI images. Amazing historical and fictional themes.",
-    name: "John Doe",
+    name: "Tom Fischer",
     avatar: "/images/tech-vanguard.jpeg",
     company: "Vanguard Tech",
     rating: 5,
@@ -219,7 +219,7 @@ const testimonials = ref([
   },
   { 
     quote: "The variety of styles and clothing is impressive. Highly recommended!",
-    name: "Mike Johnson",
+    name: "Sebastian Muller",
     avatar: "/images/creative-studios.jpeg",
     company: "Creative Studios",
     rating: 4,
