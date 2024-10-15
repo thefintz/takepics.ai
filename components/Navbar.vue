@@ -7,7 +7,7 @@
 				:class="[
 					'block px-6 py-1 transition-colors duration-200 relative',
 					isActive(slotProps.item)
-						? 'text-sky-400 font-bold'
+						? 'text-sky-400 font-semibold'
 						: 'text-gray-300 hover:text-sky-400 hover:bg-sky-900 rounded'
 				]"
 			>
