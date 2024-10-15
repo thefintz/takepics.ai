@@ -104,8 +104,8 @@ export class StripeCheckoutService
 			const [userDb] = await this.tx
 				.update(Users)
 				.set({
-					imageCredits: `${value_images}`,
-					trainingCredits: `${value_models}`,
+					imageCredits: sql`${value_images}`,
+					trainingCredits: sql`${value_models}`,
 					idStripe: `${session.customer}`
 				})
 				.where(eq(Users.id, user_id))
@@ -131,8 +131,8 @@ export class StripeCheckoutService
 			const [userDb] = await this.tx
 				.update(Users)
 				.set({
-					imageCredits: `${value_images}`,
-					trainingCredits: `${value_models}`,
+					imageCredits: sql`${value_images}`,
+					trainingCredits: sql`${value_models}`,
 				})
 				.where(eq(Users.idStripe, invoice.customer as string))
 				.returning();
