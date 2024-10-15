@@ -104,8 +104,8 @@ export class StripeCheckoutService
 			const [userDb] = await this.tx
 				.update(Users)
 				.set({
-					imageCredits: sql`${Users.imageCredits} + ${value_images}`,
-					trainingCredits: sql`${Users.trainingCredits} + ${value_models}`,
+					imageCredits: `${value_images}`,
+					trainingCredits: `${value_models}`,
 					idStripe: `${session.customer}`
 				})
 				.where(eq(Users.id, user_id))
@@ -124,15 +124,15 @@ export class StripeCheckoutService
 				console.error(`No subscription found for session ${invoice.id}`);
 				return;
 			}
-			
+
 			const productMetadata = await this.getMetadataProduct(invoice.subscription as string);
 			const value_images = productMetadata.monthly_images || productMetadata.yearly_images;
 			const value_models = productMetadata.monthly_models || productMetadata.yearly_models;
 			const [userDb] = await this.tx
 				.update(Users)
 				.set({
-					imageCredits: sql`${Users.imageCredits} + ${value_images}`,
-					trainingCredits: sql`${Users.trainingCredits} + ${value_models}`,
+					imageCredits: `${value_images}`,
+					trainingCredits: `${value_models}`,
 				})
 				.where(eq(Users.idStripe, invoice.customer as string))
 				.returning();
