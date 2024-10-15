@@ -22,7 +22,7 @@ const { data: session } = useAuth();
 const { data, refresh } = await useFetch("/api/inference", {
 	default: () => [],
 });
-console.log(data.value);
+// console.log(data.value);
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 3_600_000); // stops refreshing after 1h
