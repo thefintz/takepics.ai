@@ -10,14 +10,10 @@
       </template>
     </Card>
     <Paginator
-      :template="{
-        '640px': 'PrevPageLink CurrentPageReport NextPageLink',
-        '960px': 'FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink',
-        '1300px': 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink',
-        default: 'FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink'
-      }"
       :rows="rows"
       :totalRecords="data.length"
+      template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
       :first="first"
       @page="onPageChange"
     />
@@ -39,7 +35,7 @@ const { data, refresh } = await useFetch("/api/inference", {
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 3_600_000); // stops refreshing after 1h
 const first = ref(0);
-const rows = ref(15);
+const rows = ref(16);
 const toast = useToast();
 
 const showLimitationsToast = () => {
