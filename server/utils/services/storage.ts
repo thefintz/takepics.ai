@@ -45,7 +45,7 @@ export class StorageService {
 	}
 
 	async uploadImage(path: string, data: Buffer) {
-		const file = await this.upload(path, data, { contentType: "image/png" });
+		const file = await this.upload(path, data, { contentType: "image/jpeg" });
 		const url = await this.url(path);
 		return { file, url };
 	}

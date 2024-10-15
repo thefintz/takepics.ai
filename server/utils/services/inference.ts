@@ -58,8 +58,8 @@ export class ReplicateInferenceImageService implements InferenceService {
 		}
 
 		const characterName = "TOK";
-    	const characterGender =  training ? training.gender : ""
-    	const eyeColor =  training ? training.eyeColor : ""
+		const characterGender = training ? training.gender : ""
+		const eyeColor = training ? training.eyeColor : ""
 		const modifiedPrompt: string = prompt
 			.replace('{character_name}', characterName)
 			.replace('{character_gender}', characterGender)
@@ -73,7 +73,7 @@ export class ReplicateInferenceImageService implements InferenceService {
 			input: {
 				prompt: modifiedPrompt,
 				hf_lora: training.weights_url,
-				output_format: "png",
+				output_format: "jpg",
 				lora_scale: 0.8,
 				aspect_ratio: "2:3",
 				guidance_scale: 3.5,
@@ -122,7 +122,7 @@ export class ReplicateInferenceImageService implements InferenceService {
 		console.info(`Fetched image ${url}`);
 		console.debug("Image size:", buffer.length);
 
-		return await this.storage.uploadImage(`image_${prediction.id}.png`, buffer);
+		return await this.storage.uploadImage(`image_${prediction.id}.jpg`, buffer);
 	}
 
 	async update(data: Prediction): Promise<ImageSelect> {
