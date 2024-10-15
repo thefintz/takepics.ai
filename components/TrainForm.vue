@@ -58,11 +58,6 @@
 
     <div class="mt-6 text-center">
       <p class="text-md font-medium">Training Credits: {{ session?.user?.trainingCredits }}</p>
-      <button
-        @click="buy"
-        class="text-blue-500 underline hover:text-blue-700 transition-colors text-sm mt-2">
-        Buy Credits (1 training credit = 1 model)
-      </button>
     </div>
   </Form>
 </template>
@@ -145,5 +140,4 @@ const submit = async () => {
   emits("submit", values);
 };
 
-const buy = async () => navigateTo("/api/checkout", { external: true });
 </script>

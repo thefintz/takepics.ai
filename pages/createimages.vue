@@ -4,7 +4,6 @@
       <template #content>
         <div class="flex items-center gap-4 mb-4">
           <span>Image credits: {{ session?.user?.imageCredits }}</span>
-          <button @click="() => buy()" class="text-sky-400 text-sm">Buy Credits (1 credit = 1 image)</button>
           <span class="cursor-pointer text-sm text-gray-300 hover:underline ml-auto" @click="showLimitationsToast">limitations</span>
         </div>
         <FormSubmitImage @response="() => refresh()" />
@@ -23,7 +22,6 @@ const { data: session } = useAuth();
 const { data, refresh } = await useFetch("/api/inference", {
 	default: () => [],
 });
-const buy = async () => navigateTo("/api/checkout", { external: true });
 console.log(data.value);
 
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s

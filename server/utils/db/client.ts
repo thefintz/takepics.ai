@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 
-import { Checkouts, Images, Users } from "./schema";
+import { Images, Users, Models } from "./schema";
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ const client = postgres(process.env.POSTGRES_URL);
 
 export const db = drizzle(client, {
 	// logger: true,
-	schema: { Users, Images, Checkouts },
+	schema: { Users, Images, Models },
 });
 
 // Typescript-foo to get the transaction type

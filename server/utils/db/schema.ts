@@ -8,7 +8,6 @@ import {
 	timestamp,
 } from "drizzle-orm/pg-core";
 import type { Model, Prediction, Training } from "replicate";
-import type { Stripe } from "stripe";
 
 export const Users = pgTable(
 	"users",
@@ -68,38 +67,6 @@ export const Images = pgTable(
 	},
 );
 
-export const Checkouts = pgTable(
-	"checkouts",
-	{
-		id: text("id").primaryKey(),
-		userId: text("user_id")
-			.notNull()
-			.references(() => Users.id, { onDelete: "cascade", onUpdate: "cascade" }),
-		// The webhook event, if it has been processed
-		event: jsonb("event").$type<Stripe.CheckoutSessionCompletedEvent>(),
-		// The Stripe checkout session object
-		session: jsonb("session").$type<Stripe.Checkout.Session>().notNull(),
-		// The Stripe price object
-		price: jsonb("price").$type<Stripe.Price>().notNull(),
-		createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
-			.default(sql`now()`)
-			.notNull(),
-		updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
-			.default(sql`now()`)
-			.notNull()
-			.$onUpdate(() => sql`now()`),
-	},
-	(table) => {
-		return {
-			createdAtIdx: index("checkouts_created_at_idx").on(
-				table.createdAt.desc(),
-			),
-			updatedAtIdx: index("checkouts_updated_at_idx").on(
-				table.updatedAt.desc(),
-			),
-		};
-	},
-);
 
 export const Models = pgTable(
 	"models",
@@ -139,10 +106,8 @@ export const Models = pgTable(
 
 export type UserSelect = typeof Users.$inferSelect;
 export type ImageSelect = typeof Images.$inferSelect;
-export type CheckoutSelect = typeof Checkouts.$inferSelect;
 export type ModelSelect = typeof Models.$inferSelect;
 
 export type UserInsert = typeof Users.$inferInsert;
 export type ImageInsert = typeof Images.$inferInsert;
-export type CheckoutInsert = typeof Checkouts.$inferInsert;
 export type ModelInsert = typeof Models.$inferInsert;

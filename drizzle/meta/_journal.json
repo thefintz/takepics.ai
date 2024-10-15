@@ -15,6 +15,13 @@
       "when": 1728999450472,
       "tag": "0001_long_expediter",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1729020163384,
+      "tag": "0002_purple_captain_midlands",
+      "breakpoints": true
     }
   ]
 }

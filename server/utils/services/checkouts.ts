@@ -3,10 +3,8 @@ import type { H3Event } from "h3";
 import Stripe from "stripe";
 import type { DB } from "~/server/utils/db/client";
 import type { UserSelect } from "~/server/utils/db/schema";
-import { Checkouts } from "~/server/utils/db/schema";
 
 export interface CheckoutService<T> {
-	create(user: UserSelect): Promise<CheckoutSelect>;
 	webhook(event: T): Promise<void>;
 }
 
@@ -27,55 +25,6 @@ export class StripeCheckoutService
 		this.stripe = stripe;
 		this.tx = tx;
 		this.conf = conf;
-	}
-
-	/**
-	 * Creates a new checkout session for the given user
-	 *
-	 * It includes the user's information in the metadata
-	 */
-	async create(user: UserSelect): Promise<CheckoutSelect> {
-		console.info("Fetching price", this.conf.priceId);
-		const pricePromise = this.stripe.prices.retrieve(this.conf.priceId);
-
-		console.info("Fetching new checkout for user", user.id);
-		const sessionPromise = this.stripe.checkout.sessions.create({
-			mode: "subscription",
-			line_items: [{ price: this.conf.priceId, quantity: 1 }],
-			success_url: this.conf.successUrl,
-			metadata: {
-				user_id: user.id,
-				user_email: user.email,
-				user_name: user.name,
-				user_image: user.image,
-			},
-		});
-
-		// Let's do it concurrently
-		const [price, session] = await Promise.all([pricePromise, sessionPromise]);
-
-		console.info("Fetched price", price.id);
-		console.debug(price);
-		console.info(`Fetched new checkout ${session.id} for user ${user.id}`);
-		console.debug(session);
-
-		const checkoutInsert: CheckoutInsert = {
-			id: session.id,
-			userId: user.id,
-			session: session,
-			price: price,
-			event: null,
-		};
-
-		console.info(`Inserting checkout ${session.id} into database`);
-		const [dbCheckout] = await this.tx
-			.insert(Checkouts)
-			.values(checkoutInsert)
-			.returning();
-		console.info(`Inserted checkout ${dbCheckout.id} into database`);
-		console.debug(dbCheckout);
-
-		return dbCheckout;
 	}
 
 	/**
