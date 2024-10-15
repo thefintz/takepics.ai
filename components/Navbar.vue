@@ -1,12 +1,22 @@
 <template>
-	<Menubar :model="items" class="menubar border-none bg-gray-800">
+	<Menubar :model="items" class="menubar border-none bg-gray-800 flex justify-center">
 		<template #item="slotProps">
-			<a :href="slotProps.item.to" @click.prevent="handleClick(slotProps.item)" :class="[
-				'block px-4 py-1',
-				isActive(slotProps.item) ? 'text-sky-400 font-bold rounded' : 'text-gray-300'
-			]">
-				<i :class="slotProps.item.icon"></i>
-				<span class="ml-2">{{ slotProps.item.label }}</span>
+			<a
+				:href="slotProps.item.to"
+				@click.prevent="handleClick(slotProps.item)"
+				:class="[
+					'block px-6 py-1 transition-colors duration-200 relative',
+					isActive(slotProps.item)
+						? 'text-sky-400 font-bold'
+						: 'text-gray-300 hover:text-sky-400 hover:bg-sky-900 rounded'
+				]"
+			>
+				<!-- <i :class="slotProps.item.icon"></i> -->
+				<span class="">{{ slotProps.item.label }}</span>
+				<div
+					v-if="isActive(slotProps.item)"
+					class="absolute bottom-0 left-0 w-full h-1 rounded bg-sky-400"
+				></div>
 			</a>
 		</template>
 	</Menubar>
