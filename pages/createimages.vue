@@ -15,8 +15,8 @@
       :first="first"
       @page="onPageChange"
       class="flex justify-center"
-    >
-    </Paginator>
+      template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
+    />
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8 gap-2 px-2">
       <ImageCard v-for="i in paginatedImages" :key="i.id" :image="i" />
     </div>
@@ -35,7 +35,7 @@ const { data, refresh } = await useFetch("/api/inference", {
 const interval = useIntervalFn(() => refresh(), 5_000); // refresh every 5s
 useTimeoutFn(() => interval.pause(), 3_600_000); // stops refreshing after 1h
 const first = ref(0);
-const rows = ref(15);
+const rows = ref(16);
 const toast = useToast();
 
 const showLimitationsToast = () => {
