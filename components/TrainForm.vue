@@ -52,13 +52,30 @@
     <Button
       class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors duration-300 disabled:bg-gray-300"
       label="Train"
-      @click="submit"
+      @click="showConfirmation"
       :disabled="!isFormValid"
     />
 
     <div class="mt-6 text-center">
       <p class="text-md font-medium">Training Credits: {{ session?.user?.trainingCredits }}</p>
     </div>
+
+    <!-- Updated Dialog component using Tailwind classes -->
+    <Dialog v-model:visible="confirmationVisible" modal header="Confirm Start Training Model?" class="w-11/12 max-w-lg">
+      <p class="mb-4">
+        Each training (new model) costs 1 training credit.
+      </p>
+      <p class="mb-4">
+        You will not be able to add more images later (only by creating another model and consuming another credit), so make sure you have included all the images you want.
+      </p>
+      <p class="mb-4">
+        Available Training Credits: {{ session?.user?.trainingCredits }}
+      </p>
+      <template #footer>
+        <Button label="Cancel" icon="pi pi-times" @click="confirmationVisible = false" class="p-button-text" />
+        <Button label="Confirm" icon="pi pi-check" @click="confirmAndSubmit" autofocus />
+      </template>
+    </Dialog>
   </Form>
 </template>
 
@@ -126,6 +143,8 @@ const isFormValid = computed(() => {
   );
 });
 
+const confirmationVisible = ref(false);
+
 const submit = async () => {
   const zipped = await useZippedFiles(files.value);
 
@@ -140,4 +159,12 @@ const submit = async () => {
   emits("submit", values);
 };
 
+const showConfirmation = () => {
+  confirmationVisible.value = true;
+};
+
+const confirmAndSubmit = async () => {
+  await submit();
+  confirmationVisible.value = false;
+};
 </script>
