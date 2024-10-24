@@ -15,7 +15,7 @@
 				<span class="">{{ slotProps.item.label }}</span>
 				<div
 					v-if="isActive(slotProps.item)"
-					class="absolute bottom-0 left-0 w-full h-1 rounded bg-sky-400"
+					class="absolute bottom-0 left-4 md:left-1/2 md:-translate-x-1/2 self-center items-center w-1/3 md:w-5/6 h-1 rounded bg-sky-400"
 				></div>
 			</a>
 		</template>
