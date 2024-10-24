@@ -3,8 +3,14 @@
     <!-- Section 1: Quick Explanation -->
     <section class="w-full h-72 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center flex flex-col justify-center items-center">
       <h1 class="text-4xl font-bold mb-4">Create AI Photos of You and Your Friends</h1>
-      <p class="text-xl mb-8">In seconds create photos in any clothes, location, and time period!</p>
-      <Button label="Create AI Photos" icon="pi pi-user" @click="navigateToLogin" class="p-button-lg" />
+      <p class="text-xl mb-8">Choose clothes, location, time period, and more!</p>
+      <button 
+        @click="navigateToLogin" 
+        class="p-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border-green-300 border-2 shadow-green-400"
+      >
+        <i class="pi pi-images mr-2"></i>
+        Create Photos Now
+      </button>
     </section>
 
     <section class="container mx-auto pt-4 pb-16">
@@ -77,7 +83,13 @@
     <!-- Section 5: Login Button -->
     <section class="w-full py-32 bg-gradient-to-r from-blue-600 to-purple-700 text-white text-center">
       <h2 class="text-4xl font-bold mb-4">Ready to Create Your Own Photos?</h2>
-      <Button label="Login Now" icon="pi pi-sign-in" @click="navigateToLogin" class="p-button-lg p-button" />
+      <button 
+        @click="navigateToLogin" 
+        class="p-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-gray-900 font-bold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border-yellow-300 border-2 shadow-yellow-400"
+      >
+        <i class="pi pi-images mr-2"></i>
+        Create Photos Now
+      </button>
     </section>
 
     <!-- Section 6: FAQ -->
@@ -153,7 +165,13 @@
     <section class="w-full py-16 bg-gradient-to-r from-purple-600 to-blue-500 text-white text-center">
       <h2 class="text-3xl font-bold mb-4">Create Your AI Model and Photos Now</h2>
       <p class="text-xl mb-8">Join thousands of satisfied users today!</p>
-      <Button label="Get Started" icon="pi pi-image" @click="navigateToLogin" class="p-button-lg p-button p-button-white" />
+      <button 
+        @click="navigateToLogin" 
+        class="p-4 bg-gradient-to-r from-red-500 to-rose-700 text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 border-red-400 border-2 shadow-red-400"
+      >
+        <i class="pi pi-images mr-2"></i>
+        Start Now
+      </button>
     </section>
 
     <!-- Section 10: Footer -->
@@ -196,7 +214,7 @@ definePageMeta({
 const router = useRouter();
 
 const navigateToLogin = () => {
-  router.push('/createimages');
+  router.push('/pricing');
 };
 
 // Testimonials data
@@ -365,3 +383,5 @@ const pricingPlans = ref([
   },
 ]);
 </script>
+
+
