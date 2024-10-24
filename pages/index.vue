@@ -136,12 +136,12 @@
     <!-- Section 8: Photo Packs -->
     <section class="container mx-auto py-16">
       <h2 class="text-3xl font-bold text-center mb-8">Explore Our Photo Packs</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-1/2">
-        <div v-for="pack in photoPacks" :key="pack.name" class="card">
-          <div class="aspect-[2/3]">
+      <div class="grid grid-cols-2 px-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 gap-6 h-1/2">
+        <div v-for="pack in photoPacks" :key="pack.name" class="card w-full">
+          <div class="">
             <NuxtImg :src="pack.image" :alt="pack.name" class="w-full object-cover rounded-t-lg" />
           </div>
-          <div class="p-4">
+          <div class="p-2 md:p-4 bg-gray-800 border-t-0 rounded-b-lg">
             <h3 class="text-xl font-bold mb-2">{{ pack.name }}</h3>
             <p>{{ pack.description }}</p>
           </div>
