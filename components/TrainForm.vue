@@ -46,6 +46,7 @@
         :showUploadButton="false"
         :showCancelButton="false"
         @select="onFileSelected"
+        @removeUploadedFile="onFileRemoved"
       />
     </div>
 
@@ -80,7 +81,7 @@
 </template>
 
 <script setup lang="ts">
-import type { FileUploadSelectEvent } from "primevue/fileupload";
+import type { FileUploadSelectEvent, FileUploadRemoveEvent } from "primevue/fileupload";
 import { computed, ref } from "vue";
 const { data: session } = useAuth();
 
@@ -127,7 +128,11 @@ const emits = defineEmits<(e: "submit", data: TrainFormValues) => void>();
 
 const files = ref<File[]>([]);
 const onFileSelected = (event: FileUploadSelectEvent) => {
-  files.value = [...event.files];
+  files.value = [...files.value, ...event.files];
+};
+
+const onFileRemoved = (event: FileUploadRemoveEvent) => {
+  files.value = files.value.filter(file => file.name !== event.file.name);
 };
 
 const modelName = ref<string>('');
