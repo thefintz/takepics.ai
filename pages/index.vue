@@ -341,7 +341,7 @@ const photoPacks = ref([
   { name: "Travel", image: "/images/novak/travel.jpeg", description: "Transform yourself into a globe-trotter" },
   { name: "Royalty", image: "/images/novak/royalty.jpeg", description: "Become a king or queen for a day" },
   { name: "Profession", image: "/images/novak/profession.jpeg", description: "Try on different career looks" },
-  { name: "Heroes", image: "/images/novak/heroes.jpeg", description: "Become your favorite superhero" },
+  { name: "Superheroes", image: "/images/novak/heroes.jpeg", description: "Become your favorite superhero" },
   { name: "Games", image: "/images/novak/games.jpeg", description: "Enter the world of your favorite video games" },
   { name: "History", image: "/images/novak/history.jpeg", description: "Travel back in time with historical themes" },
   { name: "Drag", image: "/images/novak/drag.jpeg", description: "Unleash your inner drag queen or king" },

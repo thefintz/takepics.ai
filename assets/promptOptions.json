@@ -1,136 +1,176 @@
 [
   {
-    "category": "Cities",
+    "category": "Royalty",
+    "name": "King",
+    "prompt": "Ultra realistic photograph of {character_name} as a regal king, wearing a majestic crown and royal robes, seated on an ornate throne. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Royalty",
+    "name": "Queen",
+    "prompt": "Ultra realistic photograph of {character_name} as a graceful queen, adorned with a jeweled crown and elegant gown, standing in a grand palace hall. Female, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Royalty",
+    "name": "Sultan",
+    "prompt": "Ultra realistic photograph of {character_name} as a powerful Sultan, wearing an ornate turban and lavish robes, seated on a grand divan. Surrounded by luxurious fabrics and intricate patterns. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Royalty",
+    "name": "Emperor",
+    "prompt": "Ultra realistic photograph of {character_name} as an imposing Emperor, clad in imperial armor and a golden laurel crown, standing on a palace balcony overlooking his empire. {character_gender}, {eye_color} eyes, visible face, conveying authority and grandeur."
+  },
+  {
+    "category": "Royalty",
+    "name": "Pharaoh",
+    "prompt": "Ultra realistic photograph of {character_name} as an ancient Egyptian Pharaoh, wearing a golden nemes headdress and royal kilt, standing before a grand temple. {character_gender}, {eye_color} eyes, visible face, evoking divine rulership and timeless power."
+  },
+  {
+    "category": "Holidays",
+    "name": "Costume: Clown",
+    "prompt": "Realistic photo of {character_name}, {character_gender}, {eye_color} eyes, as a Clown with half his face with Clown Makeup"
+  },
+  {
+    "category": "Holidays",
+    "name": "Costume: Devil",
+    "prompt": "Realistic photo of {character_name}, {character_gender}, {eye_color} eyes, wearing a classic red devil costume with devil horns, a red cape, and holding a trident. The backdrop includes pumpkins, spider webs, and a spooky night scene."
+  },
+  {
+    "category": "Holidays",
+    "name": "Costume: Angel",
+    "prompt": "Realistic photo of {character_name}, {character_gender}, {eye_color} eyes, dressed as an angel, wearing a white robe with wings and a halo, posing against a Halloween backdrop with carved pumpkins and bats."
+  },
+  {
+    "category": "Holidays",
+    "name": "Costume: Witch/Wizard",
+    "prompt": "Realistic photo of {character_name}, {character_gender}, {eye_color} eyes, dressed as a Witch or Wizard with a mystical robe, pointed hat, and a magical staff or wand."
+  },
+  {
+    "category": "Holidays",
+    "name": "Greeting Card: Halloween",
+    "prompt": "Ultra-realistic Halloween card featuring {character_name}, {character_gender}, {eye_color} eyes, in a spooky, festive setting with glowing pumpkins, cobwebs, or a haunted house in the background. Dark, moody colors with 'Happy Halloween' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying a playful or mischievous expression."
+  },
+  {
+    "category": "Holidays",
+    "name": "Greeting Card: Christmas",
+    "prompt": "Ultra realistic holiday card featuring {character_name} in a festive setting with Christmas lights or snowflakes. Warm, inviting colors with 'Happy Holidays' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying joy."
+  },
+  {
+    "category": "Holidays",
+    "name": "Greeting Card: Valentine's Day",
+    "prompt": "Ultra-realistic Valentine's Day card featuring {character_name} in a romantic, cozy setting with soft candlelight, rose petals, or heart-shaped decorations. Warm, gentle colors like reds and pinks with 'Happy Valentine's Day' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying love and warmth."
+  },
+  {
+    "category": "Holidays",
+    "name": "Greeting Card: St. Patrick's Day",
+    "prompt": "Ultra-realistic St. Patrick's Day card featuring {character_name} in a festive, green-themed setting with shamrocks, Celtic designs, and perhaps a pot of gold or rainbow in the background. Warm, inviting colors with 'Happy St. Patrick's Day' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying cheer and a bit of Irish charm."
+  },
+  {
+    "category": "Holidays",
+    "name": "Greeting Card: Día de los Muertos",
+    "prompt": "Ultra-realistic Día de los Muertos card featuring {character_name} surrounded by traditional marigolds, sugar skulls, and candles. Vibrant, colorful setting with intricate details, honoring the celebration of life and remembrance. {character_gender}, {eye_color} eyes, face adorned with traditional face paint, conveying a sense of joy and reverence. 'Feliz Día de los Muertos' elegantly displayed."
+  },
+  {
+    "category": "Holidays",
+    "name": "Vintage Postcard",
+    "prompt": "Ultra realistic vintage postcard featuring {character_name} at a famous landmark. Nostalgic colors, distressed textures, and elegant typography. 'Greetings' scripted at bottom. {character_gender}, {eye_color} eyes, visible face, evoking timeless adventure."
+  },
+  {
+    "category": "Travel",
     "name": "New York Statue of Liberty",
     "prompt": "ultra realistic photograph of {character_name} standing in front of the Statue of Liberty in New York City. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Beijing Great Wall",
     "prompt": "ultra realistic photograph of {character_name} standing on the Great Wall of China in Beijing, surrounded by the iconic stone wall and scenic mountainous landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Berlin Wall",
     "prompt": "ultra realistic photograph of {character_name} standing beside the Berlin Wall in Berlin, featuring the colorful and vibrant murals and graffiti art that adorn the wall. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Paris Eiffel Tower",
     "prompt": "ultra realistic photograph of {character_name} standing near the Eiffel Tower in Paris. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Dubai Burj Khalifa",
     "prompt": "ultra realistic photograph of {character_name} in front of the Burj Khalifa in Dubai, UAE. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Pisa Leaning Tower",
     "prompt": "ultra realistic photograph of {character_name} posing with the Leaning Tower of Pisa in Pisa, Italy. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Cairo Great Pyramid",
     "prompt": "ultra realistic photograph of {character_name} standing in front of the Great Pyramid of Giza in Cairo, Egypt. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Sydney Opera House",
     "prompt": "ultra realistic photograph of {character_name} in front of the Sydney Opera House in Sydney, Australia. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "London Big Ben",
     "prompt": "ultra realistic photograph of {character_name} standing beside Big Ben in London, UK. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Agra Taj Mahal",
     "prompt": "ultra realistic photograph of {character_name} admiring the Taj Mahal in Agra, India. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Rome Colosseum",
     "prompt": "ultra realistic photograph of {character_name} exploring the Colosseum in Rome, Italy. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Rio Christ the Redeemer",
     "prompt": "ultra realistic photograph of {character_name} with Christ the Redeemer statue in Rio de Janeiro, Brazil. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Cities",
+    "category": "Travel",
     "name": "Tokyo Mount Fuji",
     "prompt": "ultra realistic photograph of {character_name} with Mount Fuji in the background near Tokyo, Japan. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Formula 1",
-    "name": "F1 Action Shot",
-    "prompt": "Ultra realistic action photo of {character_name} driving a red F1 car at high speed on a sunlit track. Dynamic angle, motion blur on wheels and background, showing speed. {character_gender}, {eye_color} eyes, visible face, detailed racing suit with sponsor logos."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Podium",
-    "prompt": "Ultra realistic photo of {character_name} proudly on the F1 podium holding a gleaming trophy. Background has race cars, waving flags, and an enthusiastic crowd under bright stadium lights. {character_gender}, {eye_color} eyes, visible face, championship racing suit."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Close-Up",
-    "prompt": "Ultra realistic close-up of {character_name} as an F1 driver. Detailed face view with {eye_color} eyes visible through a high-tech racing helmet visor. Reflective surfaces show the track and team support in background. {character_gender}, focused expression."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Full-Body",
-    "prompt": "Ultra realistic full-body photo of {character_name} as an F1 driver. Wide shot showing his racing suit, gloves, and helmet, standing confidently beside a sleek F1 car. Backdrop has pit lane and team garage. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Driver with Car",
-    "prompt": "Ultra realistic photo of {character_name} as an F1 driver standing beside a vibrant blue F1 car. Wide shot showing detailed sponsor decals and aerodynamic features. High quality, 8k resolution, clear sky background. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Pit Stop",
-    "prompt": "Ultra realistic photo of {character_name} during F1 pit stop. Mechanics swiftly change tires and refuel the car, capturing the high-energy environment. Dynamic angles and vibrant team colors in background. {character_gender}, {eye_color} eyes, visible face, detailed racing gear."
-  },
-  {
-    "category": "Formula 1",
-    "name": "F1 Night Race",
-    "prompt": "Ultra realistic photo of {character_name} racing an F1 car under bright night race lights. Vibrant reflections on track showcase the car’s aerodynamic design and the driver’s intense focus. {character_gender}, {eye_color} eyes, visible face, illuminated racing suit."
-  },
-  {
-    "category": "Places",
+    "category": "Travel",
     "name": "Aurora Borealis",
     "prompt": "Ultra realistic close-up of {character_name} under the Northern Lights Aurora Borealis at night. Vibrant {eye_color} and purple hues illuminate the sky, reflecting off a snowy landscape. Soft light highlights, male, {eye_color} eyes, visible face."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Beach Sunset",
     "prompt": "Ultra realistic close-up of {character_name} on a beach at sunset, sky in orange, pink, and purple hues. Golden light on waves and sand highlights his {eye_color} eyes, visible face, evoking peaceful, romantic vibes."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Urban Skyline",
     "prompt": "Ultra realistic shot of {character_name} with a twilight urban skyline. City lights glow under a fading blue sky. Skyscrapers in the background. Soft city light highlights his {eye_color} eyes, creating a vibrant urban scene."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Grand Canyon Vista",
     "prompt": "Ultra realistic photo of {character_name} at a Grand Canyon sunrise. Vibrant sky reflects on canyon walls. He stands at a scenic viewpoint, {eye_color} eyes, visible face, capturing the vast beauty of the landscape."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Venice Canals",
     "prompt": "Ultra realistic photo of {character_name} in a gondola sailing Venice’s canals. Historic buildings and graceful bridges line the scene. Soft daylight enhances his {eye_color} eyes, visible face, creating a timeless Venetian moment."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Santorini Cliffside",
     "prompt": "Ultra realistic photo of {character_name} on Santorini’s white cliffs, overlooking the deep blue Aegean Sea. Traditional blue-domed churches add color to the serene landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Places",
+    "category": "Travel",
     "name": "Safari Sunset",
     "prompt": "Ultra realistic photo of {character_name} on African savannah during sunset safari. Silhouettes of acacia trees dot the horizon. Sky ablaze with orange, red, and purple hues. Wildlife visible in the distance. {character_gender}, {eye_color} eyes, visible face."
   },
@@ -175,124 +215,59 @@
     "prompt": "Ultra realistic photo of {character_name} as a Fire Marshal in safety attire, reflective vest and cap. Inspecting a building with fire safety equipment. {character_gender}, {eye_color} eyes, visible face, showing leadership and expertise in fire prevention."
   },
   {
-    "category": "Puppies",
-    "name": "Puppies - park",
-    "prompt": "Ultra realistic wide shot of {character_name} playing with several energetic puppies in a sunny, outdoor park. Puppies are running around. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness in a broader view of the surroundings."
+    "category": "Superheroes",
+    "name": "Superman",
+    "prompt": "ultra realistic photograph of {character_name} as Superman soaring above the city, cape flowing, dramatic lighting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Puppies",
-    "name": "Kittens - house",
-    "prompt": "Ultra realistic shot of {character_name} holding and playing with playful kittens. Surrounded by wagging tails and fluffy fur in a joyful, bright setting. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness."
+    "category": "Superheroes",
+    "name": "Aquaman",
+    "prompt": "Ultra realistic photograph of {character_name} as an elemental superhero, controlling fire, water, earth, and air around him. Wearing a suit with elemental symbols, dynamic pose in a natural setting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Puppies",
-    "name": "Rabbits - garden",
-    "prompt": "Ultra realistic wide-angle shot of {character_name} gently playing with fluffy rabbits in a garden. The serene outdoor setting features lush {eye_color}ery. {character_gender}, {eye_color} eyes, visible face, long shot, far away."
+    "category": "Superheroes",
+    "name": "Batman",
+    "prompt": "Ultra realistic photograph of {character_name} as a stealth superhero, clad in a dark tactical suit, blending into the shadows of a city rooftop at night. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Lifestyle",
+    "category": "Superheroes",
+    "name": "Iron Man",
+    "prompt": "Ultra realistic photograph of {character_name} as a tech-based superhero, equipped with high-tech gadgets and holographic displays, set in a futuristic laboratory. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Superheroes",
+    "name": "Doctor Strange",
+    "prompt": "Ultra realistic photograph of {character_name} as a mystic superhero, casting spells with glowing runes around him, wearing a magical robe in an enchanted forest. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Superheroes",
+    "name": "Black Panther",
+    "prompt": "Ultra realistic photograph of {character_name} as a ninja-themed superhero, dressed in sleek dark attire with stealth gear, poised for action in a misty alley. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Superheroes",
+    "name": "Dragon Rider",
+    "prompt": "Ultra realistic photograph of {character_name} riding a majestic dragon in a fantasy landscape, wearing battle armor, dynamic action pose. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Drag",
     "name": "Drag Queen",
     "prompt": "Realistic shot of {character_name} as a glamorous drag queen, wide shot, wearing bold makeup, vibrant purple wig, and an elaborate outfit. Lively stage, colorful lighting. {character_gender}, {eye_color} eyes, visible face, confident expression, evoking pride and artistry."
   },
   {
-    "category": "Lifestyle",
-    "name": "Drag Queen pole dancing",
+    "category": "Drag",
+    "name": "Pole dance",
     "prompt": "Realistic shot of {character_name} as a glamorous drag queen, pole dancing, wide shot, wearing bold makeup, purple wig, and an elaborate outfit. Lively stage, colorful lighting. {character_gender}, {eye_color} eyes, visible face, confident expression, evoking pride and artistry."
   },
   {
-    "category": "Cards",
-    "name": "Art Nouveau - Serpents",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with coiled serpents, floral patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Drag",
+    "name": "Red Carpet",
+    "prompt": "Realistic shot of {character_name} as a glamorous drag queen on the red carpet, full-body shot, wearing bold makeup, flowing red gown, and sparkling jewelry. Vibrant lighting, media cameras flashing in the background. {character_gender}, {eye_color} eyes, visible face, poised expression, exuding confidence and elegance."
   },
   {
-    "category": "Cards",
-    "name": "Art Nouveau - Eagles",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with eagles, star patterns. Inspired by Mucha, Klimt, and Amano, it exudes a romantic, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Peacock",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with elegant peacock feathers and intricate floral motifs. Inspired by Mucha and Klimt, it evokes a regal, enchanting beauty. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Butterflies",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} surrounded by delicate butterflies and ornate floral designs. Inspired by Mucha and Klimt, it captures a whimsical, ethereal beauty. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Lion",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with a majestic lion and swirling floral patterns. Inspired by Mucha and Klimt, it radiates strength and grace. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Tarot Card",
-    "prompt": "Ultra realistic tarot card of {character_name} as The Magician. Surrounded by mystical symbols and intricate designs. Rich colors enhance the magical, enigmatic atmosphere. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Playing Card",
-    "prompt": "Ultra realistic playing card of {character_name} as King of Hearts. Traditional, intricate design with heart motifs and borders. Vibrant colors and artistry emphasize regal authority. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Business Card",
-    "prompt": "Ultra realistic business card featuring {character_name}. Minimalist, professional layout with job title, contact details, and branding elements. High-quality design conveys elegance and professionalism. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Vintage Postcard",
-    "prompt": "Ultra realistic vintage postcard featuring {character_name} at a famous landmark. Nostalgic colors, distressed textures, and elegant typography. 'Greetings' scripted at bottom. {character_gender}, {eye_color} eyes, visible face, evoking timeless adventure."
-  },
-  {
-    "category": "Cards",
-    "name": "Holiday Greeting Card",
-    "prompt": "Ultra realistic holiday card featuring {character_name} in a festive setting with Christmas lights or snowflakes. Warm, inviting colors with 'Happy Holidays' elegantly displayed. {character_gender}, {eye_color} eyes, visible face, conveying joy."
-  },
-  {
-    "category": "Cards",
-    "name": "Fantasy Card",
-    "prompt": "Ultra realistic fantasy card of {character_name} as a warrior or sorcerer. Background of enchanted forests and magical creatures. Vibrant colors, intricate designs. {character_gender}, {eye_color} eyes, visible face, embodying magic."
-  },
-  {
-    "category": "Cards",
-    "name": "Minimalist Card",
-    "prompt": "Ultra realistic minimalist card featuring {character_name}. Clean lines, white space, and subtle accents. Sleek, contemporary design conveys elegance. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Cockroaches",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with cockroaches crawling through ornate, dusty objects. Inspired by Mucha and Klimt, it evokes a haunting beauty in decay. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Spiders",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with intricate spider webs. Spiders delicately placed, creating a mysterious, gothic atmosphere. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Cards",
-    "name": "Art Nouveau - Rats",
-    "prompt": "Ultra realistic Art Nouveau card of {character_name} with rats intertwined through elegant, decaying urban motifs. Detailed patterns of winding tails and shadows evoke a dark, haunting beauty. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Art",
-    "name": "Van Gogh",
-    "prompt":  "{character_name} painted in the style of Van Gogh's Starry Night. Swirling, textured brushstrokes in rich blues and yellows. {character_gender}, {eye_color} eyes, standing in a dreamlike landscape under a swirling sky, evoking an emotional and surreal atmosphere."
-  },
-  {
-    "category": "Art",
-    "name": "Picasso Cubist",
-    "prompt":  "{character_name} painted in the style of Picasso's Cubism. Geometric shapes, fragmented features, bold colors. {character_gender}, {eye_color} eyes, abstracted face, dynamic and multidimensional composition, evoking a sense of complexity and modernity."
-  },
-  {
-    "category": "Art",
-    "name": "Monet Impressionist",
-    "prompt":  "{character_name} painted in the style of Monet's Impressionism. Soft, pastel colors with loose brushstrokes, set in a serene outdoor landscape. {character_gender}, {eye_color} eyes, standing near water lilies and dappled light, evoking peace and natural beauty."
-  },
-  {
-    "category": "Art",
-    "name": "Salvador Dalí Surrealist",
-    "prompt":  "{character_name} painted in the style of Salvador Dalí's Surrealism. Dreamlike, distorted reality with melting clocks and bizarre landscapes. {character_gender}, {eye_color} eyes, standing amidst surreal, otherworldly elements, evoking a strange and imaginative atmosphere."
+    "category": "Drag",
+    "name": "Backstage Preparation",
+    "prompt": "Realistic shot of {character_name} as a glamorous drag queen preparing backstage, medium shot, applying bold makeup and adjusting a fabulous, intricate wig. Stylish makeup setup, mirrors with warm lights. {character_gender}, {eye_color} eyes, focused expression, capturing the artistry and excitement of performance preparation."
   },
   {
     "category": "Games",
@@ -313,6 +288,11 @@
     "category": "Games",
     "name": "Horror Game Scene",
     "prompt": "Ultra realistic portrayal of {character_name} in a horror game setting. Dark, eerie forest with mist, glowing eyes, tense expression. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Games",
+    "name": "Fantasy Card",
+    "prompt": "Ultra realistic fantasy card of {character_name} as a warrior or sorcerer. Background of enchanted forests and magical creatures. Vibrant colors, intricate designs. {character_gender}, {eye_color} eyes, visible face, embodying magic."
   },
   {
     "category": "Games",
@@ -345,124 +325,144 @@
     "prompt": "Ultra realistic image of {character_name} as a virtual reality gamer. Futuristic VR headset, immersive digital environment, focused expression. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
+    "category": "Games",
     "name": "Spaceship Pilot",
     "prompt": "Ultra realistic photo of {character_name} as a spaceship pilot in a high-tech cockpit with futuristic controls and a stunning space view outside the window. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
+    "category": "Games",
     "name": "Alien Encounter",
     "prompt": "Ultra realistic photo of {character_name} interacting with friendly aliens on a vibrant, otherworldly planet. Colorful alien flora and fauna in the background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
+    "category": "Games",
     "name": "Android Companion",
     "prompt": "Ultra realistic photo of {character_name} alongside a humanoid android in a futuristic cityscape. High-tech buildings and holographic displays in the background. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
+    "category": "Games",
     "name": "Time Traveler",
     "prompt": "Ultra realistic photo of {character_name} as a time traveler with a sleek, futuristic suit, standing amidst a portal with swirling lights. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
+    "category": "Games",
     "name": "Space Explorer",
     "prompt": "Ultra realistic photo of {character_name} in a space suit, exploring the surface of a distant planet with rugged terrain and a star-filled sky. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Sci-Fi",
-    "name": "Cosmic Face Melting",
-    "prompt":  "{character_name}’s face melting into a swirl of galaxies and nebulae. Stars, planets, and cosmic dust blend with his features, as if merging with the universe itself. {character_gender}, {eye_color} eyes, a surreal cosmic transformation, evoking awe and wonder."
+    "category": "Sexy",
+    "name": "Neon Lights",
+    "prompt": "Realistic shot of {character_name} shirtless with defined physique, standing in front of vibrant neon lights. Dim lighting casts a cool, alluring glow, highlighting muscles and tattoos (if applicable). {character_gender}, {eye_color} eyes, intense gaze, exuding confidence and allure."
   },
   {
-    "category": "Sci-Fi",
-    "name": "Planetary Fusion",
-    "prompt":  "{character_name}’s face blending with a planet’s surface, his features seamlessly morphing into craters and oceans. Planetary rings orbit around his head, symbolizing unity with the cosmos. {character_gender}, {eye_color} eyes, evoking mystery and the vastness of space."
+    "category": "Sexy",
+    "name": "Silk Sheets",
+    "prompt": "Realistic shot of {character_name} lying on luxurious silk sheets, partial view, with seductive body language. Dim, warm lighting accentuates smooth skin and contours. {character_gender}, {eye_color} eyes, inviting gaze, exuding comfort and sensuality."
   },
   {
-    "category": "Sci-Fi",
-    "name": "Stellar Deconstruction",
-    "prompt":  "{character_name}’s face dissolving into a field of stars and black holes. His features fragment into stardust, drifting through the void of space. {character_gender}, {eye_color} eyes, cosmic deconstruction, capturing the infinite scale and beauty of the universe."
+    "category": "Sexy",
+    "name": "Leather Jacket",
+    "prompt": "Realistic shot of {character_name} in a partially open leather jacket, revealing a toned chest beneath. Dim, edgy lighting with a cityscape background. {character_gender}, {eye_color} eyes, smoldering expression, capturing bold, confident allure."
   },
   {
-    "category": "Historical Figures",
+    "category": "Sexy",
+    "name": "Underwater",
+    "prompt": "Realistic shot of {character_name} submerged just beneath the water's surface, bare chest visible, surrounded by ethereal light and gentle ripples. {character_gender}, {eye_color} eyes, calm, sensual expression, evoking tranquility and natural allure."
+  },
+  {
+    "category": "History",
     "name": "Leonardo da Vinci",
     "prompt": "portrait of {character_name} styled as Leonardo da Vinci, wearing Renaissance attire, holding a sketchbook, in a classical studio setting. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Napoleon Bonaparte",
     "prompt": "ultra realistic photograph of {character_name} as Napoleon Bonaparte, in military uniform, standing on a battlefield. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Viking Warrior",
     "prompt": "Ultra realistic photograph of {character_name} as a Viking warrior, wearing traditional Viking armor, helmet with horns, holding a battle axe, standing on a rugged coastline. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Samurai Warrior",
     "prompt": "Ultra realistic photograph of {character_name} as a samurai warrior, dressed in traditional samurai armor, holding a katana, standing in a serene Japanese garden. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Nomad Indian Leader",
     "prompt": "Ultra realistic photograph of {character_name} as a nomad Indian leader, wearing traditional tribal attire, feathered headdress, holding a bow, set against a vast desert landscape. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Ancient Egyptian Pharaoh",
     "prompt": "Ultra realistic photograph of {character_name} as an ancient Egyptian pharaoh, wearing regal attire, crown with cobra, holding an ankh, standing in front of pyramids. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Spartan Warrior",
     "prompt": "Ultra realistic photograph of {character_name} as a Spartan warrior, wearing traditional Spartan armor, red cape, holding a spear and shield, standing on a battlefield. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Aztec Emperor",
     "prompt": "Ultra realistic photograph of {character_name} as an Aztec emperor, adorned with intricate headdress, traditional Aztec attire, holding a ceremonial staff, standing in an ancient Aztec temple. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Historical Figures",
+    "category": "History",
     "name": "Celtic Druid",
     "prompt": "Ultra realistic photograph of {character_name} as a Celtic druid, wearing traditional Celtic robes, carrying a staff, surrounded by ancient stone circles and lush {eye_color} forests. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes",
-    "name": "Superman",
-    "prompt": "ultra realistic photograph of {character_name} as Superman soaring above the city, cape flowing, dramatic lighting. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Musicians",
+    "name": "Rock Star",
+    "prompt": "Ultra realistic photograph of {character_name} as a rock star on stage, holding an electric guitar, surrounded by vibrant stage lights and crowd. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes arabic",
-    "name": "Superman arabic",
-    "prompt": "ultra realistic photograph of {character_name} as Superman soaring above the Great Pyramid of Giza, cape flowing, dramatic lighting. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Musicians",
+    "name": "Classical Conductor",
+    "prompt": "Ultra realistic photograph of {character_name} as a classical music conductor, leading an orchestra with a baton, elegant attire. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes",
-    "name": "Aquaman",
-    "prompt": "Ultra realistic photograph of {character_name} as an elemental superhero, controlling fire, water, earth, and air around him. Wearing a suit with elemental symbols, dynamic pose in a natural setting. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Musicians",
+    "name": "Jazz Musician",
+    "prompt": "Ultra realistic photograph of {character_name} as a jazz musician, playing a saxophone in a dimly lit jazz club, with a moody atmosphere. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes",
-    "name": "Batman",
-    "prompt": "Ultra realistic photograph of {character_name} as a stealth superhero, clad in a dark tactical suit, blending into the shadows of a city rooftop at night. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Musicians",
+    "name": "DJ",
+    "prompt": "Ultra realistic photograph of {character_name} as a DJ, mixing tracks at a vibrant nightclub with colorful lights and energetic crowd. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes",
-    "name": "Iron Man",
-    "prompt": "Ultra realistic photograph of {character_name} as a tech-based superhero, equipped with high-tech gadgets and holographic displays, set in a futuristic laboratory. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Military",
+    "name": "Berlin Techno Party",
+    "prompt": "{character_name}, male, outside techno party outside berghain night club in berlin at night. the model wears fishnet top, black jeans fishnet stockings, black boots. garter straps, bdsm harness, garter belts"
   },
   {
-    "category": "Superheroes",
-    "name": "Doctor Strange",
-    "prompt": "Ultra realistic photograph of {character_name} as a mystic superhero, casting spells with glowing runes around him, wearing a magical robe in an enchanted forest. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Military",
+    "name": "Marine Special Forces",
+    "prompt": "Ultra realistic photograph of {character_name} as a Marine Special Forces operator, wearing tactical gear, in a combat scenario. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Superheroes",
-    "name": "Black Panther",
-    "prompt": "Ultra realistic photograph of {character_name} as a ninja-themed superhero, dressed in sleek dark attire with stealth gear, poised for action in a misty alley. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Military",
+    "name": "Pilot in Flight Suit",
+    "prompt": "Ultra realistic photograph of {character_name} as a military pilot, wearing a flight suit, standing next to a fighter jet. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Military",
+    "name": "Special Operations Sniper",
+    "prompt": "Ultra realistic photograph of {character_name} as a military sniper, wearing camouflage gear and a ghillie suit, positioned in a tactical observation post with a blurred battlefield background. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Military",
+    "name": "Naval Officer",
+    "prompt": "Ultra realistic photograph of {character_name} as a naval officer, dressed in a crisp naval uniform, standing on the deck of a warship with the ocean and sky in the background. {character_gender}, {eye_color} eyes, visible face."
+  },
+  {
+    "category": "Military",
+    "name": "Tank Commander",
+    "prompt": "Ultra realistic photograph of {character_name} as a tank commander, wearing military attire, inside the turret of a modern tank with controls and armored exterior visible through the glass. {character_gender}, {eye_color} eyes, visible face."
   },
   {
     "category": "Sports",
@@ -515,98 +515,33 @@
     "prompt": "Ultra realistic photograph of {character_name} snowboarding down a snowy mountain slope, performing a trick or carving through fresh powder. Wearing snowboarding gear and helmet. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Musicians",
-    "name": "Rock Star",
-    "prompt": "Ultra realistic photograph of {character_name} as a rock star on stage, holding an electric guitar, surrounded by vibrant stage lights and crowd. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Sports",
+    "name": "F1 Driver with car",
+    "prompt": "Ultra realistic full-body photo of {character_name} as an F1 driver. Wide shot showing his racing suit, gloves, and helmet, standing confidently beside a sleek F1 car. Backdrop has pit lane and team garage. {character_gender}, {eye_color} eyes, visible face."
   },
   {
-    "category": "Musicians",
-    "name": "Classical Conductor",
-    "prompt": "Ultra realistic photograph of {character_name} as a classical music conductor, leading an orchestra with a baton, elegant attire. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Sports",
+    "name": "F1 Pit Stop",
+    "prompt": "Ultra realistic photo of {character_name} during F1 pit stop. Mechanics swiftly change tires and refuel the car, capturing the high-energy environment. Dynamic angles and vibrant team colors in background. {character_gender}, {eye_color} eyes, visible face, detailed racing gear."
   },
   {
-    "category": "Musicians",
-    "name": "Jazz Musician",
-    "prompt": "Ultra realistic photograph of {character_name} as a jazz musician, playing a saxophone in a dimly lit jazz club, with a moody atmosphere. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Sports",
+    "name": "F1 Night Race",
+    "prompt": "Ultra realistic photo of {character_name} racing an F1 car under bright night race lights. Vibrant reflections on track showcase the car's aerodynamic design and the driver's intense focus. {character_gender}, {eye_color} eyes, visible face, illuminated racing suit."
   },
   {
-    "category": "Musicians",
-    "name": "DJ",
-    "prompt": "Ultra realistic photograph of {character_name} as a DJ, mixing tracks at a vibrant nightclub with colorful lights and energetic crowd. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Puppies",
+    "name": "Puppies - park",
+    "prompt": "Ultra realistic wide shot of {character_name} playing with several energetic puppies in a sunny, outdoor park. Puppies are running around. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness in a broader view of the surroundings."
   },
   {
-    "category": "Fantasy",
-    "name": "Dragon Rider",
-    "prompt": "Ultra realistic photograph of {character_name} riding a majestic dragon in a fantasy landscape, wearing battle armor, dynamic action pose. {character_gender}, {eye_color} eyes, visible face."
+    "category": "Puppies",
+    "name": "Kittens - house",
+    "prompt": "Ultra realistic shot of {character_name} holding and playing with playful kittens. Surrounded by wagging tails and fluffy fur in a joyful, bright setting. {character_gender}, {eye_color} eyes, visible face, smiling expression, evoking warmth and happiness."
   },
   {
-    "category": "Anime",
-    "name": "Anime Hero",
-    "prompt": "Anime-style ultra realistic image of {character_name} as an anime hero, vibrant colors, dynamic pose with special powers. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Anime",
-    "name": "Mecha Pilot",
-    "prompt": "Anime-style ultra realistic photograph of {character_name} as a mecha pilot inside a giant robot cockpit, futuristic design. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Anime",
-    "name": "Magical Girl",
-    "prompt": "Anime-style ultra realistic image of {character_name} as a magical girl, wearing sparkling attire and wielding magical powers, set in a whimsical fantasy world. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Anime",
-    "name": "Samurai Anime Character",
-    "prompt": "Anime-style ultra realistic photograph of {character_name} as a samurai anime character, dressed in traditional samurai armor, poised with a katana in a Japanese battlefield setting. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Military",
-    "name": "Marine Special Forces",
-    "prompt": "Ultra realistic photograph of {character_name} as a Marine Special Forces operator, wearing tactical gear, in a combat scenario. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Military",
-    "name": "Pilot in Flight Suit",
-    "prompt": "Ultra realistic photograph of {character_name} as a military pilot, wearing a flight suit, standing next to a fighter jet. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Military",
-    "name": "Special Operations Sniper",
-    "prompt": "Ultra realistic photograph of {character_name} as a military sniper, wearing camouflage gear and a ghillie suit, positioned in a tactical observation post with a blurred battlefield background. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Military",
-    "name": "Naval Officer",
-    "prompt": "Ultra realistic photograph of {character_name} as a naval officer, dressed in a crisp naval uniform, standing on the deck of a warship with the ocean and sky in the background. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Military",
-    "name": "Tank Commander",
-    "prompt": "Ultra realistic photograph of {character_name} as a tank commander, wearing military attire, inside the turret of a modern tank with controls and armored exterior visible through the glass. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Royalty",
-    "name": "King",
-    "prompt": "Ultra realistic photograph of {character_name} as a regal king, wearing a majestic crown and royal robes, seated on an ornate throne. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Royalty",
-    "name": "Queen",
-    "prompt": "Ultra realistic photograph of {character_name} as a graceful queen, adorned with a jeweled crown and elegant gown, standing in a grand palace hall. Female, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Royalty",
-    "name": "Sultan",
-    "prompt": "Ultra realistic photograph of {character_name} as a powerful Sultan, wearing an ornate turban and lavish robes, seated on a grand divan. Surrounded by luxurious fabrics and intricate patterns. {character_gender}, {eye_color} eyes, visible face."
-  },
-  {
-    "category": "Royalty",
-    "name": "Emperor",
-    "prompt": "Ultra realistic photograph of {character_name} as an imposing Emperor, clad in imperial armor and a golden laurel crown, standing on a palace balcony overlooking his empire. {character_gender}, {eye_color} eyes, visible face, conveying authority and grandeur."
-  },
-  {
-    "category": "Royalty",
-    "name": "Pharaoh",
-    "prompt": "Ultra realistic photograph of {character_name} as an ancient Egyptian Pharaoh, wearing a golden nemes headdress and royal kilt, standing before a grand temple. {character_gender}, {eye_color} eyes, visible face, evoking divine rulership and timeless power."
+    "category": "Puppies",
+    "name": "Rabbits - garden",
+    "prompt": "Ultra realistic wide-angle shot of {character_name} gently playing with fluffy rabbits in a garden. The serene outdoor setting features lush {eye_color}ery. {character_gender}, {eye_color} eyes, visible face, long shot, far away."
   }
 ]

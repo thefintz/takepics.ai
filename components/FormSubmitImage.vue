@@ -75,9 +75,6 @@ const postGeneration = async () => {
 		body: { prompt: selectedPrompt.value, model: model.value },
 	});
 
-	model.value = null;
-	prompt.value = null;
-
 	emits("response", data);
 
 	return data;
